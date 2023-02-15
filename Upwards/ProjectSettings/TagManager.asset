@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BuildSnap
+  - Structure
+  - Door
+  - CollectableMap
   layers:
   - Default
   - TransparentFX
@@ -11,12 +15,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Tower
+  - Platform
+  - Player
+  - Items
+  - Clouds
   - 
   - 
   - 
@@ -40,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tower
+    uniqueID: 1861291963
+    locked: 0
+  - name: Player
+    uniqueID: 1804251423
+    locked: 0
+  - name: Ground
+    uniqueID: 3237504491
+    locked: 0
+  - name: UI
+    uniqueID: 3311658885
     locked: 0
