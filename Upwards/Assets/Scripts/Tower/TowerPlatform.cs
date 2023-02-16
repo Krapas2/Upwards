@@ -37,7 +37,7 @@ public class TowerPlatform : MonoBehaviour
 
         bool hasPlatformOnLeft = Physics2D.OverlapCircle(leftCheck.position, .3f, platform);
         bool hasPlatformOnRight = Physics2D.OverlapCircle(rightCheck.position, .3f, platform);;
-
+        
         if(hasPlatformOnLeft && hasPlatformOnRight)
             spriteRen.sprite = Middle;
         if(hasPlatformOnLeft && !hasPlatformOnRight)

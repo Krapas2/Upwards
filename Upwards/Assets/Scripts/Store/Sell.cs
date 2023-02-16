@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//change entire script when making new store
 public class Sell : MonoBehaviour
 {
     //-------------------inventario do player-------------------
     private PlayerInventory inventory;
 
-    //-------------------checkando objeto-------------------
+    //-------------------checando objeto-------------------
     public Transform touchCheck;
     public LayerMask obj;
     public int ItemIndex;
@@ -21,7 +22,7 @@ public class Sell : MonoBehaviour
     {
         bool isOnResource = Physics2D.OverlapCircle(touchCheck.position, 5f, obj);
 
-        if (isOnResource)
+        if (isOnResource) // not sure why the 3 ifs
         {
             if (Input.GetKey(KeyCode.K))
             {

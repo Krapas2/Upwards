@@ -6,19 +6,19 @@ public class Structure : MonoBehaviour
 {
 
     public bool built = false;
-    public LayerMask collisions;
-    public Color canBuildColor;
+    public LayerMask collisions; // objects that don't allow the structure to be built on same position as them
+    public Color canBuildColor; 
     public Color cannotBuildColor;
 
-    public Transform groundCheck;
+    public Transform groundCheck; 
     public LayerMask ground;
 
-    public Transform[] snapChecks;
+    public Transform[] snapChecks; // position to check for the structure having support (ground or other)
 
     private SpriteRenderer spriteRen;
-    private SpriteRenderer[] childrenRen;
+    private SpriteRenderer[] childrenRen; // all components in children with sprite renderer. used for changing color prior to being built
 
-    public List<GameObject> snapChildren;
+    public List<GameObject> snapChildren; // positions for other structures to nap to while being built
 
     public PlayerBuild playerBuild;
 
@@ -35,30 +35,33 @@ public class Structure : MonoBehaviour
     void Update()
     {
         if(!built){
-
             if (CanBeBuilt() && playerBuild.canBeAfforded()){
-                spriteRen.color = canBuildColor;
+                // visual for structure can be built
+                spriteRen.color = canBuildColor; 
                 foreach(SpriteRenderer childRen in childrenRen){
                     childRen.color = canBuildColor;
                 }
+
                 if (Input.GetButton("Fire1")){
-                    gameObject.AddComponent<BoxCollider2D>().isTrigger = true;
-                    
+                    // visual for structure is built
                     spriteRen.sortingOrder = -3;
                     spriteRen.color = new Color(1, 1, 1);
                     foreach(SpriteRenderer childRen in childrenRen){
                         spriteRen.sortingOrder = -2;
                         childRen.color = new Color(1, 1, 1);
                     }
-
+                    
+                    // background changes
+                    gameObject.AddComponent<BoxCollider2D>().isTrigger = true;
                     playerBuild.applyCost();
                     playerBuild.currentStructure = null;
-
                     built = true;
-                    if(audioManager)
+
+                    if(audioManager) //only play sound if audio manager exists. otherwise game crashes
                         audioManager.Play("Construir");
                 }
             } else {
+                // visual can't be built
                 foreach(SpriteRenderer childRen in childrenRen){
                     childRen.color = cannotBuildColor;
                 }

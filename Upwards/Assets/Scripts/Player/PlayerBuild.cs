@@ -15,7 +15,7 @@ public class PlayerBuild : MonoBehaviour
     }
 
     // build
-    public Transform towerParent;
+    public Transform towerParent; // gameobject that keeps all pieces of the tower as children
     [HideInInspector]
     public bool buildMode = false;
     private int currentIndex = 0;
@@ -47,21 +47,21 @@ public class PlayerBuild : MonoBehaviour
 
     void Update()
     {
-        buildMode ^= (Input.GetButtonDown("Build"));
-        playerCollect.collectMode = !buildMode;
+        buildMode ^= (Input.GetButtonDown("Build")); // !buildmode on button press
+        playerCollect.collectMode = !buildMode; // only one can be active at a time
 
-        if(Input.GetKeyDown(KeyCode.Alpha1)){
+        if(Input.GetKeyDown(KeyCode.Alpha1)){ // should add input on editor for this
             changeStructure(1);
-        } else if(Input.GetKeyDown(KeyCode.Alpha2)){
+        } else if(Input.GetKeyDown(KeyCode.Alpha2)){ // same here
             changeStructure(2);
         }
 
         if(buildMode){
             if(Input.GetButtonDown("Build"))
-                GetComponent<PlayerCollect>().collectMode = false;
+                GetComponent<PlayerCollect>().collectMode = false; //might be redundant with line 51, should be checked
 
             if(Input.GetButtonDown("Build") || currentStructure == null){ 
-                //called at the first frame of buildmode being true
+                //called on the first frame of buildmode being true, creates a currentStructure to be built
                 currentStructure = Instantiate(structures[currentIndex].prefab, buildPoint, Quaternion.identity);
                 currentStructure.transform.parent = towerParent;
             } else if(currentStructure != null){
@@ -78,7 +78,7 @@ public class PlayerBuild : MonoBehaviour
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         //snap to grid 
-        buildPoint = new Vector3( 
+        buildPoint = new Vector3( //could check out using vectorint here
             Mathf.Round(mousePos.x),
             Mathf.Round(mousePos.y),
             0
@@ -98,19 +98,19 @@ public class PlayerBuild : MonoBehaviour
                 snapPoint = curSnap.transform.position;
             }
         }
-        if(snapPoint != new Vector3()){
+        if(snapPoint != new Vector3()){     // if a snappable point has been found, use it
             buildPoint = snapPoint;
-        } else{
-            Vector2 spriteSize = currentStructure.GetComponent<SpriteRenderer>().sprite.bounds.extents * 2;
-            //look mom i did a branchless programing on c#. are you proud?
+        } else{                             // otherwise use mouse position
+            Vector2 spriteSize = currentStructure.GetComponent<SpriteRenderer>().sprite.bounds.extents * 2; // used to put center, not edge, of structure on mouse
             buildPoint += new Vector3(.5f * spriteSize.x % 2, -.5f * spriteSize.x % 2, 0);
         }
     }
 
-    void changeStructure(int index){
+    // handles changing structure type 
+    void changeStructure(int index){ //index currently only works with 1 for tower and 2 for platform. could maybe be improved with an enum
         if(currentStructure != null)
             Destroy(currentStructure.gameObject);
-        currentIndex = index-1;
+        currentIndex = index-1; 
         currentStructure = Instantiate(structures[currentIndex].prefab, buildPoint, Quaternion.identity);
     }
 
