@@ -57,7 +57,7 @@ public class Structure : MonoBehaviour
                     playerBuild.currentStructure = null;
                     built = true;
 
-                    if(audioManager) //only play sound if audio manager exists. otherwise game crashes
+                    if(audioManager) // only play sound if audio manager exists. otherwise game crashes
                         audioManager.Play("Construir");
                 }
             } else {

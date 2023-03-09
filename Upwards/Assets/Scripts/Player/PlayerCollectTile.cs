@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlayerCollect : MonoBehaviour
+public class PlayerCollectTile : MonoBehaviour
 {
     [System.Serializable]
     public struct Item

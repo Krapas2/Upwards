@@ -36,9 +36,11 @@ public class Store : MonoBehaviour
                 }
                 if(moneyAdded > 0){
                     inventory.money += moneyAdded;
-                    audioManager.Play("arrSell");
+                    if (audioManager) // only play sound if audio manager exists. otherwise game crashes
+                        audioManager.Play("arrSell");
                 } else
-                    audioManager.Play("Arr");
+                    if (audioManager) // only play sound if audio manager exists. otherwise game crashes
+                        audioManager.Play("Arr");
             }
         }
     }

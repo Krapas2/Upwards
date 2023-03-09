@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: 9b52bb1db88b0c44da00039a95bbcbaa
   - enabled: 1
-    path: Assets/Scenes/GameScreen.unity
+    path: Assets/Scenes/Game/testScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/CreditsScreen.unity

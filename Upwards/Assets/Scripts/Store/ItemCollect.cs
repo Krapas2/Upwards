@@ -40,7 +40,8 @@ public class ItemCollect : MonoBehaviour
         if (isOnResource){
             inventory.AddItem(ItemIndex, 1);
             string n = ((int)(Random.Range(1, 3))).ToString();
-            audioManager.Play("pop" + n);
+            if (audioManager) // only play sound if audio manager exists. otherwise game crashes
+                audioManager.Play("pop" + n);
             Destroy(gameObject);
         }
     }

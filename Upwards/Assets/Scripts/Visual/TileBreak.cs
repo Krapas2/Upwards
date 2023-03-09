@@ -38,7 +38,8 @@ public class TileBreak : MonoBehaviour
         tilemap.SetTile(Vector3Int.FloorToInt(transform.position), null);
         ItemCollect curItem = Instantiate(item, transform.position, Quaternion.identity);
         curItem.AssignItem(itemName);
-        audioManager.Play("Pop");
+        if (audioManager) // only play sound if audio manager exists. otherwise game crashes
+            audioManager.Play("Pop");
 
         Destroy(gameObject);
     }
