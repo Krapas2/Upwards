@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: DirtAutoTile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -2480469540315960488, guid: 05fd5d08099abe84582a4ad28df4abb8, type: 3}
+  m_DefaultSprite: {fileID: 810066871, guid: 31b1773126ceac84988b93d239f3f20b, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: -407898409329087628, guid: 05fd5d08099abe84582a4ad28df4abb8, type: 3}
+    - {fileID: -1438427391, guid: 31b1773126ceac84988b93d239f3f20b, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -36,7 +36,7 @@ MonoBehaviour:
     m_RuleTransform: 2
   - m_Id: 1
     m_Sprites:
-    - {fileID: -2480469540315960488, guid: 05fd5d08099abe84582a4ad28df4abb8, type: 3}
+    - {fileID: 810066871, guid: 31b1773126ceac84988b93d239f3f20b, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -55,7 +55,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 3
     m_Sprites:
-    - {fileID: 3791376150741997567, guid: 05fd5d08099abe84582a4ad28df4abb8, type: 3}
+    - {fileID: -1904886208, guid: 31b1773126ceac84988b93d239f3f20b, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -74,7 +74,7 @@ MonoBehaviour:
     m_RuleTransform: 2
   - m_Id: 2
     m_Sprites:
-    - {fileID: -2787797656765372555, guid: 05fd5d08099abe84582a4ad28df4abb8, type: 3}
+    - {fileID: -421958971, guid: 31b1773126ceac84988b93d239f3f20b, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -95,7 +95,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 4
     m_Sprites:
-    - {fileID: -733814298363065061, guid: 05fd5d08099abe84582a4ad28df4abb8, type: 3}
+    - {fileID: 1337353932, guid: 31b1773126ceac84988b93d239f3f20b, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -113,7 +113,7 @@ MonoBehaviour:
     m_RuleTransform: 2
   - m_Id: 5
     m_Sprites:
-    - {fileID: -2434261377994097921, guid: 05fd5d08099abe84582a4ad28df4abb8, type: 3}
+    - {fileID: 1550640567, guid: 31b1773126ceac84988b93d239f3f20b, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1

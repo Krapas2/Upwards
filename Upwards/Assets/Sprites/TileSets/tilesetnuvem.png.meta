@@ -186,7 +186,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -207,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 96
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -227,8 +227,8 @@ TextureImporter:
       name: tilesetnuvem_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
+        x: 32
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -248,8 +248,8 @@ TextureImporter:
       name: tilesetnuvem_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 80
+        x: 48
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -270,7 +270,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -291,7 +291,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 64
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -311,8 +311,8 @@ TextureImporter:
       name: tilesetnuvem_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
+        x: 32
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -332,8 +332,8 @@ TextureImporter:
       name: tilesetnuvem_7
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
+        x: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -354,7 +354,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -375,7 +375,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 32
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -395,7 +395,7 @@ TextureImporter:
       name: tilesetnuvem_10
       rect:
         serializedVersion: 2
-        x: 0
+        x: 32
         y: 16
         width: 16
         height: 16
@@ -416,7 +416,7 @@ TextureImporter:
       name: tilesetnuvem_11
       rect:
         serializedVersion: 2
-        x: 16
+        x: 48
         y: 16
         width: 16
         height: 16
@@ -475,6 +475,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tilesetnuvem_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0196cd896a695ba468490dd6004ce23a
+      internalID: 2031969048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesetnuvem_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eafb22519ebfcf4686dcb9e81ed25df
+      internalID: -435740468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -495,9 +537,11 @@ TextureImporter:
       tilesetnuvem_0: 7888827733944829275
       tilesetnuvem_12: 2936472944103675337
       tilesetnuvem_4: -3415609021431742921
+      tilesetnuvem_14: 2031969048
       tilesetnuvem_3: -759895908472591879
       tilesetnuvem_13: 59464997435305777
       tilesetnuvem_6: 1265963429102815399
+      tilesetnuvem_15: -435740468
       tilesetnuvem_9: 2050092792699999819
       tilesetnuvem_1: 4016830081364412139
   spritePackingTag: 

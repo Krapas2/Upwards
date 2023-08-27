@@ -16,7 +16,7 @@ public class CloudGenerator : MonoBehaviour
 
     public TileBase tileCloud;
 
-    void Awake()
+    void Start()
     {
         Tilemap tilemap = GetComponent<Tilemap>();
         float seed = Random.Range(0,10000); // gets added onto the position of the noise find a random part of the noise
