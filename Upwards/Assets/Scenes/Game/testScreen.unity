@@ -38008,18 +38008,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c6724f35de89643a97589733615f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: -2}
+  offset: {x: 0, y: -400}
   width: 600
   height: 400
   tileGround: {fileID: 11400000, guid: 2ee6c9c8eb1dea64abeeafcc88a2a3b3, type: 2}
-  surfaceOctave: 4
-  surfaceMinHeight: -37.5
-  surfaceMaxHeight: 37.5
-  surfaceCrust: 25
+  surfaceNoiseOctave: 3
+  surfaceNoiseScale: 50
+  surfaceDepth: 50
+  surfaceCrust: 100
   surfaceZoom: 1
-  caveOctave: 3
-  caveZoom: 25
-  caveTunnelWidth: -0.45
+  caveNoiseOctave: 3
+  caveNoiseZoom: 40
+  caveTunnelWidth: -0.49
+  borderThickness: 50
 --- !u!1 &471450341
 GameObject:
   m_ObjectHideFlags: 0

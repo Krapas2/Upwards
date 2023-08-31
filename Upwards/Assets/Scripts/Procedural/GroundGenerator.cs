@@ -12,35 +12,48 @@ public class GroundGenerator : MonoBehaviour
 
     public TileBase tileGround;
 
-    public float surfaceOctave = 4;
-    public float surfaceMinHeight = 300;
-    public float surfaceMaxHeight = 225;
-    public float surfaceCrust = 25;
-    public float surfaceZoom = 4;
+    public int surfaceNoiseOctave = 4;
+    public float surfaceNoiseScale = 15;
+    public int surfaceDepth = 50;
+    public int surfaceCrust = 100;
     
-    public int caveOctave = 2;
-    public float caveZoom = 2;
-    public float caveTunnelWidth = -.5f;
+    public int caveNoiseOctave = 2;
+    public float caveNoiseZoom = 40;
+    public float caveTunnelWidth = -.49f;
+
+    public float borderThickness = 15;
+
+
+    private float[] octaveSeeds = new float[10];
 
     void Start()
     {
         Tilemap tilemap = GetComponent<Tilemap>();
-        float surfaceSeed = Random.Range(0,10000); // gets added to the position of the noise find a random part
+
+        for(int i = 0; i < octaveSeeds.Length; i++){
+            octaveSeeds[i] = Random.Range(0,16384); // gets added to the position of the noise find a random part of it
+        }
 
         for(int x = 0; x < width; x++){
-            for(int y = 0; y > -height; y--){
-                Vector2 pos = new Vector2(x,y);
+            int surfaceHeight = (int)Map(NoiseWithOctaves(new Vector2(x,0), surfaceNoiseScale, surfaceNoiseOctave),0,1,height-surfaceDepth,height);
 
-                tilemap.SetTile(new Vector3Int((x - width / 2) + (int)offset.x, y + (int)offset.y), NoiseTile(new Vector2(x+surfaceSeed,y)));
+            for(int y = 0; y < height; y++){
+                Vector2 pos = new Vector2(x,y);
+                TileBase tile = NoiseTile(pos, surfaceHeight);
+                tilemap.SetTile(new Vector3Int(x - width / 2 + (int)offset.x, y + (int)offset.y), tile);
             }
         }
     }
 
-    public TileBase NoiseTile(Vector2 pos){
-        float v = NoiseWithOctaves(pos / (new Vector2(1.25f,1)), caveZoom, caveOctave);
+    public TileBase NoiseTile(Vector2 pos, int surfaceHeight){
+        float v = NoiseWithOctaves(pos / new Vector2(1.25f,1), caveNoiseZoom, caveNoiseOctave);
         v = ShapeNoiseForTunnels(v);
+        v += pos.y > surfaceHeight-surfaceCrust ? Map(pos.y,surfaceHeight-surfaceCrust,surfaceHeight,0,.0075f) : 0; //raise threshold if close to surface
+        v += pos.y < borderThickness ? Map(pos.y,0,borderThickness,.025f,0) : 0; // bottom border
+        v += pos.x < borderThickness ? Map(pos.x,0,borderThickness,.025f,0) : 0; // left border
+        v += pos.x > width-borderThickness ? Map(pos.x,width-borderThickness,width,0,.025f) : 0; // right border
 
-        return v > .5 ? tileGround : null; //if value over threshold place ground
+        return (v > .5) && (pos.y < surfaceHeight) ? tileGround : null; //if value over threshold place ground
     }
 
     public float GetOctaveMax(int n) { //currently returning max of n-1, probably use for loop instead of recursion to fix
@@ -53,10 +66,11 @@ public class GroundGenerator : MonoBehaviour
 
     float NoiseWithOctaves(Vector2 pos, float scale, int oct)
     {
-        float v = Mathf.PerlinNoise(pos.x / scale, pos.y / scale);
+        float v = Mathf.PerlinNoise((pos.x / scale) + octaveSeeds[1], pos.y / scale);
+
         for(int i = 2; i <= oct; i++){
             float octStrength = 1/Mathf.Pow(2,i-1);
-            v += Mathf.PerlinNoise((pos.x / octStrength) / scale, (pos.y / octStrength) / scale) * octStrength;
+            v += Mathf.PerlinNoise((pos.x / octStrength / scale) + octaveSeeds[i], pos.y / octStrength / scale) * octStrength;
         }
         v /= GetOctaveMax(oct-1);
         return v;
@@ -64,13 +78,13 @@ public class GroundGenerator : MonoBehaviour
 
     float ShapeNoiseForTunnels(float v) //shape noise to create continuous tunnels
     {
-        return (1-Mathf.Sin(v*Mathf.PI)) - caveTunnelWidth; //high result for low and high values, low for median
+        return 1 - Mathf.Sin(v*Mathf.PI) - caveTunnelWidth; //high result for low and high values, low for median
     }
 
     public float Map(float OldValue, float OldMin, float OldMax, float NewMin, float NewMax){
-        float OldRange = (OldMax - OldMin);
-        float NewRange = (NewMax - NewMin);
-        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+        float OldRange = OldMax - OldMin;
+        float NewRange = NewMax - NewMin;
+        float NewValue = ((OldValue - OldMin) * NewRange / OldRange) + NewMin;
         
         return NewValue;
     }
