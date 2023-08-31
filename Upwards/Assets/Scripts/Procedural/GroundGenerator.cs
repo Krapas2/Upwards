@@ -20,6 +20,7 @@ public class GroundGenerator : MonoBehaviour
     
     public int caveOctave = 2;
     public float caveZoom = 2;
+    public float caveTunnelWidth = -.5f;
 
     void Start()
     {
@@ -36,27 +37,34 @@ public class GroundGenerator : MonoBehaviour
     }
 
     public TileBase NoiseTile(Vector2 pos){
-        float v = NoiseWithOctaves(pos / caveZoom, caveOctave);
-
-
+        float v = NoiseWithOctaves(pos / (new Vector2(1.25f,1)), caveZoom, caveOctave);
+        v = ShapeNoiseForTunnels(v);
 
         return v > .5 ? tileGround : null; //if value over threshold place ground
     }
 
-    public float GetOctaveMax(int n) {
-        if(n>0)
-            return GetOctaveMax(n-1) + 1/n;
-        else
-            return 0;
+    public float GetOctaveMax(int n) { //currently returning max of n-1, probably use for loop instead of recursion to fix
+        if(n>0){
+            return GetOctaveMax(n-1) + 1/Mathf.Pow(2,n);
+        } else{
+            return 1;
+        }
     }
 
-    float NoiseWithOctaves(Vector2 pos, int oct){
-        float v = 0;
-        for(int i = 1; i <= oct; i++){
-            v += Mathf.PerlinNoise((pos.x/i), (pos.y/i)) / (i);
+    float NoiseWithOctaves(Vector2 pos, float scale, int oct)
+    {
+        float v = Mathf.PerlinNoise(pos.x / scale, pos.y / scale);
+        for(int i = 2; i <= oct; i++){
+            float octStrength = 1/Mathf.Pow(2,i-1);
+            v += Mathf.PerlinNoise((pos.x / octStrength) / scale, (pos.y / octStrength) / scale) * octStrength;
         }
-        v /= GetOctaveMax(oct);
+        v /= GetOctaveMax(oct-1);
         return v;
+    }
+
+    float ShapeNoiseForTunnels(float v) //shape noise to create continuous tunnels
+    {
+        return (1-Mathf.Sin(v*Mathf.PI)) - caveTunnelWidth; //high result for low and high values, low for median
     }
 
     public float Map(float OldValue, float OldMin, float OldMax, float NewMin, float NewMax){

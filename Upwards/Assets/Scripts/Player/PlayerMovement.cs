@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        grounded = Physics2D.OverlapCircle(groundCheck.position, 0f, ground);
+        grounded = Physics2D.OverlapCircle(groundCheck.position, .2f, ground);
         
         //-------------------walking-------------------
         if (grounded || horizontalInput != 0) 
