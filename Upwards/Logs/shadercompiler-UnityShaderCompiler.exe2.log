@@ -7,3 +7,4 @@ Cmd: compileSnippet
   error: 1 plat 4 at C:/Users/FullGamers/Desktop/unity/Upwards/Upwards/Library/PackageCache/com.jimmycushnie.noisynodes@1f212c2688/NoiseShader/HLSL/SimplexNoise2D.hlsl(136): implicit truncation of vector type
  ok=1 outsize=10246
 
+Cmd: shutdown
