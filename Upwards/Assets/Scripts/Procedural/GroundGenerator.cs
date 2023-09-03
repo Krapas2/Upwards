@@ -23,8 +23,10 @@ public class GroundGenerator : MonoBehaviour
 
     public float borderThickness = 15;
 
-
     private float[] octaveSeeds = new float[10];
+
+    public Tilemap background;
+    public TileBase tileBackground;
 
     void Start()
     {
@@ -41,6 +43,7 @@ public class GroundGenerator : MonoBehaviour
                 Vector2 pos = new Vector2(x,y);
                 TileBase tile = NoiseTile(pos, surfaceHeight);
                 tilemap.SetTile(new Vector3Int(x - width / 2 + (int)offset.x, y + (int)offset.y), tile);
+                background.SetTile(new Vector3Int(x - width / 2 + (int)offset.x, y + (int)offset.y), y < (surfaceHeight) ? tileBackground : null);
             }
         }
     }

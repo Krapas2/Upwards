@@ -7,11 +7,11 @@ public class CaveBackground : MonoBehaviour
 
     public Transform lightSource;
 
-    private SpriteRenderer sprite;
+    private Renderer sprite;
 
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<Renderer>();
     }
 
     void Update()

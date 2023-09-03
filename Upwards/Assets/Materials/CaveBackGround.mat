@@ -43,6 +43,7 @@ Material:
     - _NoiseScale: 0.4
     - _TopDistortionScale: 0.05
     - _TopDistortionStrength: 2
+    - _TopLightSize: 10
     - _TopPosition: 0
     - _lightPower: 3
     m_Colors:
