@@ -23,13 +23,17 @@ public class GroundGenerator : MonoBehaviour
 
     public float borderThickness = 15;
 
-    private float[] octaveSeeds = new float[10];
-
     public Tilemap background;
     public TileBase tileBackground;
 
+    private float[] octaveSeeds = new float[10];
+
     void Start()
     {
+        //Generate();
+    }
+
+    public void Generate(){
         Tilemap tilemap = GetComponent<Tilemap>();
 
         for(int i = 0; i < octaveSeeds.Length; i++){
