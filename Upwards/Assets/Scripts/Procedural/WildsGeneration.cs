@@ -4,43 +4,36 @@ using UnityEngine;
 
 public class WildsGeneration : MonoBehaviour
 {
-
     [HideInInspector]
     public GroundGenerator groundGenerator;
     [HideInInspector]
-    public TreeGenerator treeGenerator;
-    [HideInInspector]
-    public RockGenerator rockGenerator;
+    public ResourceGenerator[] resourceGenerators;
 
     void Start()
     {
         groundGenerator = FindObjectOfType<GroundGenerator>();
-        treeGenerator = FindObjectOfType<TreeGenerator>();
-        rockGenerator = FindObjectOfType<RockGenerator>();
-/*
-        groundGenerator.Generate();
-        treeGenerator.Generate();*/
-        //rockGenerator.Generate();
+        resourceGenerators = FindObjectsOfType<ResourceGenerator>();
+
         StartCoroutine(Seq());
     }
 
     private IEnumerator Seq()
     {
         yield return StartCoroutine(GenerateGround());
-        yield return StartCoroutine(GenerateTrees());
-        yield return StartCoroutine(GenerateRocks());
+        yield return StartCoroutine(GenerateResources());
     }
 
     IEnumerator GenerateGround(){ 
-        groundGenerator.Generate();
+        if(groundGenerator)
+            groundGenerator.Generate();
         yield return null;
     }
-    IEnumerator GenerateTrees(){ 
-        treeGenerator.Generate();
-        yield return null;
-    }
-    IEnumerator GenerateRocks(){ 
-        rockGenerator.Generate();
+    IEnumerator GenerateResources(){ 
+        if(resourceGenerators.Length > 0){
+            foreach(ResourceGenerator resourceGenerator in resourceGenerators){
+                resourceGenerator.Generate();
+            }
+        }
         yield return null;
     }
 }

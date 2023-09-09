@@ -10,7 +10,7 @@ public class TileBreak : MonoBehaviour
     [HideInInspector]
     public string itemName;
     [HideInInspector]
-    public ItemCollect item;
+    public ItemDrop item;
 
     private Tilemap tilemap;
 
@@ -36,7 +36,7 @@ public class TileBreak : MonoBehaviour
         yield return new WaitForSeconds (breakTime);
 
         tilemap.SetTile(Vector3Int.FloorToInt(transform.position), null);
-        ItemCollect curItem = Instantiate(item, transform.position, Quaternion.identity);
+        ItemDrop curItem = Instantiate(item, transform.position, Quaternion.identity);
         curItem.AssignItem(itemName);
         if (audioManager) // only play sound if audio manager exists. otherwise game crashes
             audioManager.Play("Pop");

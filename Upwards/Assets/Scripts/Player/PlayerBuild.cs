@@ -35,20 +35,20 @@ public class PlayerBuild : MonoBehaviour
     // components
     private Camera cam;
     private PlayerInventory inventory;
-    private PlayerCollectTile playerCollectTile;
+    private PlayerBreakTile playerBreakTile;
 
     void Start()
     {
         //assign components
         cam = FindObjectOfType<Camera>();
         inventory = GetComponent<PlayerInventory>();
-        playerCollectTile = GetComponent<PlayerCollectTile>();
+        playerBreakTile = GetComponent<PlayerBreakTile>();
     }
 
     void Update()
     {
         buildMode ^= (Input.GetButtonDown("Build")); // !buildmode on button press
-        playerCollectTile.collectMode = !buildMode; // only one can be active at a time
+        playerBreakTile.collectMode = !buildMode; // only one can be active at a time
 
         if(Input.GetKeyDown(KeyCode.Alpha1)){ // should add input on editor for this
             changeStructure(1);
@@ -58,7 +58,7 @@ public class PlayerBuild : MonoBehaviour
 
         if(buildMode){
             if(Input.GetButtonDown("Build"))
-                playerCollectTile.collectMode = false; //might be redundant with line 51, should be checked
+                playerBreakTile.collectMode = false; //might be redundant with line 51, should be checked
 
             if(Input.GetButtonDown("Build") || currentStructure == null){ 
                 //called on the first frame of buildmode being true, creates a currentStructure to be built
