@@ -40,8 +40,8 @@ Material:
     m_Floats:
     - _LightSize: 2
     - _NoiseSpeed: 0.5
-    - _noiseDissolve: 2
-    - _noiseScale: 2
+    - _noiseDissolve: 2.5
+    - _noiseScale: 2.5
     m_Colors:
     - _LightPos: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
