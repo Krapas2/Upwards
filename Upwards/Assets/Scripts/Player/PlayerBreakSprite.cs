@@ -5,20 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class PlayerBreakSprite : MonoBehaviour
 {
-    [System.Serializable]
-    public struct Item
-    {
-        public string name;
-        public TileBase tile;
-    }
-
-
-    public Item[] items;
-    public ItemDrop item;
-
     public float breakTime;
-    public TileBreak tileBreak;
-    private TileBreak curTileBreak;
 
     [HideInInspector]
     public bool collectMode = true;
@@ -30,35 +17,45 @@ public class PlayerBreakSprite : MonoBehaviour
     void Start()
     {
         playerInventory = GetComponent<PlayerInventory>();
-        tilemap = GameObject.FindGameObjectWithTag("CollectableMap").GetComponent<Tilemap>();
         cam = FindObjectOfType<Camera>();
     }
     void Update()
     {
-        Vector3Int mousePos = Vector3Int.FloorToInt(cam.ScreenToWorldPoint(Input.mousePosition));
-        mousePos.z = 0;
-
+        ItemSource source = GetSource();
 
         if(collectMode){
+            if(Input.GetButton("Fire1") && source){
 
-            bool tileSelectedIsCollectable = false;
-            Item tileSelected = new Item();
-            foreach(Item item in items){
-                if(item.tile == tilemap.GetTile(Vector3Int.FloorToInt(mousePos))){
-                    tileSelected = item;
-                    tileSelectedIsCollectable |= true;
-                }
-            }
-
-            if(curTileBreak != null){
-                if(curTileBreak.transform.position != mousePos + tilemap.tileAnchor)
-                    Destroy(curTileBreak.gameObject);
-            } else if(Input.GetButton("Fire1") && tileSelectedIsCollectable){
-                curTileBreak = Instantiate(tileBreak, mousePos + tilemap.tileAnchor, Quaternion.identity);
-                curTileBreak.breakTime = breakTime;
-                curTileBreak.item = item;
-                curTileBreak.itemName = tileSelected.name;
+                source.BreakAnimation();
+                source.Invoke("Drop",breakTime);
             }
         }
+
+        if(!source || Input.GetButtonUp("Fire1") || !collectMode){
+            foreach(ItemSource itemSource in FindObjectsOfType<ItemSource>()){
+                itemSource.transform.position = itemSource.startPos;
+                itemSource.CancelInvoke();
+            }
+        }
+    }
+
+    private ItemSource GetSource(){
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+        
+        if(hit){
+            ItemSource source = hit.collider.GetComponent<ItemSource>();
+            if (source) {
+                return source;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
+
+    void Drop(ItemSource source){
+        source.Drop();
     }
 }

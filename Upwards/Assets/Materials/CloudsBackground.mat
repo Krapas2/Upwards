@@ -39,7 +39,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Falloff: 100
-    - _FalloffHeight: 17.52
+    - _FalloffHeight: -15
     - _FalloffMaxHeight: 0.4
     - _FalloffMinHeight: -1
     - _SimplexRelevance: 0.85
