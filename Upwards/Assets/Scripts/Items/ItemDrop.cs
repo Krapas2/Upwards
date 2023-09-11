@@ -28,7 +28,7 @@ public class ItemDrop : MonoBehaviour
         inventory = FindObjectOfType<PlayerInventory>();
         audioManager = FindObjectOfType<AudioManager>();
 
-        rb.velocity = new Vector2(Random.Range(-.25f, .25f), 1).normalized * 5f;
+        rb.velocity = new Vector2(Random.Range(-.5f, .5f), 1).normalized * 4f;
     }
 
     void Update()
