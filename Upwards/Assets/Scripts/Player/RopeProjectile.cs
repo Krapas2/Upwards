@@ -6,6 +6,8 @@ using UnityEngine;
 public class RopeProjectile : MonoBehaviour
 {
 
+    public RopeExtension rope;
+    public Transform ropeSpawnPoint;
     public LayerMask ground;
 
     [HideInInspector]
@@ -31,6 +33,11 @@ public class RopeProjectile : MonoBehaviour
             travelling = false;
             rb.bodyType = RigidbodyType2D.Static;
             Destroy(GetComponent<Collider2D>());
+            SpawnRope();
         }
+    }
+
+    void SpawnRope(){
+        Instantiate(rope,ropeSpawnPoint.position,Quaternion.identity,transform);
     }
 }
