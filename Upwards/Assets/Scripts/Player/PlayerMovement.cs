@@ -16,6 +16,20 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask ground;
 
+    //-------------------rope climbing--------------------
+    public float ropeClimbSpeed;
+    public Transform ropeCheck;
+    public LayerMask ropeLayer;
+
+
+    [HideInInspector]
+    public Collider2D curRope;
+
+    [HideInInspector]
+    public Vector3 climbPosition;
+
+    private bool climbing;
+
     //-------------------Misc-------------------
 
     public LayerMask platformLayer; // layer with objects to fall through when holding down
@@ -43,12 +57,15 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
         grounded = Physics2D.OverlapCircle(groundCheck.position, .2f, ground);
+        curRope = Physics2D.OverlapCircle(ropeCheck.position,.5f,ropeLayer);
         
         //-------------------walking-------------------
-        if (grounded || horizontalInput != 0) 
-            rb.velocity = new Vector2(horizontalInput*walkSpeed, rb.velocity.y);
-        else {
-            rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(horizontalInput*walkSpeed, rb.velocity.y), slowInAir * Time.deltaTime);
+        if(!climbing){
+            if (grounded || horizontalInput != 0) 
+                rb.velocity = new Vector2(horizontalInput*walkSpeed, rb.velocity.y);
+            else {
+                rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(horizontalInput*walkSpeed, rb.velocity.y), slowInAir * Time.deltaTime);
+            }
         }
 
         if (horizontalInput > 0 && !facingRight)
@@ -56,9 +73,31 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalInput < 0 && facingRight) 
             Flip ();
 
+
+        //-------------------rope climbing----------------
+
+        if(curRope != null && !climbing && verticalInput != 0){
+            transform.position = curRope.transform.position;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            climbing = true;
+        }
+
+        if(climbing){
+            rb.velocity = new Vector3(0f, verticalInput * ropeClimbSpeed,  0f);
+
+            if(!curRope){
+                if(verticalInput>0){
+                    Jump();
+                } else{
+                    StopClimbing();
+                }
+            }
+        }
+
         //-------------------jump-------------------
-        if (Input.GetButtonDown("Jump") && grounded) 
-            rb.velocity += Vector2.up*jumpForce;
+
+        if (Input.GetButtonDown("Jump") && (grounded || climbing)) 
+            Jump();
         
         if(rb.velocity.y < 0) //better jump from https://youtu.be/7KiK0Aqtmzc
 			rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
@@ -87,6 +126,18 @@ public class PlayerMovement : MonoBehaviour
                 anim.Play("PlayerJumpFall");
         }
 
+    }
+
+    void Jump(){
+        if(climbing){
+            StopClimbing();
+        }
+        rb.velocity += Vector2.up*jumpForce;
+    }
+
+    void StopClimbing(){
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        climbing = false;
     }
 
     public void Flip ()
