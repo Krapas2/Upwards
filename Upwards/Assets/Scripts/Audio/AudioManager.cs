@@ -36,7 +36,6 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        audioManager.Play ("Tema");
     }
 	
 	public void Play (string name)
