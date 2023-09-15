@@ -12,8 +12,10 @@ public class RopeExtension : MonoBehaviour
 
     void Start()
     {
-        if(!Physics2D.OverlapPoint(groundCheck.position, ground)){
-            Invoke("SpawnNextRope",.05f);
+        if(Physics2D.Linecast(transform.position, groundCheck.position, ground)){
+            Destroy(gameObject);
+        }else{
+            Invoke("SpawnNextRope",.025f);
         }
     }
 

@@ -6,45 +6,71 @@ using UnityEngine.Tilemaps;
 public class CloudGenerator : MonoBehaviour
 {
 
+    public Vector2 offset;
     public int width = 256;
-    public int height = 512;
-
-    public float xScale = 0.0325f;
-    public float yScale = 0.0325f;
-
-    public int minHeight = 0;
+    public int height = 256;
 
     public TileBase tileCloud;
 
+    public int noiseOctave = 2;
+    public float noiseZoom = 40;
+
+    private float[] octaveSeeds = new float[10];
+
     void Start()
     {
+        Generate();
+    }
+
+    public void Generate(){
         Tilemap tilemap = GetComponent<Tilemap>();
-        float seed = Random.Range(0,10000); // gets added onto the position of the noise find a random part of the noise
+
+        for(int i = 0; i < octaveSeeds.Length; i++){
+            octaveSeeds[i] = Random.Range(0,16384); // gets added to the position of the noise find a random part of it
+        }
 
         for(int x = 0; x < width; x++){
             for(int y = 0; y < height; y++){
-                float chance = ThresholdFromPosition((float)x, (float)y);
-                tilemap.SetTile(new Vector3Int(x - width / 2, y + minHeight, 0), NoiseTile(x, y, seed, chance));
+                Vector2 pos = new Vector2(x,y);
+                TileBase tile = NoiseTile(pos);
+                tilemap.SetTile(new Vector3Int(x - width / 2 + (int)offset.x, y + (int)offset.y), tile);
             }
         }
     }
 
-    TileBase NoiseTile(int x, int y, float seed, float chance)
-    {
-        TileBase thisTile = null;
-        
-        float xCoord = (float)x/width/xScale;
-        float yCoord = (float)y/height/yScale;
-        
-        float noise = Mathf.PerlinNoise(xCoord + seed, yCoord + seed);
-        if(noise <= chance){
-            thisTile = tileCloud;
-        }
+    public TileBase NoiseTile(Vector2 pos){
+        float v = NoiseWithOctaves(pos / new Vector2(1.25f,1), noiseZoom, noiseOctave);
+        v += Map(pos.y, 0f, height, -.5f, .5f);
 
-        return thisTile;
+
+        return (v > .5) ? tileCloud : null; //if value over threshold place ground
     }
 
-    float ThresholdFromPosition(float x, float y){ //x is currently irrelevant
-        return (Mathf.Sin(y/(Mathf.PI*4))+1)/2;
+    public float GetOctaveMax(int n) { //currently returning max of n-1, probably use for loop instead of recursion to fix
+        if(n>0){
+            return GetOctaveMax(n-1) + 1/Mathf.Pow(2,n);
+        } else{
+            return 1;
+        }
+    }
+
+    float NoiseWithOctaves(Vector2 pos, float scale, int oct)
+    {
+        float v = Mathf.PerlinNoise((pos.x / scale) + octaveSeeds[1], pos.y / scale);
+
+        for(int i = 2; i <= oct; i++){
+            float octStrength = 1/Mathf.Pow(2,i-1);
+            v += Mathf.PerlinNoise((pos.x / octStrength / scale) + octaveSeeds[i], pos.y / octStrength / scale) * octStrength;
+        }
+        v /= GetOctaveMax(oct-1);
+        return v;
+    }
+
+    public float Map(float OldValue, float OldMin, float OldMax, float NewMin, float NewMax){
+        float OldRange = OldMax - OldMin;
+        float NewRange = NewMax - NewMin;
+        float NewValue = ((OldValue - OldMin) * NewRange / OldRange) + NewMin;
+        
+        return NewValue;
     }
 }

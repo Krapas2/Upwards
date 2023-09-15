@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     //-------------------rope climbing--------------------
     public float ropeClimbSpeed;
+    public float ropeHopForce;
     public Transform ropeCheck;
     public LayerMask ropeLayer;
 
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
         grounded = Physics2D.OverlapCircle(groundCheck.position, .2f, ground);
-        curRope = Physics2D.OverlapCircle(ropeCheck.position,.5f,ropeLayer);
+        curRope = Physics2D.OverlapPoint(ropeCheck.position,ropeLayer);
         
         //-------------------walking-------------------
         if(!climbing){
@@ -86,11 +87,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(0f, verticalInput * ropeClimbSpeed,  0f);
 
             if(!curRope){
-                if(verticalInput>0){
-                    Jump();
-                } else{
-                    StopClimbing();
-                }
+                StopClimbing(verticalInput > 0);
             }
         }
 
@@ -130,13 +127,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump(){
         if(climbing){
-            StopClimbing();
+            StopClimbing(true);
         }
         rb.velocity += Vector2.up*jumpForce;
     }
 
-    void StopClimbing(){
+    void StopClimbing(bool hop){
         rb.bodyType = RigidbodyType2D.Dynamic;
+        if(hop){
+            rb.velocity += Vector2.up*ropeHopForce;
+        }
         climbing = false;
     }
 
