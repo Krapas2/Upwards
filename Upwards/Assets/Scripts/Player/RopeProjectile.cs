@@ -38,6 +38,6 @@ public class RopeProjectile : MonoBehaviour
     }
 
     void SpawnRope(){
-        Instantiate(rope,ropeSpawnPoint.position,Quaternion.identity,transform);
+        Instantiate(rope, ropeSpawnPoint.position + Vector3.down / 2f, Quaternion.identity, transform);
     }
 }
