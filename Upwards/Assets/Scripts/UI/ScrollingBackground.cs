@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,11 +21,14 @@ public class ScrollingBackground : MonoBehaviour
     private AudioManager _audManager;
 
     [SerializeField]
-    private GameObject _fadeObj;
     private Image _fadeImage;
 
     [SerializeField]
-    private GameObject _tower;
+    private GameObject _background;
+    [SerializeField]
+    private Animator _buttonAnim;
+    [SerializeField]
+    private Animator _fadeAnim;
 
     private bool _fadeBool = false;
 
@@ -32,9 +36,6 @@ public class ScrollingBackground : MonoBehaviour
     {
         _audManager = FindObjectOfType<AudioManager>();
 
-        // Não to conseguindo dar um drag do objeto de fade dentro desse lugar por algum motivo
-        _fadeObj = GameObject.Find("Fade");
-        _fadeImage = _fadeObj.GetComponent<Image>();
         _fadeImage.CrossFadeAlpha(0, _audManager.GetSource("Intro").clip.length, false);
 
         _audManager.Play("Intro");
@@ -42,7 +43,7 @@ public class ScrollingBackground : MonoBehaviour
 
         _timer = _waitTime;
 
-        _startPos = _tower.transform.position;
+        _startPos = _background.transform.position;
         Invoke("StartTheme", _audManager.GetSource("Intro").clip.length);
     }
 
@@ -50,12 +51,12 @@ public class ScrollingBackground : MonoBehaviour
     {
         if (_isMoving)
         {
-            
+
             _timer += Time.deltaTime;
             TowerMovement();
-            
 
-            if(_songTime - _timer <= 9.0f)
+
+            if (_songTime - _timer <= 9.0f)
             {
                 FadeOut();
 
@@ -69,23 +70,25 @@ public class ScrollingBackground : MonoBehaviour
 
     private void StartTheme()
     {
+        _buttonAnim.SetTrigger("ButtonEntrance");
         _audManager.Play("Tema");
         _songTime = _audManager.GetSource("Tema").clip.length;
-        
+
         Invoke("StartMoving", _waitTime);
     }
 
     private void StartMoving()
     {
         _isMoving = true;
+        StartCoroutine(TurnCloudy());
     }
 
     private void Restart()
     {
-        
+
         _fadeImage.CrossFadeAlpha(0, 3f, false);
 
-        _tower.transform.position = _startPos;
+        _background.transform.position = _startPos;
         _isMoving = false;
         _timer = _waitTime;
         _fadeBool = false;
@@ -94,15 +97,27 @@ public class ScrollingBackground : MonoBehaviour
 
     private void TowerMovement()
     {
-        _tower.transform.Translate(Vector3.down * _speed * Time.deltaTime);
+        _background.transform.Translate(Vector3.down * (_speed / 100) * Time.deltaTime * Screen.width);
     }
-    
+
     private void FadeOut()
     {
-        if (_fadeBool == true) 
+        if (_fadeBool == true)
             return;
 
         _fadeBool = true;
         _fadeImage.CrossFadeAlpha(1, 9f, false);
+    }
+
+    private IEnumerator TurnCloudy()
+    {
+        yield return new WaitForSeconds(15f);
+
+        _fadeImage.CrossFadeAlpha(1, 2f, false);
+        _fadeAnim.SetTrigger("Cloudy");
+
+        yield return new WaitForSeconds(12f);
+
+        _fadeImage.CrossFadeAlpha(0, 0f, false);
     }
 }
