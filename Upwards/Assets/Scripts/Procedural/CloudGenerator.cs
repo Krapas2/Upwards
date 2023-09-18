@@ -39,8 +39,10 @@ public class CloudGenerator : MonoBehaviour
     }
 
     public TileBase NoiseTile(Vector2 pos){
-        float v = NoiseWithOctaves(pos / new Vector2(1.25f,1), noiseZoom, noiseOctave);
-        v += Map(pos.y, 0f, height, -.5f, .5f);
+        float perlin = NoiseWithOctaves(pos / new Vector2(1.25f,1), noiseZoom, noiseOctave);
+        //float worley
+        
+        float v = perlin + Map(pos.y, 0f, height, -.5f, .5f);
 
 
         return (v > .5) ? tileCloud : null; //if value over threshold place ground
