@@ -7,8 +7,8 @@ public class VignetteSize : MonoBehaviour
 {
     public Transform player;
 
-    public float minDepth;
-    public float maxDepth;
+    public float minHeight;
+    public float maxHeight;
     public float minSize;
     public float maxSize;
 
@@ -21,9 +21,12 @@ public class VignetteSize : MonoBehaviour
 
     void Update()
     {
-        float vignetteSize = Mathf.Clamp(Map(player.position.y, minDepth, maxDepth, maxSize, minSize), minSize, maxSize);
+        float vignetteSize;
+        vignetteSize = Mathf.Clamp(Map(player.position.y, maxHeight, minHeight, minSize, maxSize), minSize, maxSize);
+        Debug.Log(vignetteSize);
+
         image.material.SetFloat("_WindowSize", vignetteSize);
-        //image.material.SetVector("_PlayerPos", player.position - transform.position);
+        image.material.SetVector("_PlayerPos", player.position - transform.position);
     }
 
     public float Map(float OldValue, float OldMin, float OldMax, float NewMin, float NewMax){
