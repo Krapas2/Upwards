@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4074cf87aa38a0428d9f0561ceea69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: wood
+  itemName: Wood
   itemDrop: {fileID: 2759294098484072577, guid: cc089a19940e3974b9522bb8b0d21a7f, type: 3}
   amountDropped: 5
   dropPosition: {fileID: 2209356804097421698}
