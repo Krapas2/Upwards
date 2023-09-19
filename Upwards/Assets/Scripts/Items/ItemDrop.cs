@@ -53,6 +53,7 @@ public class ItemDrop : MonoBehaviour
     public void AssignItem(string name){
         int index = FindObjectOfType<PlayerInventory>().ItemIndexFromName(name);
         ItemIndex = index;
+        Debug.Log(index);
         GetComponent<SpriteRenderer>().sprite = items[index].sprite;
     }
 }

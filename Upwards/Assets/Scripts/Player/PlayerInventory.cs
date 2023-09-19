@@ -22,6 +22,7 @@ public class PlayerInventory : MonoBehaviour
     public int ItemIndexFromName(string checkName)
     {
         for(int i = 0; i < items.Length; i++){
+            Debug.Log(items[i].name);
             if(checkName == items[i].name)
                 return i;
         }
