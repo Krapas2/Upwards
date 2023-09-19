@@ -141,6 +141,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: be5dc1a9d5cc0a04195cc92b3749921a, type: 3}
   - name: Cloud
     sprite: {fileID: 21300000, guid: 039b4660fdc83d3419e26a8a8f238b96, type: 3}
+  - name: Wood
+    sprite: {fileID: 21300000, guid: be5dc1a9d5cc0a04195cc92b3749921a, type: 3}
   player:
     serializedVersion: 2
     m_Bits: 512

@@ -99,9 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4074cf87aa38a0428d9f0561ceea69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: wood
   itemDrop: {fileID: 2759294098484072577, guid: cc089a19940e3974b9522bb8b0d21a7f, type: 3}
   amountDropped: 9
   dropPosition: {fileID: 4674432467380678280}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1794325190140940337
 BoxCollider2D:
   m_ObjectHideFlags: 0
