@@ -12,13 +12,18 @@ public class CloudGenerator : MonoBehaviour
 
     public TileBase tileCloud;
 
-    public int noiseOctave = 2;
-    public float noiseZoom = 40;
+    public int gradientOctave = 2;
+    public float gradientZoom = 40;
+    public float worleyDensity;
 
     private float[] octaveSeeds = new float[10];
 
+    private WorleyNoise worleyNoise;
+
     void Start()
     {
+        worleyNoise = GetComponent<WorleyNoise>();
+
         Generate();
     }
 
@@ -39,13 +44,13 @@ public class CloudGenerator : MonoBehaviour
     }
 
     public TileBase NoiseTile(Vector2 pos){
-        float perlin = NoiseWithOctaves(pos / new Vector2(1.25f,1), noiseZoom, noiseOctave);
-        //float worley
+        //float perlin = NoiseWithOctaves(pos / new Vector2(1.25f,1), gradientZoom, gradientOctave);
+        float worley = 1-worleyNoise.GetNoise(pos, new Vector2(width,height), worleyDensity);
         
-        float v = perlin + Map(pos.y, 0f, height, -.5f, .5f);
+        //float v = perlin + Map(pos.y, 0f, height, -.5f, .5f);
 
 
-        return (v > .5) ? tileCloud : null; //if value over threshold place ground
+        return (worley > .5) ? tileCloud : null; //if value over threshold place ground
     }
 
     public float GetOctaveMax(int n) { //currently returning max of n-1, probably use for loop instead of recursion to fix
