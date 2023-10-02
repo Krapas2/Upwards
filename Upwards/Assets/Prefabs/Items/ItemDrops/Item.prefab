@@ -138,11 +138,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - name: Flower
-    sprite: {fileID: 21300000, guid: be5dc1a9d5cc0a04195cc92b3749921a, type: 3}
+    sprite: {fileID: 21300000, guid: e72fd287da882d14398efd9175a53fde, type: 3}
   - name: Cloud
-    sprite: {fileID: 21300000, guid: 039b4660fdc83d3419e26a8a8f238b96, type: 3}
+    sprite: {fileID: 21300000, guid: 2017104675f897e428d79930e8771dd0, type: 3}
   - name: Wood
-    sprite: {fileID: 21300000, guid: be5dc1a9d5cc0a04195cc92b3749921a, type: 3}
+    sprite: {fileID: 21300000, guid: a36095e6c37435240835ba6d2a2f478d, type: 3}
+  - name: Rock
+    sprite: {fileID: 21300000, guid: 923ece3c40ceed74384930d5b2e75dcd, type: 3}
   player:
     serializedVersion: 2
     m_Bits: 512
