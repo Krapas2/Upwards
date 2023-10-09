@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2909791395472168695}
   - component: {fileID: -3798799702973446235}
   - component: {fileID: 2626882196267478421}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 417712138304021580}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Drop Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
