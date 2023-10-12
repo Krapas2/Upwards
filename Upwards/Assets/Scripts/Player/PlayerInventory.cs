@@ -21,10 +21,13 @@ public class PlayerInventory : MonoBehaviour
 
     public int ItemIndexFromName(string checkName)
     {
-        for(int i = 0; i < items.Length; i++){
-            Debug.Log(items[i].name);
-            if(checkName == items[i].name)
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (checkName == items[i].name)
+            {
+                Debug.Log(items[i].name);
                 return i;
+            }
         }
         return -1;
     }
@@ -34,7 +37,8 @@ public class PlayerInventory : MonoBehaviour
         return items[index].name;
     }
 
-    public void AddItem(int index, int amount){
+    public void AddItem(int index, int amount)
+    {
         items[index].amount += amount;
         lastAddedIndex = index;
     }
