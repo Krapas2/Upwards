@@ -22,8 +22,8 @@ TagManager:
   - Items
   - Clouds
   - Rope
-  - 
-  - 
+  - ItemSource
+  - Bomb
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3237504491
+    locked: 0
+  - name: Foreground
+    uniqueID: 1329132785
     locked: 0
   - name: UI
     uniqueID: 3311658885

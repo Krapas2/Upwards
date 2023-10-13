@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Vector3 climbPosition;
 
-    private bool climbing;
+    [HideInInspector]
+    public bool climbing;
 
     //-------------------Misc-------------------
 
@@ -38,7 +39,13 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-    private bool grounded;
+    [HideInInspector]
+    public bool grounded;
+    [HideInInspector]
+    public bool flying;
+    
+    [HideInInspector]
+    public bool gliding;
     private bool facingRight = true;
 
     //-------------------Components-------------------
@@ -93,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
         //-------------------jump-------------------
 
-        if (Input.GetButtonDown("Jump") && (grounded || climbing)) 
+        if (Input.GetButtonDown("Jump") && ((grounded || climbing) && !flying)) 
             Jump();
         
         if(rb.velocity.y < 0) //better jump from https://youtu.be/7KiK0Aqtmzc
@@ -109,7 +116,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //-------------------ANIMAÇÃO-------------------
-        if(grounded){
+        if(flying)
+            anim.Play("PlayerFlight");
+        else if(gliding)
+            anim.Play("PlayerGlide");
+        else if(grounded){
             if(Mathf.Abs(rb.velocity.x) > 0)
                 anim.Play("PlayerWalk");
             else
@@ -122,7 +133,6 @@ public class PlayerMovement : MonoBehaviour
             else
                 anim.Play("PlayerJumpFall");
         }
-
     }
 
     void Jump(){

@@ -31,7 +31,7 @@ public class PlayerBreakTile : MonoBehaviour
     {
         playerInventory = GetComponent<PlayerInventory>();
         tilemap = GameObject.FindGameObjectWithTag("CollectableMap").GetComponent<Tilemap>();
-        cam = FindObjectOfType<Camera>();
+        cam = Camera.main;
     }
     void Update()
     {
@@ -39,21 +39,27 @@ public class PlayerBreakTile : MonoBehaviour
         mousePos.z = 0;
 
 
-        if(collectMode){
+        if (collectMode)
+        {
 
             bool tileSelectedIsCollectable = false;
             Item tileSelected = new Item();
-            foreach(Item item in items){
-                if(item.tile == tilemap.GetTile(Vector3Int.FloorToInt(mousePos))){
+            foreach (Item item in items)
+            {
+                if (item.tile == tilemap.GetTile(Vector3Int.FloorToInt(mousePos)))
+                {
                     tileSelected = item;
                     tileSelectedIsCollectable |= true;
                 }
             }
 
-            if(curTileBreak != null){
-                if(curTileBreak.transform.position != mousePos + tilemap.tileAnchor)
+            if (curTileBreak != null)
+            {
+                if (curTileBreak.transform.position != mousePos + tilemap.tileAnchor)
                     Destroy(curTileBreak.gameObject);
-            } else if(Input.GetButton("Fire1") && tileSelectedIsCollectable){
+            }
+            else if (Input.GetButton("Fire1") && tileSelectedIsCollectable)
+            {
                 curTileBreak = Instantiate(tileBreak, mousePos + tilemap.tileAnchor, Quaternion.identity);
                 curTileBreak.breakTime = breakTime;
                 curTileBreak.item = item;

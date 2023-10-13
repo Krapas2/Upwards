@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: CloudAutoTile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 2031969048, guid: 2321eb4d5a76f5c4c95ad449d12eab8d, type: 3}
+  m_DefaultSprite: {fileID: -562670095, guid: 0770c881b7e7f83469c3cd5ee9d0a873, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: 638932575, guid: 0770c881b7e7f83469c3cd5ee9d0a873, type: 3}
+    - {fileID: 768123168, guid: 0770c881b7e7f83469c3cd5ee9d0a873, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
