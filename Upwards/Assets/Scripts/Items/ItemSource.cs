@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemSource : MonoBehaviour
 {
+    public string itemName;
     public ItemDrop itemDrop;
     public int amountDropped;
     public Transform dropPosition;
@@ -18,7 +19,8 @@ public class ItemSource : MonoBehaviour
     public void Drop(){
 
         for(int i = 0; i < amountDropped; i++){
-            Instantiate(itemDrop, dropPosition.position + (new Vector3(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f), 0f)), Quaternion.identity, transform.parent);
+            ItemDrop item = Instantiate(itemDrop, dropPosition.position + (new Vector3(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f), 0f)), Quaternion.identity, transform.parent);
+            item.AssignItem(itemName);
         }
         Destroy(gameObject);
     }

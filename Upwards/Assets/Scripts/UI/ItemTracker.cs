@@ -17,26 +17,46 @@ public class ItemTracker : MonoBehaviour
 
     public Tracker[] trackers;
 
+    public float showTime;
+
     private PlayerInventory inventory;
 
     void Start()
     {
-        for(int i = 0; i < trackers.Length; i++){
+        for (int i = 0; i < trackers.Length; i++)
+        {
             trackers[i].texts = trackers[i].tracker.GetComponentsInChildren<Text>();
         }
-
         inventory = FindObjectOfType<PlayerInventory>();
+
+        ShowTrackers();
     }
 
     void Update()
     {
-        foreach(Tracker tracker in trackers){
-            int itemIndex = inventory.ItemIndexFromName(tracker.name);
-            
-            foreach(Text text in tracker.texts){
-                text.text = inventory.items[itemIndex].amount.ToString();
-            }
-            tracker.tracker.SetActive(inventory.lastAddedIndex == itemIndex);
+        if (Input.GetButton("ShowUI"))
+        {
+            ShowTrackers();
+        }
+    }
+
+    void ShowTrackers()
+    {
+        CancelInvoke();
+        SetTrackersEnabled(true);
+        Invoke("HideTrackers", showTime);
+    }
+
+    void HideTrackers()
+    {
+        SetTrackersEnabled(false);
+    }
+
+    void SetTrackersEnabled(bool enabled)
+    {
+        foreach (Tracker tracker in trackers)
+        {
+            tracker.tracker.SetActive(enabled);
         }
     }
 }

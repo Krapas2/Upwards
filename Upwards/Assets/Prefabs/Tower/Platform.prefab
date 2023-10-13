@@ -439,7 +439,7 @@ MonoBehaviour:
   built: 0
   collisions:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 2496
   canBuildColor: {r: 0.54901963, g: 1, b: 0.34509805, a: 0.7607843}
   cannotBuildColor: {r: 1, g: 0.23979509, b: 0.1745283, a: 0.7607843}
   groundCheck: {fileID: 6700819094559334509}
