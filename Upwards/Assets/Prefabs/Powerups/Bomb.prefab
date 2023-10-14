@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6fe0627a28608ffbce6c1120fb8d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 5
+  explosionRadius: 3.5
   waitTime: 5
   itemSources:
     serializedVersion: 2

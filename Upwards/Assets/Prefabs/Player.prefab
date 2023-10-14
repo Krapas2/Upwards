@@ -352,9 +352,13 @@ MonoBehaviour:
     m_Bits: 4096
   curRope: {fileID: 0}
   climbPosition: {x: 0, y: 0, z: 0}
+  climbing: 0
   platformLayer:
     serializedVersion: 2
     m_Bits: 256
+  grounded: 0
+  flying: 0
+  gliding: 0
 --- !u!114 &1746058034319962035
 MonoBehaviour:
   m_ObjectHideFlags: 0
