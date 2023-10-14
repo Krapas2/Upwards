@@ -39,6 +39,7 @@ public class PlayerPowerupBroom : MonoBehaviour
             Invoke("EndFlight", flightTime);
         }
         if(Input.GetButtonUp("Broom") || !canFly){
+            CancelInvoke();
             playerMovement.flying = false;
             playerMovement.walkSpeed = origSpeed;
             rb.gravityScale = origGravity;

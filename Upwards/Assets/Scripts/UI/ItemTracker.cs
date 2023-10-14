@@ -20,6 +20,7 @@ public class ItemTracker : MonoBehaviour
     public float showTime;
 
     private PlayerInventory inventory;
+    private PlayerPowerupManager powerupManager;
 
     void Start()
     {
@@ -28,15 +29,33 @@ public class ItemTracker : MonoBehaviour
             trackers[i].texts = trackers[i].tracker.GetComponentsInChildren<Text>();
         }
         inventory = FindObjectOfType<PlayerInventory>();
+        powerupManager = FindObjectOfType<PlayerPowerupManager>();
 
         ShowTrackers();
     }
 
     void Update()
     {
+        UpdateTrackers();
         if (Input.GetButton("ShowUI"))
         {
             ShowTrackers();
+        }
+    }
+
+    void UpdateTrackers(){
+        foreach(Tracker tracker in trackers){
+            UpdateTracker(tracker);
+        }
+    }
+
+    void UpdateTracker(Tracker tracker){
+        int itemIndex = inventory.ItemIndexFromName(tracker.name);
+        int powerupIndex = powerupManager.PowerupIndexFromItemName(tracker.name);
+        foreach(Text text in tracker.texts){
+            string itemAmount = inventory.items[itemIndex].amount.ToString();
+            string itemMax = powerupManager.powerups[powerupIndex].ItemRequiredAmount.ToString();
+            text.text = string.Concat(itemAmount, " / ", itemMax);
         }
     }
 

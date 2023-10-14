@@ -25,7 +25,6 @@ public class PlayerInventory : MonoBehaviour
         {
             if (checkName == items[i].name)
             {
-                Debug.Log(items[i].name);
                 return i;
             }
         }

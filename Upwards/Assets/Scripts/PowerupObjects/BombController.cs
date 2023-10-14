@@ -31,7 +31,7 @@ public class BombController : MonoBehaviour
     {
         foreach (Collider2D itemSource in Physics2D.OverlapCircleAll(transform.position, explosionRadius, itemSources))
         {
-            Destroy(itemSource.gameObject);
+            itemSource.GetComponent<ItemSource>().Drop();
         }
 
         for (int y = -intExplosionRadius; y <= intExplosionRadius; y++)
