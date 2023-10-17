@@ -9,34 +9,57 @@ public class DialogueBox{
     public GameObject gameobj;
     public int actorId;
 }
-public class dialogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
     private TextMeshPro messageText;
     private GameObject player,npc;
     private int actorId;
+    public float spaceBox;
+    private string powerUpName;
     public GameObject prefabBox;
     Message[] currentMessages;
-
     List<DialogueBox> dialogueBoxes = new List<DialogueBox>();
     int activeMessage,activeBox = 0;
     public static bool isActive = false;
     private bool firstTime = true;
 
-
+    void Start(){
+        //GET GAMEOBJECTS
+        player = GameObject.Find("Player");
+    }
+    public void EnablePowerUp(string powerup){
+        switch (powerup)
+        {
+            case "broom":
+                player.GetComponent<PlayerPowerupBroom>().enabled = true;
+                break;
+            case "cloud":
+                player.GetComponent<PlayerPowerupCloud>().enabled = true;
+                break;
+            case "bomb":
+                player.GetComponent<PlayerPowerupBomb>().enabled = true;
+                break;
+            default:
+                player.GetComponent<PlayerPowerupBroom>().enabled = true;
+                break;
+        }
+    }
     public void ClearBoxes(){
         for (int i = 0; i < dialogueBoxes.Count; i++){
             Destroy(dialogueBoxes[i].gameobj);
         }
         dialogueBoxes.Clear();
     }
-    public void OpenDialogue(Message[] messages, int npcId){
+    public void OpenDialogue(Message[] messages, int npcId, string powerUp){
         currentMessages = messages;
         activeMessage = 0;
         activeBox = 0;
         isActive = true;
         actorId = npcId;
+        powerUpName = powerUp;
+
+        //GET GAMEOBJECT BY NPC ID
         npc = GameObject.Find("NPC " + actorId);
-        player = GameObject.Find("Player");
 
         Debug.Log("Start conversation ! " + messages.Length);
         DisplayMessage();
@@ -45,6 +68,7 @@ public class dialogueManager : MonoBehaviour
     void DisplayMessage(){
 
         DialogueBox dgBoxTemp = new DialogueBox();
+        
         //ADICIONA PRIMEIRA CAIXA DE TEXTO NO ARRAY
         if(firstTime){
             dgBoxTemp.gameobj = Instantiate(prefabBox,
@@ -77,6 +101,10 @@ public class dialogueManager : MonoBehaviour
             DisplayMessage();
         }else{
             Debug.Log("Conversation End");
+
+            //ATIVA SCRIPT PARA ADICIONAR POWERUP
+            EnablePowerUp(powerUpName);
+
             ClearBoxes();
             isActive = false;
         }
@@ -95,14 +123,14 @@ public class dialogueManager : MonoBehaviour
             {
                 if(dialogueBoxes[aux].actorId != 1){
                     dialogueBoxes[aux].gameobj.transform.position = new Vector3(npc.transform.position.x, 
-                                                                              npc.transform.position.y+((i+1)*3.5f),
-                                                                              npc.transform.position.z);
+                                                                                npc.transform.position.y+((i+1)*spaceBox),
+                                                                                npc.transform.position.z);
                     aux--;                                                        
                 }
                 else{
                     dialogueBoxes[aux].gameobj.transform.position = new Vector3(player.transform.position.x, 
-                                                                              player.transform.position.y+((i+1)*3.5f),
-                                                                              player.transform.position.z);
+                                                                                player.transform.position.y+((i+1)*spaceBox),
+                                                                                player.transform.position.z);
                     aux--;                                                          
                 }
             }
