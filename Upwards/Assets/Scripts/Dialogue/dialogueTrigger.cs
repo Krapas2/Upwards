@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class dialogueTrigger : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour
 {
     public Message[] messages;
     public int npcId;
-
+    public string powerUp;
     public void StartDialogue(){
-        FindObjectOfType<dialogueManager>().OpenDialogue(messages,npcId);
+        FindObjectOfType<DialogueManager>().OpenDialogue(messages,npcId,powerUp);
     }
 }
 
