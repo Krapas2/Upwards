@@ -51,6 +51,9 @@ TagManager:
   - name: Tower
     uniqueID: 1861291963
     locked: 0
+  - name: NPC
+    uniqueID: 111090709
+    locked: 0
   - name: Player
     uniqueID: 1804251423
     locked: 0
