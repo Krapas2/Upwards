@@ -27,7 +27,7 @@ public class EndCloudManager : MonoBehaviour
 
     void Update()
     {
-        ObjectivePointer.transform.up = EndCloud.transform.position;
+        ObjectivePointer.transform.up = EndCloud.transform.position - ObjectivePointer.transform.position;
         if(Vector3.Distance(playerPowerups.transform.position, EndCloud.transform.position) > PointerDistance){
             ObjectivePointer.transform.position = (EndCloud.transform.position - playerPowerups.transform.position).normalized * PointerDistance + playerPowerups.transform.position;
         } else {
