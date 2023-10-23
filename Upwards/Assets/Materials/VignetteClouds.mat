@@ -40,8 +40,8 @@ Material:
     m_Floats:
     - _NodeDensity: 0.3
     - _NoiseSize: 4.5
-    - _WindowSize: 3.7564335
+    - _WindowSize: 15.999261
     m_Colors:
     - _DistortionSpeed: {r: 0, g: 0, b: 1, a: 0}
-    - _PlayerPos: {r: 0, g: -5.328888, b: 5, a: 0}
+    - _PlayerPos: {r: 0, g: -1.2347094, b: 5, a: 0}
   m_BuildTextureStacks: []

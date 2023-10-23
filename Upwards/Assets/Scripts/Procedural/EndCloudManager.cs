@@ -20,13 +20,18 @@ public class EndCloudManager : MonoBehaviour
         playerPowerups = FindObjectOfType<PlayerPowerupManager>();
 
         EndCloud = Instantiate(EndCloud, new Vector2(Random.Range(minPos.x, maxPos.x), Random.Range(minPos.y, maxPos.y)), Quaternion.identity);
-        ObjectivePointer = Instantiate(ObjectivePointer, playerPowerups.transform.position, Quaternion.identity, playerPowerups.transform);
+        ObjectivePointer = Instantiate(ObjectivePointer, playerPowerups.transform.position, Quaternion.identity);
 
         ObjectivePointer.SetActive(playerPowerups.HasAllPowerups());
     }
 
     void Update()
     {
-        ObjectivePointer.transform.position = (EndCloud.transform.position - playerPowerups.transform.position).normalized * PointerDistance + playerPowerups.transform.position;
+        ObjectivePointer.transform.up = EndCloud.transform.position;
+        if(Vector3.Distance(playerPowerups.transform.position, EndCloud.transform.position) > PointerDistance){
+            ObjectivePointer.transform.position = (EndCloud.transform.position - playerPowerups.transform.position).normalized * PointerDistance + playerPowerups.transform.position;
+        } else {
+            ObjectivePointer.transform.position = EndCloud.transform.position + Vector3.up * PointerDistance / 2;
+        }
     }
 }
