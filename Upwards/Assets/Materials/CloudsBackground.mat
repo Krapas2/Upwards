@@ -38,8 +38,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Falloff: 100
-    - _FalloffHeight: -15
+    - _Falloff: 128
+    - _FalloffHeight: -202.84
     - _FalloffMaxHeight: 0.4
     - _FalloffMinHeight: -1
     - _SimplexRelevance: 0.85
