@@ -1,6 +1,7 @@
 ﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+
+		if(SceneManager.GetActiveScene().name != "TitleScreen")
+			audioManager.Play("Tema");
     }
 	
 	public void Play (string name)
