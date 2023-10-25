@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
 
 	public static AudioManager instance;
     private AudioManager audioManager;
+	public bool hasIntro;
 
 	// Use this for initialization
 	void Awake ()
@@ -38,8 +39,15 @@ public class AudioManager : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
 
-		if(SceneManager.GetActiveScene().name != "TitleScreen")
-			audioManager.Play("Tema");
+		if (SceneManager.GetActiveScene().name != "TitleScreen")
+		{
+			if (hasIntro)
+			{
+				audioManager.Play("Intro");
+				Invoke("StartTheme", audioManager.GetSource("Intro").clip.length);
+			}
+			else audioManager.Play("Tema");
+		}
     }
 	
 	public void Play (string name)
@@ -65,4 +73,9 @@ public class AudioManager : MonoBehaviour
 			return null;
 		return s.source;
 	}
+
+    private void StartTheme()
+    {
+        audioManager.Play("Tema");
+    }
 }
