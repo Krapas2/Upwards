@@ -522,12 +522,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerups:
-  - powerup: {fileID: 8920976726057152790}
-    ItemRequiredName: Rock
-    ItemRequiredAmount: 300
   - powerup: {fileID: 6353563178582477222}
     ItemRequiredName: Wood
-    ItemRequiredAmount: 400
+    ItemRequiredAmount: 100
+  - powerup: {fileID: 8920976726057152790}
+    ItemRequiredName: Rock
+    ItemRequiredAmount: 150
   - powerup: {fileID: 4908196547717877562}
     ItemRequiredName: Cloud
     ItemRequiredAmount: 50

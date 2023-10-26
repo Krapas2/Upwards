@@ -19,6 +19,9 @@ public class PlayerPowerupBroom : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
 
+        origSpeed = playerMovement.walkSpeed;
+        origGravity = rb.gravityScale;
+
         canFly = true;
     }
 
@@ -29,15 +32,17 @@ public class PlayerPowerupBroom : MonoBehaviour
         if (Input.GetButtonDown("Broom") && canFly)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            playerMovement.walkSpeed = flightSpeed;
             playerMovement.flying = true;
+            playerMovement.walkSpeed = flightSpeed;
             rb.gravityScale = 0f;
             Invoke("EndFlight", flightTime);
         }
         if (Input.GetButtonUp("Broom") || !canFly)
         {
-            CancelInvoke();
             playerMovement.flying = false;
+            playerMovement.walkSpeed = origSpeed;
+            rb.gravityScale = origGravity;
+            CancelInvoke();
         }
     }
 

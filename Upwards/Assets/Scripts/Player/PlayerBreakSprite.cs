@@ -25,9 +25,9 @@ public class PlayerBreakSprite : MonoBehaviour
 
         if(collectMode){
             if(Input.GetButton("Fire1") && source){
-
                 source.BreakAnimation();
-                source.Invoke("Drop",breakTime);
+                if(!source.IsInvoking("Drop"))
+                    source.Invoke("Drop",breakTime);
             }
         }
 
