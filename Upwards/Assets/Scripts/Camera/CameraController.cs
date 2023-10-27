@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 	public float smoothMoveSpeed = .25f;
 
 
-	private Vector3 offset;
+	public Vector3 offset;
 	private Rigidbody2D PlayerRB;
 	private Camera cam;
 	private float origSize;
@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		offset = transform.position - target.transform.position;
+		//offset = transform.position - target.transform.position;
 		PlayerRB = target.GetComponent<Rigidbody2D> ();
 		cam = GetComponent<Camera> ();
 		origSize = GetComponent<Camera> ().orthographicSize;
