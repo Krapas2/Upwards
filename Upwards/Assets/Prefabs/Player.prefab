@@ -179,6 +179,10 @@ GameObject:
   - component: {fileID: 1746058034319962037}
   - component: {fileID: 1746058034319962036}
   - component: {fileID: 1746058034319962039}
+  - component: {fileID: 8920976726057152790}
+  - component: {fileID: 6353563178582477222}
+  - component: {fileID: 4908196547717877562}
+  - component: {fileID: 4062643009010567504}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -243,7 +247,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1804251423
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ed19220b16c286b41b79bd187e59d9fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -407,7 +411,7 @@ MonoBehaviour:
   - name: Wood
     amount: 0
     unitValue: 5
-  - name: Stone
+  - name: Rock
     amount: 0
     unitValue: 5
   lastAddedIndex: -1
@@ -461,3 +465,69 @@ MonoBehaviour:
   rope: {fileID: 3834712386869413877, guid: 013392fda480b993381943bdd871e7e7, type: 3}
   throwSpeed: 18
   distanceOffsetFactor: 42.5
+--- !u!114 &8920976726057152790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746058034319962026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f095974df34d0a656b54ebc4426ab11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombNumber: 10
+  bomb: {fileID: 5707332968207701908, guid: 79e215ca77914dabbbac81bd6e8848d0, type: 3}
+  throwSpeed: 15
+  distanceOffsetFactor: 20
+  ground: {fileID: 0}
+--- !u!114 &6353563178582477222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746058034319962026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2371f3c3a3ad6984baedec620ff9ffae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flightSpeed: 15
+  flightTime: 2.5
+--- !u!114 &4908196547717877562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746058034319962026}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd780de5c090dd4abf6c95a991d037e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glideSpeed: 1
+--- !u!114 &4062643009010567504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746058034319962026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6a7224b6fc31549bccc59ae6f970fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups:
+  - powerup: {fileID: 6353563178582477222}
+    ItemRequiredName: Wood
+    ItemRequiredAmount: 100
+  - powerup: {fileID: 8920976726057152790}
+    ItemRequiredName: Rock
+    ItemRequiredAmount: 150
+  - powerup: {fileID: 4908196547717877562}
+    ItemRequiredName: Cloud
+    ItemRequiredAmount: 50

@@ -47,7 +47,5 @@ MonoBehaviour:
   EndCloud: {fileID: 2187057821080425836, guid: 3471695ca9d4b674f991bf159718d8e9, type: 3}
   minPos: {x: 5, y: 0}
   maxPos: {x: 5, y: 0}
-  Player: {fileID: 0}
   ObjectivePointer: {fileID: 2187057821080425836, guid: 3471695ca9d4b674f991bf159718d8e9, type: 3}
-  PointerDistance: 2
-  EndCloudPosition: {x: 0, y: 0}
+  PointerDistance: 3

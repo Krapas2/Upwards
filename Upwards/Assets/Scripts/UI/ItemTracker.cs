@@ -18,6 +18,7 @@ public class ItemTracker : MonoBehaviour
     public Tracker[] trackers;
 
     public float showTime;
+    public float fadeTime;
 
     private PlayerInventory inventory;
     private PlayerPowerupManager powerupManager;
@@ -62,20 +63,46 @@ public class ItemTracker : MonoBehaviour
     void ShowTrackers()
     {
         CancelInvoke();
-        SetTrackersEnabled(true);
+        SetAllTrackersEnabled(true);
         Invoke("HideTrackers", showTime);
     }
 
     void HideTrackers()
     {
-        SetTrackersEnabled(false);
+        FadeOUtAllTrackersEnabled();
     }
 
-    void SetTrackersEnabled(bool enabled)
+    void SetAllTrackersEnabled(bool enabled)
     {
         foreach (Tracker tracker in trackers)
         {
             tracker.tracker.SetActive(enabled);
         }
+    }
+
+    void FadeOUtAllTrackersEnabled()
+    {
+        foreach (Tracker tracker in trackers)
+        {
+            StartCoroutine(FadeTracker(tracker));
+        }
+    }
+
+    IEnumerator FadeTracker(Tracker tracker)
+    {
+        Image trackerRenderer = tracker.tracker.GetComponent<Image>();
+        Color c = trackerRenderer.material.color;
+        for (float alpha = 1f; alpha >= 0; alpha -= fadeTime * Time.deltaTime)
+        {
+            c.a = alpha;
+            trackerRenderer.material.color = c;
+
+            yield return null;
+        }
+
+        c.a = 1;
+        trackerRenderer.material.color = c;
+        
+        tracker.tracker.SetActive(false);
     }
 }

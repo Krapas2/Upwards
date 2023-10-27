@@ -22,7 +22,7 @@ public class VignetteSize : MonoBehaviour
     void Update()
     {
         float vignetteSize;
-        vignetteSize = Mathf.Clamp(Map(player.position.y, maxHeight, minHeight, minSize, maxSize), minSize, maxSize);
+        vignetteSize = Mathf.Clamp(Map(player.position.y, maxHeight, minHeight, minSize, maxSize), minSize, 99999);
 
         image.material.SetFloat("_WindowSize", vignetteSize);
         image.material.SetVector("_PlayerPos", player.position - transform.position);
