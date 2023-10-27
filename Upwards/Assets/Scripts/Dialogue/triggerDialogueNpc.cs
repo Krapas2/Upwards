@@ -6,14 +6,13 @@ public class TriggerDialogueNpc : MonoBehaviour
 {
     public DialogueTrigger trigger;
     public Transform dialogueCheck;
-    public LayerMask NPC;
+    public LayerMask NPCLayerMask;
 
     [HideInInspector]
     public bool NPCTriggered;
     private bool triggered = false;
     void Update(){
-
-        NPCTriggered = Physics2D.OverlapCircle(dialogueCheck.position, .2f, NPC);
+        NPCTriggered = Physics2D.OverlapCircle(dialogueCheck.position, .2f, NPCLayerMask);
         if (NPCTriggered && !triggered){   
             trigger.StartDialogue();
             triggered = true;
