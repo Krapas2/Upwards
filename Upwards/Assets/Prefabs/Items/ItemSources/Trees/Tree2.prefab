@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2909791395472168695}
   - component: {fileID: -3798799702973446235}
   - component: {fileID: -3535520465144933644}
+  - component: {fileID: -9134962505346998640}
   m_Layer: 13
   m_Name: Tree2
   m_TagString: Untagged
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9a4f2cec7039e96408ca42b495a0d4ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wood
   itemDrop: {fileID: 2759294098484072577, guid: cc089a19940e3974b9522bb8b0d21a7f, type: 3}
-  amountDropped: 5
+  amountDropped: 2
   dropPosition: {fileID: 2209356804097421698}
   startPos: {x: 0, y: 0, z: 0}
 --- !u!61 &-3535520465144933644
@@ -161,3 +162,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.2, y: 7.05}
   m_EdgeRadius: 0
+--- !u!114 &-9134962505346998640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2909791395472168689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18deb3c5745ae23498a1222231f105e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSource: {fileID: 0}

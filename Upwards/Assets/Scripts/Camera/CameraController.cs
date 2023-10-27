@@ -9,9 +9,6 @@ public class CameraController : MonoBehaviour
 	public float speedOffsetMultiplier = .125f;
 	public float smoothMoveSpeed = .25f;
 
-	public bool clampCamera = false;
-	public Vector2 minCameraPos;
-	public Vector2 maxCameraPos;
 
 	private Vector3 offset;
 	private Rigidbody2D PlayerRB;
@@ -47,13 +44,5 @@ public class CameraController : MonoBehaviour
 		if(Vector3.Distance(transform.position, desiredPosition) < .05)
 			transform.position = desiredPosition;
 */
-		//clamp coordinates
-		if(clampCamera){
-			transform.position = new Vector3(
-				Mathf.Clamp(transform.position.x,minCameraPos.x,maxCameraPos.x),
-				Mathf.Clamp(transform.position.y,minCameraPos.y,maxCameraPos.y),
-				-10
-			);
-		}
 	}
 }
