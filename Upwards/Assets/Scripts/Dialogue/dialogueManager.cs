@@ -49,6 +49,10 @@ public class DialogueManager : MonoBehaviour
             Destroy(dialogueBoxes[i].gameobj);
         }
         dialogueBoxes.Clear();
+        
+        //RESETANDO VARS
+        isActive = false;
+        firstTime = true;
     }
     public void OpenDialogue(Message[] messages, int npcId, string powerUp){
         currentMessages = messages;
@@ -72,19 +76,18 @@ public class DialogueManager : MonoBehaviour
         //ADICIONA PRIMEIRA CAIXA DE TEXTO NO ARRAY
         if(firstTime){
             dgBoxTemp.gameobj = Instantiate(prefabBox,
-                                             new Vector3(0,0,0), 
-                                             Quaternion.identity);
+                                            new Vector3(0,0,0), 
+                                            Quaternion.identity);
             firstTime = false;
         }else{
             dgBoxTemp.gameobj = Instantiate(dialogueBoxes[activeBox].gameobj,
-                                             new Vector3(0,0,0), 
-                                             Quaternion.identity);
+                                            new Vector3(0,0,0), 
+                                            Quaternion.identity);
             activeBox++; 
         }
 
-        dgBoxTemp.actorId = currentMessages[activeBox].actorId;
+        dgBoxTemp.actorId = currentMessages[activeBox].actorId; //eerroo
 
-        Debug.Log(dgBoxTemp.actorId);
         dialogueBoxes.Add(dgBoxTemp);  
 
         dialogueBoxes[activeBox].gameobj.name = "Box " + activeBox.ToString();                                 
@@ -103,10 +106,9 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Conversation End");
 
             //ATIVA SCRIPT PARA ADICIONAR POWERUP
-            EnablePowerUp(powerUpName);
+            //EnablePowerUp(powerUpName);
 
             ClearBoxes();
-            isActive = false;
         }
     }
 
@@ -121,7 +123,8 @@ public class DialogueManager : MonoBehaviour
             int aux = dialogueBoxes.Count-1;
             for (int i = 0; i < dialogueBoxes.Count; i++)
             {
-                if(dialogueBoxes[aux].actorId != 1){
+                //ATOR DO PLAYER SEMPRE É ZERO
+                if(dialogueBoxes[aux].actorId != 0){
                     dialogueBoxes[aux].gameobj.transform.position = new Vector3(npc.transform.position.x, 
                                                                                 npc.transform.position.y+((i+1)*spaceBox),
                                                                                 npc.transform.position.z);

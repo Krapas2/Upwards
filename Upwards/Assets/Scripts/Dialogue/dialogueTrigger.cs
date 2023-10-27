@@ -9,6 +9,10 @@ public class DialogueTrigger : MonoBehaviour
     public int npcId;
     public string powerUp;
     public void StartDialogue(){
+        for (int i = 0; i < messages.Length; i++)
+        {
+            Debug.Log(messages[i].message);
+        }
         FindObjectOfType<DialogueManager>().OpenDialogue(messages,npcId,powerUp);
     }
 }
