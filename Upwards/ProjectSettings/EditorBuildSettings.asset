@@ -8,9 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: 9b52bb1db88b0c44da00039a95bbcbaa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/testScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Game/Village.unity
+    guid: e6741aa349ccb34439b62298e738ccd2
+  - enabled: 1
+    path: Assets/Scenes/Game/Tower.unity
+    guid: 35068f6412dd64744a4af0209870aa38
+  - enabled: 1
+    path: Assets/Scenes/Game/Wilds.unity
+    guid: 412b451038e02694281a26aafbc056ea
   - enabled: 1
     path: Assets/Scenes/CreditsScreen.unity
     guid: 1e6613ac1349ee84db701b85ebf1a085
