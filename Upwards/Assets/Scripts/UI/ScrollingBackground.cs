@@ -38,8 +38,7 @@ public class ScrollingBackground : MonoBehaviour
 
         _fadeImage.CrossFadeAlpha(0, _audManager.GetSource("Intro").clip.length, false);
 
-        _audManager.Play("Intro");
-        _songTime = _audManager.GetSource("Tema").clip.length;
+        _songTime = _audManager.GetSource("TitleScreen").clip.length;
 
         _timer = _waitTime;
 
@@ -71,9 +70,6 @@ public class ScrollingBackground : MonoBehaviour
     private void StartTheme()
     {
         _buttonAnim.SetTrigger("ButtonEntrance");
-        _audManager.Play("Tema");
-        _songTime = _audManager.GetSource("Tema").clip.length;
-
         Invoke("StartMoving", _waitTime);
     }
 

@@ -48084,39 +48084,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: sounds.Array.size
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
-      propertyPath: sounds.Array.data[0].clip
+      propertyPath: sounds.Array.data[13].clip
       value: 
-      objectReference: {fileID: 8300000, guid: fc206ce9c0188984d9150a437783ef79, type: 3}
+      objectReference: {fileID: 8300000, guid: 1342d7e14e5a89f4e9805dc47567c448, type: 3}
     - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
-      propertyPath: sounds.Array.data[0].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Tema
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
-      propertyPath: sounds.Array.data[10].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: fc206ce9c0188984d9150a437783ef79, type: 3}
-    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
-      propertyPath: sounds.Array.data[10].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
-      propertyPath: sounds.Array.data[10].name
-      value: Tema
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
-      propertyPath: sounds.Array.data[10].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
-      propertyPath: sounds.Array.data[10].volume
-      value: 0.505
+      propertyPath: sounds.Array.data[13].name
+      value: footStep5
       objectReference: {fileID: 0}
     - target: {fileID: 2074956483351112823, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: m_RootOrder
@@ -48535,6 +48511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2142161071}
+  - component: {fileID: 2142161072}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -48560,6 +48537,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2142161072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142161070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacaa520390e89849a1b572c47ae3248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7797026197405558220
 GameObject:
   m_ObjectHideFlags: 0

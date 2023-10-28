@@ -39,34 +39,39 @@ public class AudioManager : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
 
-		if (SceneManager.GetActiveScene().name != "TitleScreen")
+		if (hasIntro)
 		{
-			if (hasIntro)
-			{
-				audioManager.Play("Intro");
-				Invoke("StartTheme", audioManager.GetSource("Intro").clip.length);
-			}
-			else audioManager.Play("Tema");
+			audioManager.Play("Intro");
+			Invoke("StartTheme", audioManager.GetSource("Intro").clip.length);
 		}
+		else audioManager.Play(SceneManager.GetActiveScene().name);
+
     }
-	
-	public void Play (string name)
+
+	public void Play(string name)
 	{
-		Sound s = Array.Find (sounds, sound => sound.name == name);
+		Sound s = Array.Find(sounds, sound => sound.name == name);
 		if (s == null)
-			return;
+		{
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+		}
 		s.source.Play ();
 	}
 
-	public void Stop (string name)
-	{
-		Sound s = Array.Find (sounds, sound => sound.name == name);
-		if (s == null)
-			return;
-		s.source.Stop ();
-	}
+    public void Stop(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
 
-	public AudioSource GetSource (string name)
+        s.source.Stop();
+    }
+
+    public AudioSource GetSource (string name)
 	{
 		Sound s = Array.Find (sounds, sound => sound.name == name);
 		if (s == null)
@@ -76,6 +81,6 @@ public class AudioManager : MonoBehaviour
 
     private void StartTheme()
     {
-        audioManager.Play("Tema");
+        audioManager.Play(SceneManager.GetActiveScene().name);
     }
 }
