@@ -8,8 +8,9 @@ public class ButtonFunctions : MonoBehaviour
 
 	public void ChangeScene (int buildIndex)
 	{
-		SceneManager.LoadScene (buildIndex);
-		Time.timeScale = 1f;
+        PlayerPrefs.SetString("lastScene", SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene (buildIndex);
+        Time.timeScale = 1f;
 	}
 
 	public void QuitGame ()

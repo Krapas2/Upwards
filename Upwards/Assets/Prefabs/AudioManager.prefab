@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9269137, y: 1.8657508, z: -47.735683}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,8 +45,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Tema
-    clip: {fileID: 8300000, guid: b5930ab8273924549bb968b9725069d1, type: 3}
+  - name: Intro
+    clip: {fileID: 8300000, guid: ef06c561d11f2c54aadaae4c09037a2e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TitleScreen
+    clip: {fileID: 8300000, guid: 771ade5c7081c8f4c9119aa495497337, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Village
+    clip: {fileID: 8300000, guid: d6e2c04dd1dbda741880f179ac42515d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Tower
+    clip: {fileID: 8300000, guid: fc206ce9c0188984d9150a437783ef79, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Wilds
+    clip: {fileID: 8300000, guid: 665beb2ea9b8e074d9df3af1a06aa011, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1
@@ -94,13 +119,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: footStep5
     clip: {fileID: 8300000, guid: 1342d7e14e5a89f4e9805dc47567c448, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0
+    pitch: 0
     loop: 0
     source: {fileID: 0}
-  - name: Arr
-    clip: {fileID: 8300000, guid: 7713e2a7524219744989825299bc42f6, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
+  hasIntro: 1
