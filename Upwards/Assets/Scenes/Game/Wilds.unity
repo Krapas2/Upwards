@@ -1024,6 +1024,9 @@ MonoBehaviour:
   spawnPoints:
   - SceneName: Tower
     point: {fileID: 1952889527}
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &936756972
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,7 +2479,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 292.5, y: -150}
+  m_Offset: {x: 290.5, y: -150}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3087,22 +3090,6 @@ PrefabInstance:
     - target: {fileID: 1746058034319962037, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4908196547717877562, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
-      propertyPath: glideTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4908196547717877562, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4908196547717877562, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
-      propertyPath: glideSpeed.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4908196547717877562, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
-      propertyPath: glideSpeed.y
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8920976726057152790, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: ground

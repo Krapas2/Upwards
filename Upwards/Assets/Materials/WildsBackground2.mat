@@ -38,7 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _LightSize: 4
+    - _LightSize: 3
     - _NoiseSpeed: 1.5
     - _noiseDissolve: 0.35
     - _noiseScale: 1.5

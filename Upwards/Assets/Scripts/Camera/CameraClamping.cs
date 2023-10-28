@@ -11,7 +11,6 @@ public class CameraClamping : MonoBehaviour
 
     private Vector2 minCameraBounds;
     private Vector2 maxCameraBounds;
-
     private Camera cam;
     
     void Start()
@@ -36,8 +35,5 @@ public class CameraClamping : MonoBehaviour
     {
         minCameraBounds = (Vector2)(cam.ScreenToWorldPoint(Vector2.zero) - transform.position);
         maxCameraBounds = (Vector2)(cam.ScreenToWorldPoint(new Vector2(cam.pixelWidth, cam.pixelHeight)) - transform.position);
-        Debug.Log(minCameraBounds);
-        Debug.Log(maxCameraBounds);
-        
     }
 }
