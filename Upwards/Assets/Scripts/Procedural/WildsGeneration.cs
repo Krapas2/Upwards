@@ -8,11 +8,14 @@ public class WildsGeneration : MonoBehaviour
     public GroundGenerator groundGenerator;
     [HideInInspector]
     public ResourceGenerator[] resourceGenerators;
+    [HideInInspector]
+    public SceneSpawn sceneSpawn;
 
-    void Start()
+    void Awake()
     {
         groundGenerator = FindObjectOfType<GroundGenerator>();
         resourceGenerators = FindObjectsOfType<ResourceGenerator>();
+        sceneSpawn = FindObjectOfType<SceneSpawn>();
 
         StartCoroutine(Seq());
     }
@@ -21,6 +24,7 @@ public class WildsGeneration : MonoBehaviour
     {
         yield return StartCoroutine(GenerateGround());
         yield return StartCoroutine(GenerateResources());
+        yield return StartCoroutine(SetPlayerOnSpawn());
     }
 
     IEnumerator GenerateGround(){ 
@@ -33,6 +37,12 @@ public class WildsGeneration : MonoBehaviour
             foreach(ResourceGenerator resourceGenerator in resourceGenerators){
                 resourceGenerator.Generate();
             }
+        }
+        yield return null;
+    }
+    IEnumerator SetPlayerOnSpawn(){
+        if(sceneSpawn){
+            sceneSpawn.SetPlayerOnSpawn();
         }
         yield return null;
     }

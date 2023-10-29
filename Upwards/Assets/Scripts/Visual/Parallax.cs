@@ -19,7 +19,7 @@ public class Parallax : MonoBehaviour
         origCamPos = cam.position;
     }
 
-    void Update()
+    void LateUpdate()
     {
         transform.position = origPos + Vector3.Lerp(origCamPos,cam.position,index);
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
