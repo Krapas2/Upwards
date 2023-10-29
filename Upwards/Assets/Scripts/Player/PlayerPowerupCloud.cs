@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class PlayerPowerupCloud : MonoBehaviour
 {
@@ -12,11 +13,19 @@ public class PlayerPowerupCloud : MonoBehaviour
 
     private PlayerMovement playerMovement;
     private Rigidbody2D rb;
+
+    private AudioManager _audManager;
+    private bool riseBool;
+    private bool fadeBool;
+
     void Start()
     {
-        canGlide = true;
+        _audManager = FindObjectOfType<AudioManager>();
+
+        canGlide = true; riseBool = true; fadeBool = true;
         playerMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     void LateUpdate()
@@ -25,16 +34,35 @@ public class PlayerPowerupCloud : MonoBehaviour
 
         if (Input.GetButton("Cloud") && canGlide)
         {
+            if(riseBool) {
+                _audManager.Play("CloudRise");
+                riseBool= false;
+            }
+
+            fadeBool = true;
             playerMovement.gliding = true;
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -glideSpeed.x, glideSpeed.x), Mathf.Max(rb.velocity.y, glideSpeed.y));
             Invoke("EndGlide", glideTime);
         }
         if (Input.GetButtonUp("Cloud") || !canGlide)
         {
+            if(fadeBool)
+            {
+                FadeOut();
+            }
             playerMovement.gliding = false;
             CancelInvoke();
         }
     }
+
+    void FadeOut()
+    {
+        _audManager.Play("CloudPop");
+        _audManager.Stop("CloudRise");
+        fadeBool = false;
+        riseBool = true;
+    }
+
 
     void EndGlide()
     {
