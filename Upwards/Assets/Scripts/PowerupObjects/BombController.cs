@@ -17,12 +17,15 @@ public class BombController : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
 
+    private AudioManager _audManager;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
     void Start()
     {
+        _audManager = FindObjectOfType<AudioManager>();
         intExplosionRadius = (int)explosionRadius;
         Invoke("Explode", waitTime);
     }
@@ -47,6 +50,8 @@ public class BombController : MonoBehaviour
                 ground.SetTile(Vector3Int.FloorToInt(transform.position), null);
             }
         }
+
+        _audManager.Play("Boom");
         Destroy(gameObject);
     }
 }
