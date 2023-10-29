@@ -364,22 +364,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4482539775336220875, guid: 2f37c0ee0ddd96d4e8a211a324586dbc, type: 3}
-      propertyPath: maxPos.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482539775336220875, guid: 2f37c0ee0ddd96d4e8a211a324586dbc, type: 3}
-      propertyPath: maxPos.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482539775336220875, guid: 2f37c0ee0ddd96d4e8a211a324586dbc, type: 3}
-      propertyPath: minPos.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482539775336220875, guid: 2f37c0ee0ddd96d4e8a211a324586dbc, type: 3}
-      propertyPath: minPos.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4482539775336220876, guid: 2f37c0ee0ddd96d4e8a211a324586dbc, type: 3}
       propertyPath: m_Name
       value: EndCloudManager
