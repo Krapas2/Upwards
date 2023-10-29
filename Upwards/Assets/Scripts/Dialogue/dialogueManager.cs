@@ -22,21 +22,27 @@ public class DialogueManager : MonoBehaviour
     int activeMessage,activeBox = 0;
     public static bool isActive = false;
     private bool firstTime = true;
+    private bool isFinal;
 
     void Start(){
         //GET GAMEOBJECTS
         player = GameObject.Find("Player");
     }
-    public void EnablePowerUp(string powerup){
-        switch (powerup)
+    public void EnablePowerUp(int actorId){
+        switch (actorId)
         {
-            case "broom":
-                player.GetComponent<PlayerPowerupBroom>().enabled = true;
-                break;
-            case "cloud":
+            //NUVEM
+            case 1:
                 player.GetComponent<PlayerPowerupCloud>().enabled = true;
                 break;
-            case "bomb":
+
+            //ARVORE
+            case 2:
+                player.GetComponent<PlayerPowerupBroom>().enabled = true;
+                break;
+            
+            //PEDRA
+            case 3:
                 player.GetComponent<PlayerPowerupBomb>().enabled = true;
                 break;
             default:
@@ -54,13 +60,13 @@ public class DialogueManager : MonoBehaviour
         isActive = false;
         firstTime = true;
     }
-    public void OpenDialogue(Message[] messages, int npcId, string powerUp){
+    public void OpenDialogue(Message[] messages, int npcId, bool isFinalDialogue){
         currentMessages = messages;
         activeMessage = 0;
         activeBox = 0;
         isActive = true;
         actorId = npcId;
-        powerUpName = powerUp;
+        isFinal = isFinalDialogue;
 
         //GET GAMEOBJECT BY NPC ID
         npc = GameObject.Find("NPC " + actorId);
@@ -106,7 +112,8 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Conversation End");
 
             //ATIVA SCRIPT PARA ADICIONAR POWERUP
-            //EnablePowerUp(powerUpName);
+            if(isFinal)
+                EnablePowerUp(actorId);
 
             ClearBoxes();
         }

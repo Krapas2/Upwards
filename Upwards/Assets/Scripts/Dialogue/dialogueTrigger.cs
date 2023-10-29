@@ -5,15 +5,14 @@ using System;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Message[] messages;
+    public Message[] initialMessages;
+    public Message[] finalMessages;
     public int npcId;
-    public string powerUp;
     public void StartDialogue(){
-        for (int i = 0; i < messages.Length; i++)
-        {
-            Debug.Log(messages[i].message);
-        }
-        FindObjectOfType<DialogueManager>().OpenDialogue(messages,npcId,powerUp);
+        FindObjectOfType<DialogueManager>().OpenDialogue(initialMessages,npcId,false);
+    }
+    public void StartFinalDialogue(){
+        FindObjectOfType<DialogueManager>().OpenDialogue(finalMessages,npcId,true);
     }
 }
 
