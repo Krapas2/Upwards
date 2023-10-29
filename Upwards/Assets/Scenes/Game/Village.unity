@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec7566f4af8b114fad56d2aca744db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messages:
+  initialMessages:
   - actorId: 1
     message: OLA VIAJANTE!
   - actorId: 1
@@ -509,15 +509,17 @@ MonoBehaviour:
   - actorId: 1
     message: EU SOU PEDREGULHO PEDROSO
   - actorId: 1
-    message: "GOSTO DE PEDRAS, CAVERNAS ESCURAS E EXPLOS\xD5ES"
-  - actorId: 1
     message: BOOOOM! HAHAHAHA
   - actorId: 0
-    message: " Erm\u2026 que bom te conhecer"
+    message: "Erm\u2026 que bom te conhecer."
+  - actorId: 1
+    message: SIM SIM! HAHA.
   - actorId: 1
     message: "MINHA CASA \xC9 FEITA TODA DE PEDRA!"
   - actorId: 1
     message: "\xC9 MUITO F\xC1CIL DE ENCONTRAR PEDRAS NAS CAVERNAS"
+  - actorId: 1
+    message: "MINHA CASA \xC9 FEITA TODA DE PEDRA!"
   - actorId: 1
     message: "E MAIS F\xC1CIL AINDA QUANDO VOC\xCA TEM BOMBAS"
   - actorId: 1
@@ -529,23 +531,35 @@ MonoBehaviour:
   - actorId: 1
     message: "ASSIM FICA BEM MAIS F\xC1CIL DE EXPLORAR!"
   - actorId: 1
-    message: "EU AT\xC9 PODERIA TE FAZER ALGUMAS..."
+    message: "EU AT\xC9 PODERIA TE FAZER ALGUMAS"
   - actorId: 1
     message: "MAS MEU CENTRO DE FAZE\xC7\xC3O DE BOMBAS EST\xC1 NO MEIO DAS PEDRAS"
   - actorId: 0
-    message: "N\xE3o se preocupe, vou reconstruir sua casa!"
+    message: "N\xE3o se preocupe, vou reconstruir sua casa! "
   - actorId: 1
     message: PEDREGULHO PEDROSO AGRADECE O VIAJANTE!
   - actorId: 1
-    message: "QUANDO VOC\xCA RECONSTRUIR MINHA CASA VOU FAZER UM MONTE DE BOMBAS"
+    message: "QUANDO VOC\xCA RECONSTRUIR MINHA CASA"
+  - actorId: 1
+    message: VOU FAZER UM MONTE DE BOMBAS
   - actorId: 1
     message: "E VOC\xCA PODE PEGAR QUANTAS VOC\xCA QUISER!"
   - actorId: 0
     message: Obrigado! Vai ser de grande ajuda.
   - actorId: 1
-    message: ' BOOOM HAHAHA!'
+    message: BOOOM HAHAHA
+  finalMessages:
+  - actorId: 1
+    message: AHAHAHAHHA
+  - actorId: 1
+    message: "VOC\xCA CONSEGUIU VIAJANTE! N\xC3O ACREDITO! "
+  - actorId: 1
+    message: "AQUI PEGA PEGA, QUANTAS VOC\xCA QUISER"
+  - actorId: 1
+    message: "S\xD3 TOMA CUIDADO PRA N\xC3O EXPLODIR MINHA CASA"
+  - actorId: 1
+    message: AHAHAHA BOOOOOM!
   npcId: 3
-  powerUp: bomb
 --- !u!61 &147521345
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43895,35 +43909,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec7566f4af8b114fad56d2aca744db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messages:
+  initialMessages:
   - actorId: 1
     message: "Oh c\xE9us\u2026 o que farei agora?"
   - actorId: 1
     message: "\u2026opa eu n\xE3o te vi a\xED! Voc\xEA est\xE1 perdido?"
   - actorId: 0
-    message: "N\xE3o, sou apenas um viajante de passagem, o que aconteceu aqui?"
+    message: "N\xE3o, sou apenas um viajante de passagem"
+  - actorId: 0
+    message: 'O que aconteceu aqui? '
   - actorId: 1
     message: "Oh foi uma trag\xE9dia!"
   - actorId: 1
     message: "Uma terr\xEDvel tempestade passou por aqui e destruiu diversas casas
       da nossa vila"
   - actorId: 1
-    message: "Levar\xE3o meses e meses de trabalho para reconstruir todas as casas"
+    message: " Levar\xE3o meses e meses de trabalho para reconstruir todas as casas
+      que foram destru\xEDdas"
   - actorId: 0
-    message: "Talvez eu pudesse ajudar\u2026"
+    message: Talvez eu possa ajudar...
   - actorId: 0
     message: "Minha m\xE1quina construtora pode reconstruir as casas com os materiais
       certos"
   - actorId: 1
-    message: "Ohh n\xE3o acredito!"
+    message: "Ohh n\xE3o acredito"
   - actorId: 1
     message: "Voc\xEA faria isso por n\xF3s?"
   - actorId: 1
     message: Viajante isso seria de imensa ajuda!
   - actorId: 1
-    message: "Meu nome \xE9 Nuvem Nublado! Mas pode me chamar de Prefeito Nuvem"
+    message: "Meu nome \xE9 Nuvem Nublado! "
   - actorId: 1
-    message: "Sou o prefeito da (Vila). \xC9 um prazer te conhecer!"
+    message: Mas pode me chamar de Prefeito Nuvem
+  - actorId: 1
+    message: "Sou o prefeito da Vila, \xE9 um prazer te conhecer!"
   - actorId: 0
     message: "O prazer \xE9 meu"
   - actorId: 1
@@ -43931,21 +43950,31 @@ MonoBehaviour:
   - actorId: 1
     message: Pedras podem ser encontradas na MINA
   - actorId: 1
-    message: Madeira pode ser encontrada na FLORESTA
+    message: madeira pode ser encontrada na FLORESTA
   - actorId: 1
     message: "e nuvens podem ser encontradas no C\xC9U"
   - actorId: 1
     message: "Esses materiais s\xE3o necess\xE1rios para reconstruir a vila"
   - actorId: 1
-    message: "Se conseguir restaurar minha nuvenzinha ficarei t\xE3o agradecido!"
+    message: "Se conseguir restaurar minha nuvenzinha ficarei t\xE3o agradecido"
   - actorId: 1
-    message: "Vou lhe presentear com a antiga nuvem m\xE1gica de meu av\xF4!"
+    message: "vou lhe presentear com a antiga nuvem m\xE1gica de meu av\xF4! "
   - actorId: 1
-    message: "Um presente \u201Ca altura\u201D por um gesto t\xE3o generoso! Ahahaha!"
+    message: "Um presente \u201Ca altura\u201D por um gesto t\xE3o generoso!"
+  - actorId: 1
+    message: Ahahaha!
   - actorId: 0
     message: Valeu, Prefeito Nuvem!
+  finalMessages:
+  - actorId: 1
+    message: "Viajante voc\xEA conseguiu! "
+  - actorId: 1
+    message: Obrigado por ajudar a reconstruir minha casa!
+  - actorId: 1
+    message: "E como prometido, a nuvem antiga de meu av\xF4! "
+  - actorId: 1
+    message: Ela vai te ajudar nas suas aventuras
   npcId: 1
-  powerUp: cloud
 --- !u!1 &840648247
 GameObject:
   m_ObjectHideFlags: 0
@@ -96770,7 +96799,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1656404048
 GameObject:
@@ -97271,45 +97300,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec7566f4af8b114fad56d2aca744db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messages:
+  initialMessages:
   - actorId: 1
     message: "Ol\xE1 Viajante!"
   - actorId: 1
     message: "Uma nuvenzinha me contou que voc\xEA vai ajudar a reconstruir a vila"
   - actorId: 1
-    message: 'Hia hia hia, que demais! '
+    message: Hia hia hia, que demais!
   - actorId: 1
     message: "Meu nome \xE9 Ramas Eucalipto"
   - actorId: 1
-    message: Mas todos aqui me chamam de Bruxa Eucalipto
+    message: "por\xE9m todos aqui me chamam de Bruxa eucalipto"
   - actorId: 1
-    message: "Mas eu n\xE3o sou t\xE3o feia assim, sou?"
+    message: "mas eu n\xE3o sou t\xE3o feia assim, sou? "
   - actorId: 0
-    message: "Claro que n\xE3o"
+    message: "Claro que n\xE3o!"
   - actorId: 1
-    message: 'Hia Hia Hia '
+    message: Hia Hia Hia
   - actorId: 1
-    message: "Estou s\xF3 brincando"
+    message: "estou s\xF3 brincando"
   - actorId: 1
-    message: "Me chamam assim por causa das po\xE7\xF5es e da vassoura mesmo"
+    message: "me chamam assim por causa das po\xE7\xF5es e da vassoura mesmo"
   - actorId: 0
-    message: Estou aqui para ajudar Bruxa Eucalipto!
+    message: Estou aqui para ajudar, Bruxa Eucalipto!
   - actorId: 1
     message: A nuvenzinha resolveu lhe dar um presente?
   - actorId: 1
     message: "Pois saiba que o meu \xE9 muito melhor!"
   - actorId: 1
-    message: 'Hia Hia Hia '
+    message: Hia hia hia
   - actorId: 1
     message: "Minha vassoura m\xE1gica que vai te fazer voar super r\xE1pido!"
+  - actorId: 1
+    message: Hia hia hia
   - actorId: 0
-    message: Obrigado!
+    message: obrigado!
   - actorId: 1
-    message: "Eu quem agrade\xE7o a sua generosidade Viajante! At\xE9 breve!"
+    message: "Eu quem agrade\xE7o a sua generosidade Viajante!"
   - actorId: 1
-    message: 'Hia Hia Hia '
+    message: "At\xE9 breve!"
+  - actorId: 1
+    message: Hia hia hia
+  finalMessages:
+  - actorId: 1
+    message: Que Demais viajante!
+  - actorId: 1
+    message: Hia hia hia
+  - actorId: 1
+    message: Obrigado por reconstruir minha querida arvorezinha!
+  - actorId: 1
+    message: E aqui o presente que havia comentado!
+  - actorId: 1
+    message: "S\xF3 cuidado para n\xE3o se espatifar no ch\xE3o! "
+  - actorId: 1
+    message: Hia hia hia
   npcId: 2
-  powerUp: broom
 --- !u!61 &1671777312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -97618,6 +97663,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1746058034319962035, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: structures.Array.data[1].cost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353563178582477222, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920976726057152790, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
