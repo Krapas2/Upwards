@@ -69,10 +69,13 @@ public class PlayerMovement : MonoBehaviour
         
         //-------------------walking-------------------
         if(!climbing){
-            if (grounded || horizontalInput != 0) 
-                rb.velocity = new Vector2(horizontalInput*walkSpeed, rb.velocity.y);
-            else {
-                rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(horizontalInput*walkSpeed, rb.velocity.y), slowInAir * Time.deltaTime);
+            if (grounded || horizontalInput != 0)
+            {
+                rb.velocity = new Vector2(horizontalInput * walkSpeed, rb.velocity.y);
+            }
+            else
+            {
+                rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(horizontalInput * walkSpeed, rb.velocity.y), slowInAir * Time.deltaTime);
             }
         }
 

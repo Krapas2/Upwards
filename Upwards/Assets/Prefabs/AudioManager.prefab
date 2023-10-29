@@ -71,7 +71,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Wilds
     clip: {fileID: 8300000, guid: 665beb2ea9b8e074d9df3af1a06aa011, type: 3}
-    volume: 0.5
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -80,6 +80,12 @@ MonoBehaviour:
     volume: 1
     pitch: 2
     loop: 0
+    source: {fileID: 0}
+  - name: Break
+    clip: {fileID: 8300000, guid: d2f8537401206584693781202deff57e, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: Construir
     clip: {fileID: 8300000, guid: 8380d81d693ca6741983f349db3611d9, type: 3}
@@ -123,4 +129,40 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
-  hasIntro: 1
+  - name: Boom
+    clip: {fileID: 8300000, guid: 1e2137fb9baa9da439383f1245753cd1, type: 3}
+    volume: 0.503
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Broom
+    clip: {fileID: 8300000, guid: faf7f1e0435d5ba47bd4f8bab8d8f99c, type: 3}
+    volume: 0.496
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Wind
+    clip: {fileID: 8300000, guid: b513617bccfa5904f9018c48b5450106, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: WindFadeOut
+    clip: {fileID: 8300000, guid: 12e9e46c41971d841839f4688c186d35, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CloudRise
+    clip: {fileID: 8300000, guid: c3a7fdee654da8749910046af6b43a59, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CloudPop
+    clip: {fileID: 8300000, guid: a6c3374ac3cb7ed45b6b13b682bdb9a2, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  hasIntro: 0
