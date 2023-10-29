@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndCloud: {fileID: 2187057821080425836, guid: 3471695ca9d4b674f991bf159718d8e9, type: 3}
-  minPos: {x: 5, y: 0}
-  maxPos: {x: 5, y: 0}
-  ObjectivePointer: {fileID: 2187057821080425836, guid: 3471695ca9d4b674f991bf159718d8e9, type: 3}
-  PointerDistance: 3
+  minPos: {x: -120, y: 300}
+  maxPos: {x: 120, y: 400}
+  ObjectivePointer: {fileID: 6516068980946642576, guid: 115dc70107093644988b46b9e10ae678, type: 3}
+  PointerDistance: 8

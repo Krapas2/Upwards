@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CaveBackground : MonoBehaviour
 {
-
     public Transform lightSource;
 
     private Renderer sprite;
@@ -12,6 +11,8 @@ public class CaveBackground : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<Renderer>();
+        if(!lightSource)
+            lightSource = FindObjectOfType<PlayerMovement>().transform;
     }
 
     void Update()

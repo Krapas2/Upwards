@@ -12,10 +12,12 @@ public class CaveTerrain : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<TilemapRenderer>();
+        if(!lightSource)
+            lightSource = FindObjectOfType<PlayerMovement>().transform;
     }
 
     void Update()
     {
-        sprite.material.SetVector("_LightPos",lightSource.position);
+        sprite.material.SetVector("_LightPos", lightSource.position);
     }
 }
