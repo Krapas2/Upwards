@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     //-------------------walking-------------------
     public float walkSpeed = 15;
     public float slowInAir = 7f; // amount to slow down when in air and not pressing movement keys
+    private bool walkSFXBool;
 
     //-------------------jumping-------------------
     public float jumpForce = 30;
@@ -32,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool climbing;
 
+    private bool climbSFXBool;
+
     //-------------------Misc-------------------
 
     public LayerMask platformLayer; // layer with objects to fall through when holding down
@@ -51,12 +54,14 @@ public class PlayerMovement : MonoBehaviour
     //-------------------Components-------------------
     private Rigidbody2D rb;
     private Animator anim;
+    private AudioManager _audManager;
 
     void Start()
     {
         //-------------------assigning components-------------------
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        _audManager = FindObjectOfType<AudioManager>();
     }
 
 
@@ -76,7 +81,15 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(horizontalInput * walkSpeed, rb.velocity.y), slowInAir * Time.deltaTime);
+                
             }
+
+            if (grounded && horizontalInput != 0 && walkSFXBool)
+            {
+                _audManager.Play("footStep1");
+                walkSFXBool = false;
+            }
+            else { _audManager.Stop("footStep1"); walkSFXBool = true; }
         }
 
         if (horizontalInput > 0 && !facingRight)
@@ -94,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if(climbing){
+            if (climbSFXBool)
+            {
+                _audManager.Play("RopeClimb");
+                climbSFXBool= false;
+            }
             rb.velocity = new Vector3(0f, verticalInput * ropeClimbSpeed,  0f);
 
             if(!curRope){
@@ -142,6 +160,7 @@ public class PlayerMovement : MonoBehaviour
         if(climbing){
             StopClimbing(true);
         }
+        _audManager.Play("Pulo");
         rb.velocity += Vector2.up*jumpForce;
     }
 
@@ -150,6 +169,8 @@ public class PlayerMovement : MonoBehaviour
         if(hop){
             rb.velocity += Vector2.up*ropeHopForce;
         }
+        _audManager.Stop("RopeClimb");
+        climbSFXBool = true;
         climbing = false;
     }
 
