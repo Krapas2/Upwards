@@ -1021,7 +1021,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: bfcac658f81ca2542be21012a7a382ce, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1353,13 +1353,13 @@ MonoBehaviour:
       - m_Target: {fileID: 374168913}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: ChangeScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Intro
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &788781424
@@ -2207,3 +2207,4 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  hasIntro: 0
