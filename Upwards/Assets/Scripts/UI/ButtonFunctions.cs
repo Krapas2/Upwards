@@ -12,6 +12,12 @@ public class ButtonFunctions : MonoBehaviour
 		Time.timeScale = 1f;
 	}
 
+	public void ChangeScene (string sceneName)
+	{
+		SceneManager.LoadScene (sceneName);
+		Time.timeScale = 1f;
+	}
+
 	public void QuitGame ()
 	{
 		Debug.Log ("quitGame");

@@ -343,17 +343,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shots:
-  - shotImage: {fileID: 21300000, guid: ed19220b16c286b41b79bd187e59d9fa, type: 3}
+  - shotImage: {fileID: 21300000, guid: 605045b225e96514481f058ba0863b2a, type: 3}
     time: 1
-  - shotImage: {fileID: 21300000, guid: 493992cb9c62db5498a468cbd1f50977, type: 3}
+  - shotImage: {fileID: 21300000, guid: f70c8d91b15463640845a356ab5b0ac0, type: 3}
     time: 1
-  - shotImage: {fileID: 21300000, guid: 84bc00fde55a38b4c823d9ccc19645f0, type: 3}
+  - shotImage: {fileID: 21300000, guid: 46ca26829a5609046859eace075449f3, type: 3}
     time: 1
-  - shotImage: {fileID: 444702640956841479, guid: 252ef6e36f292f146bc97d5ae32cc2b2, type: 3}
+  - shotImage: {fileID: 21300000, guid: db30d9cc107ef9941a14039cf9eae0ae, type: 3}
+    time: 1
+  - shotImage: {fileID: 21300000, guid: 1fb8fc79d510216468e61bf37d63165f, type: 3}
+    time: 1
+  - shotImage: {fileID: 21300000, guid: f450e2863bf8bca438087731e2eb9049, type: 3}
+    time: 1
+  - shotImage: {fileID: 21300000, guid: 2a611ad31933a2649a2614bc0898aede, type: 3}
     time: 1
   fadeTime: 1
   waitTime: 0.25
-  nextScene: TitleScreen
+  nextScene: Village
 --- !u!114 &1056032328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84bc00fde55a38b4c823d9ccc19645f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 605045b225e96514481f058ba0863b2a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
