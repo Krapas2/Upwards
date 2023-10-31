@@ -80,20 +80,6 @@ public class AudioManager : MonoBehaviour
         return s.source;
     }
 
-    public void SetVolume(string trackName, float volume)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == trackName);
-        if (s == null)
-        {
-            Debug.LogWarning("Track: " + trackName + " not found!");
-            return;
-        }
-
-        volume = Mathf.Clamp01(volume);
-
-        s.source.volume = volume;
-    }
-
     private void StartTheme()
     {
         audioManager.Play(SceneManager.GetActiveScene().name);
