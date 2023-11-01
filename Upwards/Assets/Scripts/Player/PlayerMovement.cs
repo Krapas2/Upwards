@@ -94,7 +94,8 @@ public class PlayerMovement : MonoBehaviour
                 if (_audManager) { _audManager.Play("footStep1"); }
                 walkSFXBool = false;
             }
-            else { /*if (_audManager) { _audManager.Stop("footStep1"); }*/
+            else {
+                _audManager.Stop("footStep1");
                 walkSFXBool = true; }
         }
 
