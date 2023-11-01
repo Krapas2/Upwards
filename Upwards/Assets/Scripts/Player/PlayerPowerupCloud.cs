@@ -24,6 +24,8 @@ public class PlayerPowerupCloud : MonoBehaviour
         canGlide = true; riseBool = true; fadeBool = true;
         playerMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
+
+        riseBool = true; fadeBool = true;
         
     }
 
@@ -34,7 +36,7 @@ public class PlayerPowerupCloud : MonoBehaviour
         if (Input.GetButton("Cloud") && canGlide)
         {
             if(riseBool) {
-                _audManager.Play("CloudRise");
+                if(_audManager) _audManager.Play("CloudRise");
                 riseBool= false;
             }
 
@@ -56,8 +58,11 @@ public class PlayerPowerupCloud : MonoBehaviour
 
     void FadeOut()
     {
-        _audManager.Play("CloudPop");
-        _audManager.Stop("CloudRise");
+        if (_audManager)
+        {
+            _audManager.Play("CloudPop");
+            _audManager.Stop("CloudRise");
+        }
         fadeBool = false;
         riseBool = true;
     }

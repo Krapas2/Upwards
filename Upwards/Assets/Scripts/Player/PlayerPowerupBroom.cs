@@ -38,8 +38,11 @@ public class PlayerPowerupBroom : MonoBehaviour
         if (Input.GetButtonDown("Broom") && canFly)
         {
             fadeBool= true;
-            _audManager.Play("Broom");
-            _audManager.Play("Wind");
+            if (_audManager)
+            {
+                _audManager.Play("Broom");
+                _audManager.Play("Wind");
+            }
 
             rb.velocity = new Vector2(rb.velocity.x, 0);
             playerMovement.flying = true;
@@ -69,8 +72,11 @@ public class PlayerPowerupBroom : MonoBehaviour
 
     void FadeOut()
     {
-        _audManager.Play("WindFadeOut");
-        _audManager.Stop("Wind");
+        if (_audManager)
+        {
+            _audManager.Play("WindFadeOut");
+            _audManager.Stop("Wind");
+        }
         fadeBool= false;
     }
 

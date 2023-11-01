@@ -11,6 +11,8 @@ public class MusicSize : MonoBehaviour
 
     private AudioManager _audManager;
 
+    
+
     void Start()
     {
         _audManager = FindObjectOfType<AudioManager>();
@@ -23,7 +25,8 @@ public class MusicSize : MonoBehaviour
 
         volume = Mathf.Clamp01(volume);
 
-        _audManager.SetVolume("Wilds", volume);
+        if (_audManager)
+        { _audManager.SetVolume("Wilds", volume); }
 
 
     }

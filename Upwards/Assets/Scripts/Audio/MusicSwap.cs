@@ -9,7 +9,7 @@ public class MusicSwap : MonoBehaviour
 
     private void Start()
     {
-        Invoke("Buffer", 0.1f);
+        Invoke("Buffer", 0.2f);
     }
 
     public void Buffer()
@@ -18,8 +18,11 @@ public class MusicSwap : MonoBehaviour
 
         if (PlayerPrefs.GetString("lastScene") != null)
         {
-            _audManager.Stop(PlayerPrefs.GetString("lastScene"));
-            _audManager.Play(SceneManager.GetActiveScene().name);
+            if (_audManager)
+            {
+                _audManager.Stop(PlayerPrefs.GetString("lastScene"));
+                _audManager.Play(SceneManager.GetActiveScene().name);
+            }
         }
     }
 }

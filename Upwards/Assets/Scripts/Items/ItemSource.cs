@@ -24,7 +24,7 @@ public class ItemSource : MonoBehaviour
             ItemDrop item = Instantiate(itemDrop, dropPosition.position + (new Vector3(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f), 0f)), Quaternion.identity, transform.parent);
             item.AssignItem(itemName);
         }
-        _audManager.Play("CloudPop");
+        if(_audManager) _audManager.Play("CloudPop");
         Destroy(gameObject);
     }
 
