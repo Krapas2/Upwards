@@ -41,3 +41,9 @@ ehthumbs.db
 Thumbs.db
 *.log
 *.dwlt
+/Upwards/ProjectSettings/CommonBurstAotSettings.json
+/Upwards/ProjectSettings/BurstAotSettings_StandaloneWindows.json
+/Upwards/.vs/Upwards/FileContentIndex/f52498fb-1198-4776-83ed-635fe3028bc5.vsidx
+/Upwards/.vs/Upwards/FileContentIndex/ea73bed3-84ef-46df-b83e-f7824201c22d.vsidx
+/Upwards/.vs/Upwards/FileContentIndex/de8d4db7-141d-4e85-a865-cdebdbf1965a.vsidx
+/Upwards/.vs/Upwards/FileContentIndex/40db1f9b-cc1b-46ee-93cb-8d29552891e1.vsidx
