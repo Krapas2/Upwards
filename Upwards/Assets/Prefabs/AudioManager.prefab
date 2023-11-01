@@ -71,7 +71,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Wilds
     clip: {fileID: 8300000, guid: 665beb2ea9b8e074d9df3af1a06aa011, type: 3}
-    volume: 0
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -82,8 +82,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Break
-    clip: {fileID: 8300000, guid: d2f8537401206584693781202deff57e, type: 3}
-    volume: 0.541
+    clip: {fileID: 8300000, guid: 2031dae1285bb7d4f880f6cbd81a743f, type: 3}
+    volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -128,6 +128,24 @@ MonoBehaviour:
     volume: 0
     pitch: 0
     loop: 0
+    source: {fileID: 0}
+  - name: RopeThrow
+    clip: {fileID: 8300000, guid: f73329a9d1dda1440a64165c6e853569, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RopeHit
+    clip: {fileID: 8300000, guid: f33fd35b6ecf9834bb30bc3a9921555a, type: 3}
+    volume: 0.122
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RopeClimb
+    clip: {fileID: 8300000, guid: 4a4deefa76b2cab4f99a075f129261c2, type: 3}
+    volume: 0.267
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: Boom
     clip: {fileID: 8300000, guid: 1e2137fb9baa9da439383f1245753cd1, type: 3}

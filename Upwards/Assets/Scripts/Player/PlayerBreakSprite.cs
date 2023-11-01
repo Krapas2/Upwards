@@ -21,6 +21,7 @@ public class PlayerBreakSprite : MonoBehaviour
         playerInventory = GetComponent<PlayerInventory>();
         cam = FindObjectOfType<Camera>();
         _audManager = FindObjectOfType<AudioManager>();
+        audBool = true;
     }
     void Update()
     {
@@ -29,7 +30,8 @@ public class PlayerBreakSprite : MonoBehaviour
         if(collectMode){
             if(Input.GetButton("Fire1") && source){
                 source.BreakAnimation();
-                if (audBool) { _audManager.Play("Break"); audBool = false; }
+                if (audBool) { if(_audManager) _audManager.Play("Break"); 
+                    audBool = false; }
                 if(!source.IsInvoking("Drop"))
                     source.Invoke("Drop",breakTime);
             }
@@ -40,7 +42,7 @@ public class PlayerBreakSprite : MonoBehaviour
                 itemSource.transform.position = itemSource.startPos;
                 itemSource.CancelInvoke();
 
-                _audManager.Stop("Break");
+                if (_audManager) _audManager.Stop("Break");
                 audBool = true;
             }
         }

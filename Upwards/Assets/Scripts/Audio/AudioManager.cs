@@ -16,14 +16,18 @@ public class AudioManager : MonoBehaviour
     {
 
         if (instance == null)
-            instance = this;
-        else
         {
-            Destroy(gameObject);
-            return;
-        }
 
-        DontDestroyOnLoad(gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+
+        }
+        else if (instance != this)
+        {
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
 
         foreach (Sound s in sounds)
         {
@@ -96,6 +100,7 @@ public class AudioManager : MonoBehaviour
 
     private void StartTheme()
     {
-        audioManager.Play(SceneManager.GetActiveScene().name);
+        if(audioManager)
+            audioManager.Play(SceneManager.GetActiveScene().name);
     }
 }

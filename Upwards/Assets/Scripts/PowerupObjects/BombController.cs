@@ -50,8 +50,8 @@ public class BombController : MonoBehaviour
                 ground.SetTile(Vector3Int.FloorToInt(transform.position), null);
             }
         }
-
-        _audManager.Play("Boom");
+        
+        if(_audManager) _audManager.Play("Boom");
         Destroy(gameObject);
     }
 }

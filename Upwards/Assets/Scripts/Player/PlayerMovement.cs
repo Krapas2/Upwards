@@ -62,6 +62,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         _audManager = FindObjectOfType<AudioManager>();
+
+        //-------------------assigning vars-------------------
+        climbSFXBool = true;
+        walkSFXBool= true;
+
     }
 
 
@@ -86,10 +91,11 @@ public class PlayerMovement : MonoBehaviour
 
             if (grounded && horizontalInput != 0 && walkSFXBool)
             {
-                _audManager.Play("footStep1");
+                if (_audManager) { _audManager.Play("footStep1"); }
                 walkSFXBool = false;
             }
-            else { _audManager.Stop("footStep1"); walkSFXBool = true; }
+            else { /*if (_audManager) { _audManager.Stop("footStep1"); }*/
+                walkSFXBool = true; }
         }
 
         if (horizontalInput > 0 && !facingRight)
@@ -109,7 +115,8 @@ public class PlayerMovement : MonoBehaviour
         if(climbing){
             if (climbSFXBool)
             {
-                _audManager.Play("RopeClimb");
+                if (_audManager)
+                    _audManager.Play("RopeClimb");
                 climbSFXBool= false;
             }
             rb.velocity = new Vector3(0f, verticalInput * ropeClimbSpeed,  0f);
@@ -160,7 +167,10 @@ public class PlayerMovement : MonoBehaviour
         if(climbing){
             StopClimbing(true);
         }
-        _audManager.Play("Pulo");
+
+        if(_audManager)
+            _audManager.Play("Pulo");
+
         rb.velocity += Vector2.up*jumpForce;
     }
 
@@ -169,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
         if(hop){
             rb.velocity += Vector2.up*ropeHopForce;
         }
-        _audManager.Stop("RopeClimb");
+        if(_audManager) _audManager.Stop("RopeClimb");
         climbSFXBool = true;
         climbing = false;
     }

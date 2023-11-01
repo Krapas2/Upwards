@@ -34,7 +34,7 @@ public class ScrollingBackground : MonoBehaviour
     private void Start()
     {
         _audManager = FindObjectOfType<AudioManager>();
-
+       
         _fadeImage.CrossFadeAlpha(0, _audManager.GetSource("Intro").clip.length, false);
 
         _songTime = _audManager.GetSource("TitleScreen").clip.length;
