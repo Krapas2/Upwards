@@ -48402,7 +48402,7 @@ MonoBehaviour:
     point: {fileID: 802904961}
   ground:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &2103450605
 GameObject:
   m_ObjectHideFlags: 0
