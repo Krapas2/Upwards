@@ -141,5 +141,6 @@ MonoBehaviour:
   itemSources:
     serializedVersion: 2
     m_Bits: 8192
+  particles: {fileID: 7746828408834962712, guid: 7ed59aa3c4077564ebf4bde9e24fcee4, type: 3}
   ground: {fileID: 0}
   rb: {fileID: 0}
