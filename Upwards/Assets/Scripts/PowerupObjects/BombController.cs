@@ -9,7 +9,7 @@ public class BombController : MonoBehaviour
     public float explosionRadius;
     public float waitTime;
     public LayerMask itemSources;
-
+    public GameObject particles;
     public Tilemap ground;
 
     private int intExplosionRadius;
@@ -26,7 +26,6 @@ public class BombController : MonoBehaviour
         intExplosionRadius = (int)explosionRadius;
         Invoke("Explode", waitTime);
     }
-
     void Explode()
     {
         foreach (Collider2D itemSource in Physics2D.OverlapCircleAll(transform.position, explosionRadius, itemSources))
@@ -47,6 +46,9 @@ public class BombController : MonoBehaviour
                 ground.SetTile(Vector3Int.FloorToInt(transform.position), null);
             }
         }
+        //PARTICLES
+        Instantiate(particles, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 }
