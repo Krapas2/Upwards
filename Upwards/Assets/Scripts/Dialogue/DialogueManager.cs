@@ -13,9 +13,9 @@ public class DialogueManager : MonoBehaviour
 {
     private TextMeshPro messageText;
     private GameObject player,npc;
+    private TriggerDialogueNpc triggerNPC;
     private int actorId;
     public float spaceBox;
-    private string powerUpName;
     public GameObject prefabBox;
     Message[] currentMessages;
     List<DialogueBox> dialogueBoxes = new List<DialogueBox>();
@@ -61,6 +61,18 @@ public class DialogueManager : MonoBehaviour
         firstTime = true;
     }
     public void OpenDialogue(Message[] messages, int npcId, bool isFinalDialogue){
+        
+        //SE AINDA TIVER DIÁLOGO RESETAR TRIGGER DO DIÁLOGO
+        if (dialogueBoxes.Count > 0){
+            ClearBoxes();
+            triggerNPC = npc.GetComponent<TriggerDialogueNpc>();
+
+            if(!isFinalDialogue)
+                triggerNPC.triggeredFirstDialogue = false;   
+            else 
+                triggerNPC.triggeredLastDialogue = false;   
+        }
+        
         currentMessages = messages;
         activeMessage = 0;
         activeBox = 0;
@@ -122,7 +134,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K) && isActive){
+        if (Input.GetButtonDown("Next Dialogue") && isActive){
             NextMessage();
         }
 

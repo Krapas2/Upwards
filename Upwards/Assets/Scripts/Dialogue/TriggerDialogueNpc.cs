@@ -12,8 +12,12 @@ public class TriggerDialogueNpc : MonoBehaviour
 
     [HideInInspector]
     public bool NPCTriggered;
-    private bool triggeredFirstDialogue = false;
-    private bool triggeredLastDialogue = false;
+
+    [HideInInspector]
+    public bool triggeredFirstDialogue = false;
+
+    [HideInInspector]
+    public bool triggeredLastDialogue = false;
     
     bool CheckLastDialogue(int npcId){
         int itemIndex, powerupIndex;
