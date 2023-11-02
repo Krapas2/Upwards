@@ -8,14 +8,14 @@ public class PlayerRope : MonoBehaviour
     public RopeProjectile rope;
     public float throwSpeed;
     public float distanceOffsetFactor;
-
+    private AudioManager _audManager;
 
 
     private Camera cam;
 
     void Start(){
         cam = Camera.main;
-
+        _audManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -26,6 +26,7 @@ public class PlayerRope : MonoBehaviour
     }
 
     void ThrowRope(){
+        if(_audManager) _audManager.Play("RopeThrow");
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         float yOffset = Mathf.Pow(Vector2.Distance(transform.position, mousePos),2) / distanceOffsetFactor;
 

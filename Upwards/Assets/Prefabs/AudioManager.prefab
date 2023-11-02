@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9269137, y: 1.8657508, z: -47.735683}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,34 +45,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Tema
-    clip: {fileID: 8300000, guid: b5930ab8273924549bb968b9725069d1, type: 3}
+  - name: Intro
+    clip: {fileID: 8300000, guid: ef06c561d11f2c54aadaae4c09037a2e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TitleScreen
+    clip: {fileID: 8300000, guid: 771ade5c7081c8f4c9119aa495497337, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Village
+    clip: {fileID: 8300000, guid: d6e2c04dd1dbda741880f179ac42515d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Tower
+    clip: {fileID: 8300000, guid: fc206ce9c0188984d9150a437783ef79, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Wilds
+    clip: {fileID: 8300000, guid: 665beb2ea9b8e074d9df3af1a06aa011, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Pulo
-    clip: {fileID: 8300000, guid: f46463e61a728024eb20b8170a6a007d, type: 3}
+    clip: {fileID: 8300000, guid: 143cec69ae0f0a046baf8f89347ae392, type: 3}
     volume: 1
-    pitch: 2
+    pitch: 1.4
     loop: 0
     source: {fileID: 0}
+  - name: Break
+    clip: {fileID: 8300000, guid: cae040fca8585f043ab0bc092e09b046, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: Construir
-    clip: {fileID: 8300000, guid: 8380d81d693ca6741983f349db3611d9, type: 3}
+    clip: {fileID: 8300000, guid: fbd1bc1b3d9bd594caa38c48c51d0697, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Pop
-    clip: {fileID: 8300000, guid: de95e92d45ed2fe4c91066c7d1eee29a, type: 3}
+    clip: {fileID: 8300000, guid: 5feed0bcb5a7dfd478a14e7e06a42b80, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 1.2
     loop: 0
     source: {fileID: 0}
   - name: footStep1
-    clip: {fileID: 8300000, guid: c01239925c7cf284182a680771b1e98e, type: 3}
-    volume: 1
-    pitch: 1
+    clip: {fileID: 8300000, guid: a12f5754f6ecce94b8f5a718581bea90, type: 3}
+    volume: 0.695
+    pitch: 0.52
     loop: 0
     source: {fileID: 0}
   - name: footStep2
@@ -94,13 +125,62 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: footStep5
     clip: {fileID: 8300000, guid: 1342d7e14e5a89f4e9805dc47567c448, type: 3}
-    volume: 1
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: RopeThrow
+    clip: {fileID: 8300000, guid: 91cbdb2dd65e17b408b1ef1d882eb425, type: 3}
+    volume: 0.381
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Arr
-    clip: {fileID: 8300000, guid: 7713e2a7524219744989825299bc42f6, type: 3}
-    volume: 1
+  - name: RopeHit
+    clip: {fileID: 8300000, guid: 8629ceb36dd912f4982b9245e606b2f8, type: 3}
+    volume: 0.358
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: RopeClimb
+    clip: {fileID: 8300000, guid: 6c01a76ccc37dcc42a76d46278e9669b, type: 3}
+    volume: 0.435
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Boom
+    clip: {fileID: 8300000, guid: 1e2137fb9baa9da439383f1245753cd1, type: 3}
+    volume: 0.503
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Broom
+    clip: {fileID: 8300000, guid: faf7f1e0435d5ba47bd4f8bab8d8f99c, type: 3}
+    volume: 0.496
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Wind
+    clip: {fileID: 8300000, guid: b513617bccfa5904f9018c48b5450106, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: WindFadeOut
+    clip: {fileID: 8300000, guid: 12e9e46c41971d841839f4688c186d35, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CloudRise
+    clip: {fileID: 8300000, guid: c3a7fdee654da8749910046af6b43a59, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CloudPop
+    clip: {fileID: 8300000, guid: a6c3374ac3cb7ed45b6b13b682bdb9a2, type: 3}
+    volume: 0.541
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  hasIntro: 0
