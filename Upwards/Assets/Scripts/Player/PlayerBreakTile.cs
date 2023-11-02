@@ -65,6 +65,9 @@ public class PlayerBreakTile : MonoBehaviour
                 curTileBreak.item = item;
                 curTileBreak.itemName = tileSelected.name;
             }
+            
+
+
         }
     }
 }

@@ -41,7 +41,8 @@ public class ItemDrop : MonoBehaviour
             inventory.AddItem(ItemIndex, 1);
             string n = ((int)(Random.Range(1, 3))).ToString();
             if (audioManager) // only play sound if audio manager exists. otherwise game crashes
-                audioManager.Play("pop" + n);
+                //audioManager.Play("pop" + n);
+                audioManager.Play("Pop");
             Destroy(gameObject);
         }
     }
