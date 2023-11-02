@@ -76,33 +76,33 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Pulo
-    clip: {fileID: 8300000, guid: f46463e61a728024eb20b8170a6a007d, type: 3}
+    clip: {fileID: 8300000, guid: 143cec69ae0f0a046baf8f89347ae392, type: 3}
     volume: 1
-    pitch: 2
+    pitch: 1.4
     loop: 0
     source: {fileID: 0}
   - name: Break
-    clip: {fileID: 8300000, guid: 2031dae1285bb7d4f880f6cbd81a743f, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: cae040fca8585f043ab0bc092e09b046, type: 3}
+    volume: 0.7
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Construir
-    clip: {fileID: 8300000, guid: 8380d81d693ca6741983f349db3611d9, type: 3}
+    clip: {fileID: 8300000, guid: fbd1bc1b3d9bd594caa38c48c51d0697, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Pop
-    clip: {fileID: 8300000, guid: de95e92d45ed2fe4c91066c7d1eee29a, type: 3}
+    clip: {fileID: 8300000, guid: 5feed0bcb5a7dfd478a14e7e06a42b80, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 1.2
     loop: 0
     source: {fileID: 0}
   - name: footStep1
-    clip: {fileID: 8300000, guid: c01239925c7cf284182a680771b1e98e, type: 3}
-    volume: 1
-    pitch: 1
+    clip: {fileID: 8300000, guid: a12f5754f6ecce94b8f5a718581bea90, type: 3}
+    volume: 0.695
+    pitch: 0.52
     loop: 0
     source: {fileID: 0}
   - name: footStep2
@@ -130,20 +130,20 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: RopeThrow
-    clip: {fileID: 8300000, guid: f73329a9d1dda1440a64165c6e853569, type: 3}
-    volume: 0.541
+    clip: {fileID: 8300000, guid: 91cbdb2dd65e17b408b1ef1d882eb425, type: 3}
+    volume: 0.381
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: RopeHit
-    clip: {fileID: 8300000, guid: f33fd35b6ecf9834bb30bc3a9921555a, type: 3}
-    volume: 0.122
+    clip: {fileID: 8300000, guid: 8629ceb36dd912f4982b9245e606b2f8, type: 3}
+    volume: 0.358
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: RopeClimb
-    clip: {fileID: 8300000, guid: 4a4deefa76b2cab4f99a075f129261c2, type: 3}
-    volume: 0.267
+    clip: {fileID: 8300000, guid: 6c01a76ccc37dcc42a76d46278e9669b, type: 3}
+    volume: 0.435
     pitch: 1
     loop: 1
     source: {fileID: 0}
