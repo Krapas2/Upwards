@@ -15,10 +15,12 @@ public class RopeProjectile : MonoBehaviour
 
     [HideInInspector]
     public Rigidbody2D rb;
+    private AudioManager _audManager;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        _audManager = FindObjectOfType<AudioManager>();
     }
     void Update()
     {
@@ -32,6 +34,7 @@ public class RopeProjectile : MonoBehaviour
         if(ground == (ground | (1 << col.gameObject.layer))){
             travelling = false;
             rb.bodyType = RigidbodyType2D.Static;
+            if(_audManager) _audManager.Play("RopeHit");
             Destroy(GetComponent<Collider2D>());
             SpawnRope();
         }
