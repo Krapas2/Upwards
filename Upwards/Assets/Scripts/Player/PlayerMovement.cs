@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     //-------------------walking-------------------
     public float walkSpeed = 15;
     public float slowInAir = 7f; // amount to slow down when in air and not pressing movement keys
-    private bool walkSFXBool;
+    //private bool walkSFXBool;
 
     //-------------------jumping-------------------
     public float jumpForce = 30;
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
         //-------------------assigning vars-------------------
         climbSFXBool = true;
-        walkSFXBool= true;
+        //walkSFXBool= true;
 
     }
 
@@ -89,14 +89,14 @@ public class PlayerMovement : MonoBehaviour
                 
             }
 
-            if (grounded && horizontalInput != 0 && walkSFXBool)
-            {
-                if (_audManager) { _audManager.Play("footStep1"); }
-                walkSFXBool = false;
-            }
-            else {
-                _audManager.Stop("footStep1");
-                walkSFXBool = true; }
+            //if (grounded && horizontalInput != 0 && walkSFXBool)
+            //{
+            //    if (_audManager) { _audManager.Play("footStep1"); }
+            //    walkSFXBool = false;
+            //}
+            //else {
+            //    _audManager.Stop("footStep1");
+            //    walkSFXBool = true; }
         }
 
         if (horizontalInput > 0 && !facingRight)
