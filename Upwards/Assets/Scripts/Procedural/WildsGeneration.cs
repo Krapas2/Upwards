@@ -11,7 +11,7 @@ public class WildsGeneration : MonoBehaviour
     [HideInInspector]
     public SceneSpawn sceneSpawn;
 
-    void Awake()
+    void Start()
     {
         groundGenerator = FindObjectOfType<GroundGenerator>();
         resourceGenerators = FindObjectsOfType<ResourceGenerator>();

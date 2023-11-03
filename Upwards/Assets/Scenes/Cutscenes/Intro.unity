@@ -344,20 +344,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shots:
   - shotImage: {fileID: 21300000, guid: 605045b225e96514481f058ba0863b2a, type: 3}
-    time: 1
+    time: 2
   - shotImage: {fileID: 21300000, guid: f70c8d91b15463640845a356ab5b0ac0, type: 3}
-    time: 1
+    time: 2
   - shotImage: {fileID: 21300000, guid: 46ca26829a5609046859eace075449f3, type: 3}
-    time: 1
+    time: 0.5
   - shotImage: {fileID: 21300000, guid: db30d9cc107ef9941a14039cf9eae0ae, type: 3}
-    time: 1
+    time: 0.5
   - shotImage: {fileID: 21300000, guid: 1fb8fc79d510216468e61bf37d63165f, type: 3}
-    time: 1
+    time: 0.5
   - shotImage: {fileID: 21300000, guid: f450e2863bf8bca438087731e2eb9049, type: 3}
     time: 1
   - shotImage: {fileID: 21300000, guid: 2a611ad31933a2649a2614bc0898aede, type: 3}
-    time: 1
-  fadeTime: 1
+    time: 2
+  fadeTime: 0.75
   waitTime: 0.25
   nextScene: Village
 --- !u!114 &1056032328
