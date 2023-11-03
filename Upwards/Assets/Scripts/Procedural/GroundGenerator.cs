@@ -34,6 +34,7 @@ public class GroundGenerator : MonoBehaviour
     }
 
     public void Generate(){
+        Debug.Log("começando geração");
         Tilemap tilemap = GetComponent<Tilemap>();
 
         for(int i = 0; i < octaveSeeds.Length; i++){
@@ -44,12 +45,15 @@ public class GroundGenerator : MonoBehaviour
             int surfaceHeight = (int)Map(NoiseWithOctaves(new Vector2(x,0), surfaceNoiseScale, surfaceNoiseOctave),0,1,height-surfaceDepth,height);
 
             for(int y = 0; y < height; y++){
+                if(x == 0 && y == 0){
+                }
                 Vector2 pos = new Vector2(x,y);
                 TileBase tile = NoiseTile(pos, surfaceHeight);
                 tilemap.SetTile(new Vector3Int(x - width / 2 + (int)offset.x, y + (int)offset.y), tile);
                 background.SetTile(new Vector3Int(x - width / 2 + (int)offset.x, y + (int)offset.y), y < (surfaceHeight) ? tileBackground : null);
             }
         }
+        Debug.Log("terminando geração");
     }
 
     public TileBase NoiseTile(Vector2 pos, int surfaceHeight){

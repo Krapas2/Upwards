@@ -533,29 +533,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shots:
   - shotImage: {fileID: 21300000, guid: 20da1f161c476f34b84620a71ab9d633, type: 3}
-    time: 1
+    time: 2
   - shotImage: {fileID: 21300000, guid: b9264de1ad77fb24fa08a9d052027a57, type: 3}
-    time: 1
+    time: 2
   - shotImage: {fileID: 21300000, guid: fea89ef527ad03c4a9350943b77b3a6f, type: 3}
     time: 1
   - shotImage: {fileID: 21300000, guid: b9819017dedd7eb4d83361c4712c4f23, type: 3}
-    time: 1
+    time: 1.5
   - shotImage: {fileID: 21300000, guid: 003ddebf3b1a80948b1dd861cbcdb4f9, type: 3}
     time: 1
   - shotImage: {fileID: 21300000, guid: 50635405dba8a0b499e722165cc9b078, type: 3}
-    time: 1
+    time: 0.5
   - shotImage: {fileID: 21300000, guid: 706e7c4832f71b54c836bb1c1ad92fba, type: 3}
-    time: 1
+    time: 0.5
   - shotImage: {fileID: 21300000, guid: 76529f98c5f064e49b3971ce4a2a7e92, type: 3}
-    time: 1
+    time: 0.25
   - shotImage: {fileID: 21300000, guid: 3170e6561e3aae541925bb6347e01fc1, type: 3}
-    time: 1
+    time: 0.5
   - shotImage: {fileID: 21300000, guid: ca85327a78784934daba9308a081c243, type: 3}
-    time: 1
+    time: 2
   - shotImage: {fileID: 21300000, guid: 0b9ac1e0e2fbcfa4aa2097f2d0737e1c, type: 3}
-    time: 1
-  fadeTime: 1
-  waitTime: 0.25
+    time: 3
+  fadeTime: 0.25
+  waitTime: 0.1
   nextScene: TitleScreen
 --- !u!114 &504366941
 MonoBehaviour:

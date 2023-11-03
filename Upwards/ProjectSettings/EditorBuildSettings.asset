@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
+    path: Assets/Scenes/Menus/TitleScreen.unity
     guid: 9b52bb1db88b0c44da00039a95bbcbaa
   - enabled: 0
     path: Assets/Scenes/Game/testScreen.unity
@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Wilds.unity
     guid: 412b451038e02694281a26aafbc056ea
   - enabled: 1
-    path: Assets/Scenes/CreditsScreen.unity
+    path: Assets/Scenes/Menus/CreditsScreen.unity
     guid: 1e6613ac1349ee84db701b85ebf1a085
   - enabled: 1
     path: Assets/Scenes/Cutscenes/Intro.unity

@@ -13,17 +13,23 @@ public class ResourceGenerator : MonoBehaviour
     public float noiseThreshold;
     public LayerMask ground;
     public int amount;
-
-    private int curAmount = 0;
+/*
+    void Update(){
+        if(Input.GetButtonDown("Fire1")){
+            Generate();
+        }
+    }*/
 
     public void Generate()
     {
+        Debug.Log("começando recursos");
         float seed = Random.Range(0,10000);
+        int curAmount = 0;
         while(curAmount < amount){
             Vector2 randomPos = new Vector2(Random.Range(minX,maxX), Random.Range(minY,maxY)); //raffle position to try to place
             float densityInPosition = Mathf.PerlinNoise(randomPos.x + seed, randomPos.y);
-            bool posInGeometry = !Physics2D.OverlapPoint(randomPos, ground);
-            if(densityInPosition > noiseThreshold && posInGeometry){
+            bool posInGeometry = Physics2D.OverlapPoint(randomPos, ground);
+            if(densityInPosition > noiseThreshold && !posInGeometry){
                 Vector2 highPos = randomPos;
                 Vector2 pos = Physics2D.Raycast(highPos, Vector2.down, Mathf.Infinity, ground).point;
                 pos += Vector2.down / 16f;
