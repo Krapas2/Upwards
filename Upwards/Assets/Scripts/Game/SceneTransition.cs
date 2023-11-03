@@ -7,11 +7,12 @@ public class SceneTransition : MonoBehaviour
 {
 
     public string sceneName;
-
+    private AudioManager _audManager;
     private PlayerInventory playerInventory;
 
     void Start(){
         playerInventory = FindObjectOfType<PlayerInventory>();
+        _audManager = FindObjectOfType<AudioManager>();
     }
 
     void OnTriggerEnter2D(Collider2D col){
@@ -19,6 +20,7 @@ public class SceneTransition : MonoBehaviour
             PlayerPrefs.SetInt (item.name, item.amount);
         }
 
+        _audManager.Stop(SceneManager.GetActiveScene().name);
         PlayerPrefs.SetString ("lastScene", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(sceneName);
     }

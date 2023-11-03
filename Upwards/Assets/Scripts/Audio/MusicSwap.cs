@@ -9,20 +9,15 @@ public class MusicSwap : MonoBehaviour
 
     private void Start()
     {
-        Invoke("Buffer", 0.2f);
-    }
-
-    public void Buffer()
-    {
         _audManager = FindObjectOfType<AudioManager>();
 
         if (PlayerPrefs.GetString("lastScene") != null)
         {
             if (_audManager)
             {
-                _audManager.Stop(PlayerPrefs.GetString("lastScene"));
                 _audManager.Play(SceneManager.GetActiveScene().name);
             }
         }
     }
+
 }
