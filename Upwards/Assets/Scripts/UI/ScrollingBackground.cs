@@ -31,18 +31,24 @@ public class ScrollingBackground : MonoBehaviour
 
     private bool _fadeBool = false;
 
-    private void Start()
+    private void Awake()
     {
+        
         _audManager = FindObjectOfType<AudioManager>();
-       
-        _fadeImage.CrossFadeAlpha(0, _audManager.GetSource("Intro").clip.length, false);
+        Time.timeScale = 1f;
 
-        _songTime = _audManager.GetSource("TitleScreen").clip.length;
 
-        _timer = _waitTime;
+        if (_audManager)
+        {
+            _fadeImage.CrossFadeAlpha(0, _audManager.GetSource("Intro").clip.length, false);
 
-        _startPos = _background.transform.position;
-        Invoke("StartTheme", _audManager.GetSource("Intro").clip.length);
+            _songTime = _audManager.GetSource("TitleScreen").clip.length;
+
+            _timer = _waitTime;
+
+            _startPos = _background.transform.position;
+            Invoke("StartTheme", _audManager.GetSource("Intro").clip.length);
+        }
     }
 
     private void Update()
@@ -115,4 +121,5 @@ public class ScrollingBackground : MonoBehaviour
 
         _fadeImage.CrossFadeAlpha(0, 0f, false);
     }
+
 }

@@ -50,6 +50,11 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(nextScene);
+    }
+
     void PlayNextShot(){
         StartCoroutine(PlayShot(currentShotIndex));
     }
