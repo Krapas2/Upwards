@@ -59,7 +59,7 @@ public class TriggerDialogueNpc : MonoBehaviour
         powerupManager = FindObjectOfType<PlayerPowerupManager>();
     }
     void Update(){
-        NPCTriggered = Physics2D.OverlapCircle(dialogueCheck.position, .4f, NPCLayerMask);
+        NPCTriggered = Physics2D.OverlapCircle(dialogueCheck.position, 1.5f, NPCLayerMask);
         
         if (NPCTriggered && !triggeredFirstDialogue){   
             trigger.StartDialogue();
