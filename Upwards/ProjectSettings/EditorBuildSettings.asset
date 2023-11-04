@@ -13,10 +13,10 @@ EditorBuildSettings:
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Game/Village.unity
-    guid: e6741aa349ccb34439b62298e738ccd2
+    guid: 59f947e51a9318f4499dd18c19b2a1d0
   - enabled: 1
     path: Assets/Scenes/Game/Tower.unity
-    guid: 35068f6412dd64744a4af0209870aa38
+    guid: 00b4bfb4f1712fc4e922dcb706ca9982
   - enabled: 1
     path: Assets/Scenes/Game/Wilds.unity
     guid: 412b451038e02694281a26aafbc056ea

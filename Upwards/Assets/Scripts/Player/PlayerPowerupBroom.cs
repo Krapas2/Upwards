@@ -7,7 +7,6 @@ public class PlayerPowerupBroom : MonoBehaviour
     public float flightSpeed;
     public float flightTime;
 
-    private bool canFly;
     private float origSpeed;
     private float origGravity;
 
@@ -16,6 +15,8 @@ public class PlayerPowerupBroom : MonoBehaviour
 
     private AudioManager _audManager;
     private bool fadeBool;
+    [HideInInspector]
+    public float flightTimer;
 
     void Start()
     {
@@ -27,15 +28,17 @@ public class PlayerPowerupBroom : MonoBehaviour
         origSpeed = playerMovement.walkSpeed;
         origGravity = rb.gravityScale;
 
-        canFly = true;
         fadeBool = true;
+        flightTimer = 0;
     }
 
-    void Update()
+    void LateUpdate()
     {
-        canFly |= playerMovement.grounded;
+        if(playerMovement.grounded){
+            flightTimer = 0;
+        }
 
-        if (Input.GetButtonDown("Broom") && canFly)
+        if (Input.GetButtonDown("Broom") && flightTimer < flightTime)
         {
             fadeBool= true;
             if (_audManager)
@@ -48,10 +51,13 @@ public class PlayerPowerupBroom : MonoBehaviour
             playerMovement.flying = true;
             playerMovement.walkSpeed = flightSpeed;
             rb.gravityScale = 0f;
-            Invoke("EndFlight", flightTime);
         }
 
-        if (Input.GetButtonUp("Broom") || !canFly)
+        if(playerMovement.flying){
+            flightTimer += Time.deltaTime;
+        }
+
+        if (Input.GetButtonUp("Broom") || !(flightTimer < flightTime))
         {
             if(fadeBool)
             {
@@ -78,10 +84,5 @@ public class PlayerPowerupBroom : MonoBehaviour
             _audManager.Stop("Wind");
         }
         fadeBool= false;
-    }
-
-    void EndFlight()
-    {
-        canFly = false;
     }
 }

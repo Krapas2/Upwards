@@ -46,6 +46,7 @@ public class CutsceneManager : MonoBehaviour
             PlayNextShot();
         }else{
             yield return new WaitForSeconds(waitTime);
+            PlayerPrefs.SetString ("lastScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene(nextScene);
         }
     }
