@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/TitleScreen.unity
     guid: 9b52bb1db88b0c44da00039a95bbcbaa
+  - enabled: 1
+    path: Assets/Scenes/Menus/CreditsScreen.unity
+    guid: 1e6613ac1349ee84db701b85ebf1a085
   - enabled: 0
     path: Assets/Scenes/Game/testScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
@@ -21,12 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Wilds.unity
     guid: 412b451038e02694281a26aafbc056ea
   - enabled: 1
-    path: Assets/Scenes/Menus/CreditsScreen.unity
-    guid: 1e6613ac1349ee84db701b85ebf1a085
-  - enabled: 1
     path: Assets/Scenes/Cutscenes/Intro.unity
     guid: 8e4aa1e27a7611b499cf26fa0c08b9c6
   - enabled: 1
     path: Assets/Scenes/Cutscenes/Outro.unity
     guid: 41ffab2dd92d78c4e86de08137d09a82
+  - enabled: 1
+    path: Assets/Scenes/Menus/LoadingScene.unity
+    guid: 86d289dac2561de468ceacee71de19c1
   m_configObjects: {}
