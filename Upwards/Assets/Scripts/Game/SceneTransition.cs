@@ -22,6 +22,7 @@ public class SceneTransition : MonoBehaviour
 
         _audManager.Stop(SceneManager.GetActiveScene().name);
         PlayerPrefs.SetString ("lastScene", SceneManager.GetActiveScene().name);
-        SceneManager.LoadScene(sceneName);
+        PlayerPrefs.SetString ("nextScene", sceneName);
+        SceneManager.LoadScene("LoadingScene");
     }
 }
