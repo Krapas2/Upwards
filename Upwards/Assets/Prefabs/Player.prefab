@@ -347,7 +347,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1746058033519099651}
   ground:
     serializedVersion: 2
-    m_Bits: 2368
+    m_Bits: 320
   ropeClimbSpeed: 20
   ropeHopForce: 10
   ropeCheck: {fileID: 1746058032796324321}
@@ -381,11 +381,11 @@ MonoBehaviour:
   structures:
   - name: Vertical
     prefab: {fileID: -3383995329313119058, guid: 863b17e474dee6847b901ab4747088a8, type: 3}
-    cost: 7
+    cost: 0
     snapRadius: 2.5
   - name: Platform
     prefab: {fileID: 6700819094490236870, guid: 43a5806570f2eae4090849276367f9a9, type: 3}
-    cost: 2
+    cost: 0
     snapRadius: 1.5
   currentStructure: {fileID: 0}
 --- !u!114 &1746058034319962034
@@ -482,6 +482,7 @@ MonoBehaviour:
   throwSpeed: 15
   distanceOffsetFactor: 20
   ground: {fileID: 0}
+  counter: 0
 --- !u!114 &6353563178582477222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,6 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flightSpeed: 15
   flightTime: 2.5
+  flightTimer: 0
 --- !u!114 &4908196547717877562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glideSpeed: {x: 3, y: 12}
   glideTime: 3
+  glideTimer: 0
 --- !u!114 &4062643009010567504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,11 +527,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerups:
   - powerup: {fileID: 6353563178582477222}
+    meter: {fileID: 0}
     ItemRequiredName: Wood
     ItemRequiredAmount: 100
   - powerup: {fileID: 8920976726057152790}
+    meter: {fileID: 0}
     ItemRequiredName: Rock
     ItemRequiredAmount: 150
   - powerup: {fileID: 4908196547717877562}
+    meter: {fileID: 0}
     ItemRequiredName: Cloud
     ItemRequiredAmount: 50

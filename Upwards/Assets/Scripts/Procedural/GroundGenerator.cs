@@ -34,7 +34,6 @@ public class GroundGenerator : MonoBehaviour
     }
 
     public void Generate(){
-        Debug.Log("começando geração");
         Tilemap tilemap = GetComponent<Tilemap>();
 
         for(int i = 0; i < octaveSeeds.Length; i++){
@@ -53,7 +52,6 @@ public class GroundGenerator : MonoBehaviour
                 background.SetTile(new Vector3Int(x - width / 2 + (int)offset.x, y + (int)offset.y), y < (surfaceHeight) ? tileBackground : null);
             }
         }
-        Debug.Log("terminando geração");
     }
 
     public TileBase NoiseTile(Vector2 pos, int surfaceHeight){

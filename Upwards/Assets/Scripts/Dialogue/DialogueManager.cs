@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     List<DialogueBox> dialogueBoxes = new List<DialogueBox>();
     int activeMessage,activeBox = 0;
     Color32 colorDialogue;
-    public static bool isActive = false;
+    public static bool isActive = true;
     private bool firstTime = true;
     private bool isFinal;
 
@@ -34,16 +34,19 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator DisplayLine(string line){
         //empty dialogue text
         messageText.text = "";
-
+        
         isActive = false;
-        foreach (char letter in line.ToCharArray())
-        {
+
+        foreach (char letter in line.ToCharArray()){
+            Debug.Log(isActive);
             messageText.text += letter;
+            
             yield return new WaitForSeconds(typingSpeed);
         }
 
         isActive = true;
     }
+
     public void ClearBoxes(){
         for (int i = 0; i < dialogueBoxes.Count; i++){
             Destroy(dialogueBoxes[i].gameobj);
@@ -51,66 +54,61 @@ public class DialogueManager : MonoBehaviour
         dialogueBoxes.Clear();
         
         //RESETANDO VARS
-        isActive = false;
         firstTime = true;
+        isActive = true;
     }
     public void OpenDialogue(Message[] messages, 
                              string itemId, 
                              bool isFinalDialogue,
                              GameObject actorObject,
                              Color32 colorDg){
-        
-        //SE AINDA TIVER DIÁLOGO RESETAR TRIGGER DO DIÁLOGO
-        if (dialogueBoxes.Count > 0){
-            ClearBoxes();
-            triggerNPC = npc.GetComponent<TriggerDialogueNpc>();
+        if (isActive){    
+            //SE AINDA TIVER DIÁLOGO RESETAR TRIGGER DO DIÁLOGO
+            if (dialogueBoxes.Count > 0){
+                ClearBoxes();
+                triggerNPC = npc.GetComponent<TriggerDialogueNpc>();
 
+                if(!isFinalDialogue)
+                    triggerNPC.triggeredFirstDialogue = false;   
+                else 
+                    triggerNPC.triggeredLastDialogue = false;   
+            }
+            
+            currentMessages = messages;
+            activeMessage = 0;
+            activeBox = 0;
+            itemRequired = itemId;
+            isFinal = isFinalDialogue;
+            npc = actorObject;
+            colorDialogue = colorDg;
+
+            Debug.Log("Start conversation ! " + messages.Length);
+            
+            DisplayMessage();
+        } else {
             if(!isFinalDialogue)
-                triggerNPC.triggeredFirstDialogue = false;   
+                actorObject.GetComponent<TriggerDialogueNpc>().triggeredFirstDialogue = false;   
             else 
-                triggerNPC.triggeredLastDialogue = false;   
+                actorObject.GetComponent<TriggerDialogueNpc>().triggeredLastDialogue = false;   
         }
-        
-        currentMessages = messages;
-        activeMessage = 0;
-        activeBox = 0;
-        isActive = true;
-        itemRequired = itemId;
-        isFinal = isFinalDialogue;
-        npc = actorObject;
-        colorDialogue = colorDg;
-
-        Debug.Log("Start conversation ! " + messages.Length);
-        DisplayMessage();
     }
 
     void DisplayMessage(){
 
         DialogueBox dgBoxTemp = new DialogueBox();
-        /*Vector3 vDialogue;
-
-        if (currentMessages[activeBox].actorId != 0){
-            vDialogue = new Vector3(npc.transform.position.x, 
-                                    npc.transform.position.y+((activeBox+1)*spaceBox),
-                                    npc.transform.position.z);
-        }else{
-            vDialogue = new Vector3(player.transform.position.x, 
-                                    player.transform.position.y+((activeBox+1)*spaceBox),
-                                    player.transform.position.z);
-        } */
         
         //ADICIONA PRIMEIRA CAIXA DE TEXTO NO ARRAY
         if(firstTime){
             dgBoxTemp.gameobj = Instantiate(prefabBox,
                                             new Vector3(0,0,0), 
                                             Quaternion.identity,
-                                            GameObject.Find("Canvas").transform);
+                                            GameObject.Find("ExploreUI").transform);
             firstTime = false;
         }else{
             dgBoxTemp.gameobj = Instantiate(dialogueBoxes[activeBox].gameobj,
                                             new Vector3(0,0,0),
                                             Quaternion.identity,
-                                            GameObject.Find("Canvas").transform);
+                                            GameObject.Find("ExploreUI").transform);
             activeBox++; 
         }
 
@@ -125,11 +123,11 @@ public class DialogueManager : MonoBehaviour
 
         dialogueBoxes[activeBox].gameobj.name = "Box " + activeBox.ToString();     
                                     
-
         messageText = dialogueBoxes[activeBox].gameobj.GetComponentsInChildren<TextMeshProUGUI>()[0];
         
         Message messagueToDisplay = currentMessages[activeBox];
 
+        //escrevendo letra por letra
         StartCoroutine(DisplayLine(messagueToDisplay.message));
     }
 
