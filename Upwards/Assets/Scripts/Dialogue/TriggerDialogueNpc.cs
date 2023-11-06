@@ -19,33 +19,18 @@ public class TriggerDialogueNpc : MonoBehaviour
     [HideInInspector]
     public bool triggeredLastDialogue = false;
     
-    bool CheckLastDialogue(int npcId){
+    bool CheckLastDialogue(string itemId){
         int itemIndex, powerupIndex;
-        switch (npcId)
-        {
-            case 1:
-                itemIndex = inventory.ItemIndexFromName("Cloud");
-                powerupIndex = powerupManager.PowerupIndexFromItemName("Cloud");
-            break;
-            case 2:
-                itemIndex = inventory.ItemIndexFromName("Wood");
-                powerupIndex = powerupManager.PowerupIndexFromItemName("Wood");
-            break;
-            case 3:
-                itemIndex = inventory.ItemIndexFromName("Rock");
-                powerupIndex = powerupManager.PowerupIndexFromItemName("Rock");
-            break;
-            default:
-                itemIndex = inventory.ItemIndexFromName("Cloud");
-                powerupIndex = powerupManager.PowerupIndexFromItemName("Cloud");
-            break;
-        }
+        
+        itemIndex = inventory.ItemIndexFromName(itemId);
+        powerupIndex = powerupManager.PowerupIndexFromItemName(itemId);
+        
         int itemAmount = inventory.items[itemIndex].amount;
         int itemMax = powerupManager.powerups[powerupIndex].ItemRequiredAmount;
 
-        Debug.Log("Item qtde: "+itemAmount);
-        Debug.Log("Item total: "+itemMax);
-        Debug.Log("NPC: "+npcId);
+        Debug.Log("Item qtde: " + itemAmount);
+        Debug.Log("Item total: " + itemMax);
+        Debug.Log("NPC: " + itemId);
 
         if (itemAmount >= itemMax){
             inventory.items[itemIndex].amount = itemAmount - itemMax;
@@ -67,7 +52,7 @@ public class TriggerDialogueNpc : MonoBehaviour
         }
         
 
-        if (NPCTriggered && !triggeredLastDialogue && CheckLastDialogue(trigger.npcId)){   
+        if (NPCTriggered && !triggeredLastDialogue && CheckLastDialogue(trigger.itemId)){   
             trigger.StartFinalDialogue();
             triggeredLastDialogue = true;
         }
