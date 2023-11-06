@@ -25,9 +25,9 @@ public class PlayerPowerupManager : MonoBehaviour
         playerBreakTile = GetComponent<PlayerBreakTile>();
         playerBreakSprite = GetComponent<PlayerBreakSprite>();
 
-        float tileBreakTimeChange = playerBreakSprite.breakTime * (.9f/powerups.Length);
-        float spriteBreakTimeChange = playerBreakTile.breakTime * (.9f/powerups.Length);
-
+        float tileBreakTimeChange = playerBreakSprite.breakTime * (.9f / powerups.Length);
+        float spriteBreakTimeChange = playerBreakTile.breakTime * (.9f / powerups.Length);
+        /*
         foreach(Powerup powerup in powerups){
             bool enabled = PlayerPrefs.GetInt(powerup.ItemRequiredName + "PowerupEnabled") != 0;
             powerup.powerup.enabled = enabled;
@@ -36,7 +36,7 @@ public class PlayerPowerupManager : MonoBehaviour
                 playerBreakSprite.breakTime -= tileBreakTimeChange;
                 playerBreakTile.breakTime -= spriteBreakTimeChange;
             }
-        }
+        }*/
     }
 
     public int PowerupIndexFromItemName(string checkName)
@@ -51,9 +51,11 @@ public class PlayerPowerupManager : MonoBehaviour
         return -1;
     }
 
-    public bool HasAllPowerups(){
+    public bool HasAllPowerups()
+    {
         bool output = true;
-        foreach(Powerup powerup in powerups){
+        foreach (Powerup powerup in powerups)
+        {
             output &= powerup.powerup.enabled;
         }
         return output;
