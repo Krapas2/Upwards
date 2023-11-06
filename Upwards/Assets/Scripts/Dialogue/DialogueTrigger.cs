@@ -7,12 +7,21 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Message[] initialMessages;
     public Message[] finalMessages;
-    public int npcId;
+    public string itemId;
+    public Color32 colorDg;
     public void StartDialogue(){
-        FindObjectOfType<DialogueManager>().OpenDialogue(initialMessages,npcId,false);
+        FindObjectOfType<DialogueManager>().OpenDialogue(initialMessages,
+                                                         itemId,
+                                                         false,
+                                                         gameObject,
+                                                         colorDg);
     }
     public void StartFinalDialogue(){
-        FindObjectOfType<DialogueManager>().OpenDialogue(finalMessages,npcId,true);
+        FindObjectOfType<DialogueManager>().OpenDialogue(finalMessages,
+                                                         itemId,
+                                                         true,
+                                                         gameObject,
+                                                         colorDg);
     }
 }
 

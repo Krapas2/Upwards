@@ -11,44 +11,38 @@ public class DialogueBox{
 }
 public class DialogueManager : MonoBehaviour
 {
-    private TextMeshPro messageText;
+    private TextMeshProUGUI messageText;
     private GameObject player,npc;
     private TriggerDialogueNpc triggerNPC;
-    private int actorId;
+    private string itemRequired;
     public float spaceBox;
+    [SerializeField] private float typingSpeed = 0.04f;
     public GameObject prefabBox;
     Message[] currentMessages;
     List<DialogueBox> dialogueBoxes = new List<DialogueBox>();
     int activeMessage,activeBox = 0;
+    Color32 colorDialogue;
     public static bool isActive = false;
     private bool firstTime = true;
     private bool isFinal;
 
     void Start(){
         //GET GAMEOBJECTS
-        player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
     }
-    public void EnablePowerUp(int actorId){
-        switch (actorId)
-        {
-            //NUVEM
-            case 1:
-                player.GetComponent<PlayerPowerupCloud>().enabled = true;
-                break;
 
-            //ARVORE
-            case 2:
-                player.GetComponent<PlayerPowerupBroom>().enabled = true;
-                break;
-            
-            //PEDRA
-            case 3:
-                player.GetComponent<PlayerPowerupBomb>().enabled = true;
-                break;
-            default:
-                player.GetComponent<PlayerPowerupBroom>().enabled = true;
-                break;
+    private IEnumerator DisplayLine(string line){
+        //empty dialogue text
+        messageText.text = "";
+
+        isActive = false;
+        foreach (char letter in line.ToCharArray())
+        {
+            messageText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
         }
+
+        isActive = true;
     }
     public void ClearBoxes(){
         for (int i = 0; i < dialogueBoxes.Count; i++){
@@ -60,7 +54,11 @@ public class DialogueManager : MonoBehaviour
         isActive = false;
         firstTime = true;
     }
-    public void OpenDialogue(Message[] messages, int npcId, bool isFinalDialogue){
+    public void OpenDialogue(Message[] messages, 
+                             string itemId, 
+                             bool isFinalDialogue,
+                             GameObject actorObject,
+                             Color32 colorDg){
         
         //SE AINDA TIVER DIÁLOGO RESETAR TRIGGER DO DIÁLOGO
         if (dialogueBoxes.Count > 0){
@@ -77,11 +75,10 @@ public class DialogueManager : MonoBehaviour
         activeMessage = 0;
         activeBox = 0;
         isActive = true;
-        actorId = npcId;
+        itemRequired = itemId;
         isFinal = isFinalDialogue;
-
-        //GET GAMEOBJECT BY NPC ID
-        npc = GameObject.Find("NPC " + actorId);
+        npc = actorObject;
+        colorDialogue = colorDg;
 
         Debug.Log("Start conversation ! " + messages.Length);
         DisplayMessage();
@@ -90,30 +87,50 @@ public class DialogueManager : MonoBehaviour
     void DisplayMessage(){
 
         DialogueBox dgBoxTemp = new DialogueBox();
+        /*Vector3 vDialogue;
+
+        if (currentMessages[activeBox].actorId != 0){
+            vDialogue = new Vector3(npc.transform.position.x, 
+                                    npc.transform.position.y+((activeBox+1)*spaceBox),
+                                    npc.transform.position.z);
+        }else{
+            vDialogue = new Vector3(player.transform.position.x, 
+                                    player.transform.position.y+((activeBox+1)*spaceBox),
+                                    player.transform.position.z);
+        } */
         
         //ADICIONA PRIMEIRA CAIXA DE TEXTO NO ARRAY
         if(firstTime){
             dgBoxTemp.gameobj = Instantiate(prefabBox,
                                             new Vector3(0,0,0), 
-                                            Quaternion.identity);
+                                            Quaternion.identity,
+                                            GameObject.Find("Canvas").transform);
             firstTime = false;
         }else{
             dgBoxTemp.gameobj = Instantiate(dialogueBoxes[activeBox].gameobj,
-                                            new Vector3(0,0,0), 
-                                            Quaternion.identity);
+                                            new Vector3(0,0,0),
+                                            Quaternion.identity,
+                                            GameObject.Find("Canvas").transform);
             activeBox++; 
         }
 
-        dgBoxTemp.actorId = currentMessages[activeBox].actorId; //eerroo
-
+        dgBoxTemp.actorId = currentMessages[activeBox].actorId; 
+        
+        if (dgBoxTemp.actorId != 0)
+            dgBoxTemp.gameobj.GetComponent<Image>().color = colorDialogue;
+        else
+            dgBoxTemp.gameobj.GetComponent<Image>().color = new Color32(239,110,16,255);
+        
         dialogueBoxes.Add(dgBoxTemp);  
 
-        dialogueBoxes[activeBox].gameobj.name = "Box " + activeBox.ToString();                                 
+        dialogueBoxes[activeBox].gameobj.name = "Box " + activeBox.ToString();     
+                                    
 
-        messageText = dialogueBoxes[activeBox].gameobj.GetComponentsInChildren<TextMeshPro>()[0];
+        messageText = dialogueBoxes[activeBox].gameobj.GetComponentsInChildren<TextMeshProUGUI>()[0];
         
         Message messagueToDisplay = currentMessages[activeBox];
-        messageText.text = messagueToDisplay.message;    
+
+        StartCoroutine(DisplayLine(messagueToDisplay.message));
     }
 
     public void NextMessage(){
@@ -123,9 +140,9 @@ public class DialogueManager : MonoBehaviour
         }else{
             Debug.Log("Conversation End");
 
-            //ATIVA SCRIPT PARA ADICIONAR POWERUP
-            if(isFinal)
-                EnablePowerUp(actorId);
+            //ATIVA PLAYER PREF PARA ADICIONAR POWERUP
+            if(isFinal)         
+                PlayerPrefs.SetInt(itemRequired + "PowerupEnabled",1);
 
             ClearBoxes();
         }
