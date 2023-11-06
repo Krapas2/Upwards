@@ -37,7 +37,8 @@ public class TutorialResource : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeChangingText);
 
         PlayerPrefs.SetInt("FinishedResourceTutorial", 1);
-        Destroy(gameObject);
+        textBox.text = "";
+        Destroy(this);
     }
 
     IEnumerator WaitForBreakResource(){
