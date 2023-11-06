@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 155820627}
   - component: {fileID: 155820632}
   - component: {fileID: 155820633}
+  - component: {fileID: 155820634}
   m_Layer: 5
   m_Name: Tutorial Text
   m_TagString: Untagged
@@ -515,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1440857388e1542a9aacd87817d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeightToActivate: 30
+  heightToActivate: 30
   timeBeforeChangingText: 0.5
   breakCloudText: Clouds block structures, disable build mode and Left Click them
     to remove
@@ -535,6 +536,20 @@ MonoBehaviour:
   timeBeforeShowing: 15
   timeBeforeHiding: 30
   MoveScenesText: Wood and Rocks can be found in the forest. Walk right to get there.
+--- !u!114 &155820634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155820625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c3586040d4a4e49b99e0d61aa1c28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  showTrackerText: Press X to see how many resources you have and need
 --- !u!1 &180345764
 GameObject:
   m_ObjectHideFlags: 0

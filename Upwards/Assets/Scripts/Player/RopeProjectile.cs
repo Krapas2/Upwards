@@ -34,7 +34,8 @@ public class RopeProjectile : MonoBehaviour
         if(ground == (ground | (1 << col.gameObject.layer))){
             travelling = false;
             rb.bodyType = RigidbodyType2D.Static;
-            if(_audManager) _audManager.Play("RopeHit");
+            if(_audManager) 
+                _audManager.Play("RopeHit");
             Destroy(GetComponent<Collider2D>());
             SpawnRope();
         }

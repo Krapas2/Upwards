@@ -12,19 +12,22 @@ public class TutorialScene : MonoBehaviour
 
     private Text textBox;
 
-    private TutorialCloud tutorialCloud;
     private TutorialStructures tutorialStructures;
+    private TutorialCloud tutorialCloud;
+    private TutorialTrackers tutorialTrackers;
 
     void Start()
     {
         textBox = GetComponent<Text>();
-        tutorialCloud = GetComponent<TutorialCloud>();
         tutorialStructures = GetComponent<TutorialStructures>();
+        tutorialCloud = GetComponent<TutorialCloud>();
+        tutorialTrackers = GetComponent<TutorialTrackers>();
 
         if(PlayerPrefs.GetInt("FinishedSceneTutorial") == 0){
             StartCoroutine(TutorialSequence());
         }else{
-            Destroy(gameObject);
+            textBox.text = "";
+            Destroy(this);
         }
     }
 
@@ -37,11 +40,12 @@ public class TutorialScene : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeHiding);
 
         PlayerPrefs.SetInt("FinishedSceneTutorial", 1);
-        Destroy(gameObject);
+        textBox.text = "";
+        Destroy(this);
     }
 
     IEnumerator WaitForFinishTutorials(){
-        while(tutorialCloud || tutorialStructures){
+        while(tutorialStructures || tutorialCloud || tutorialTrackers){
             yield return null;
         }
         yield return null;

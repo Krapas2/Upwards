@@ -22,6 +22,7 @@ public class TutorialStructures : MonoBehaviour
         if(PlayerPrefs.GetInt("FinishedStructureTutorial") == 0){
             StartCoroutine(TutorialSequence());
         }else{
+            textBox.text = "";
             Destroy(this);
         }
     }
@@ -44,6 +45,7 @@ public class TutorialStructures : MonoBehaviour
 
         PlayerPrefs.SetInt("FinishedStructureTutorial", 1);
         textBox.text = "";
+        Destroy(this);
     }
 
     IEnumerator WaitForEnterBuildMode(){

@@ -3,30 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorialCloud : MonoBehaviour
+public class TutorialTrackers : MonoBehaviour
 {
-    public float heightToActivate = 30;
     public float timeBeforeChangingText = .25f;
     [TextAreaAttribute]
-    public string breakCloudText;
-    [TextAreaAttribute]
-    public string collectCloudText;
+    public string showTrackerText;
 
     private Text textBox;
     private TutorialStructures tutorialStructures;
-    private Transform player;
-
+    private TutorialCloud tutorialCloud;
     void Start()
     {
         textBox = GetComponent<Text>();
         tutorialStructures = GetComponent<TutorialStructures>();
+        tutorialCloud = GetComponent<TutorialCloud>();
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        if(PlayerPrefs.GetInt("FinishedCloudTutorial") == 0){
+        if(PlayerPrefs.GetInt("FinishedTrackerTutorial") == 0){
             StartCoroutine(TutorialSequence());
         }else{
-            textBox.text = "";
             Destroy(this);
         }
     }
@@ -34,44 +28,42 @@ public class TutorialCloud : MonoBehaviour
     IEnumerator TutorialSequence(){
         textBox.text = "";
         yield return WaitForFinishTutorials();
-        yield return WaitForPlayerReachHeight();
+        yield return WaitForItemDrop();
+        yield return WaitForItemCollect();
         yield return new WaitForSeconds(timeBeforeChangingText);
 
-        textBox.text = breakCloudText;
-        yield return WaitForBreakCloud();
+        textBox.text = showTrackerText;
+        yield return WaitForShowTrackers();
         yield return new WaitForSeconds(timeBeforeChangingText);
 
-        textBox.text = collectCloudText;
-        yield return WaitForCollectCloud();
-        yield return new WaitForSeconds(timeBeforeChangingText);
-
-        PlayerPrefs.SetInt("FinishedCloudTutorial", 1);
+        PlayerPrefs.SetInt("FinishedTrackerTutorial", 1);
         textBox.text = "";
         Destroy(this);
     }
 
     IEnumerator WaitForFinishTutorials(){
-        while(tutorialStructures){
+        while(tutorialCloud || tutorialStructures){
             yield return null;
         }
         yield return null;
     }
 
-    IEnumerator WaitForPlayerReachHeight(){
-        while(player.position.y < heightToActivate){
-            yield return null;
-        }
-        yield return null;
-    }
-
-    IEnumerator WaitForBreakCloud(){
+    IEnumerator WaitForItemDrop(){
         while(!FindObjectOfType<ItemDrop>()){
             yield return null;
         }
         yield return null;
     }
-    IEnumerator WaitForCollectCloud(){
+
+    IEnumerator WaitForItemCollect(){
         while(FindObjectOfType<ItemDrop>()){
+            yield return null;
+        }
+        yield return null;
+    }
+
+    IEnumerator WaitForShowTrackers(){
+        while(!Input.GetButton("ShowUI")){
             yield return null;
         }
         yield return null;
