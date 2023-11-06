@@ -5,14 +5,14 @@ using UnityEngine;
 public class CameraClamping : MonoBehaviour
 {
 
-    
-	public Vector2 minCameraPos;
-	public Vector2 maxCameraPos;
+
+    public Vector2 minCameraPos;
+    public Vector2 maxCameraPos;
 
     private Vector2 minCameraBounds;
     private Vector2 maxCameraBounds;
     private Camera cam;
-    
+
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -28,7 +28,6 @@ public class CameraClamping : MonoBehaviour
             Mathf.Clamp(transform.position.y, minCameraPos.y - minCameraBounds.y, maxCameraPos.y - maxCameraBounds.y),
             -10
         );
-
     }
 
     void LateUpdate()

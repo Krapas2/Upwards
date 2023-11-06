@@ -8,6 +8,7 @@ TagManager:
   - Structure
   - Door
   - CollectableMap
+  - DialogueBox
   layers:
   - Default
   - TransparentFX
