@@ -12,7 +12,7 @@ public class DialogueBox{
 public class DialogueManager : MonoBehaviour
 {
     private TextMeshProUGUI messageText;
-    private GameObject player,npc;
+    private GameObject player,npc,canvas;
     private TriggerDialogueNpc triggerNPC;
     private string itemRequired;
     public float spaceBox;
@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
     void Start(){
         //GET GAMEOBJECTS
         player = GameObject.FindWithTag("Player");
+        canvas = FindObjectOfType<Canvas>().gameObject;
     }
 
     private IEnumerator DisplayLine(string line){
@@ -102,13 +103,13 @@ public class DialogueManager : MonoBehaviour
             dgBoxTemp.gameobj = Instantiate(prefabBox,
                                             new Vector3(0,0,0), 
                                             Quaternion.identity,
-                                            GameObject.Find("ExploreUI").transform);
+                                            canvas.transform);
             firstTime = false;
         }else{
             dgBoxTemp.gameobj = Instantiate(dialogueBoxes[activeBox].gameobj,
                                             new Vector3(0,0,0),
                                             Quaternion.identity,
-                                            GameObject.Find("ExploreUI").transform);
+                                            canvas.transform);
             activeBox++; 
         }
 
