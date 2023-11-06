@@ -56,7 +56,8 @@ public class ItemTracker : MonoBehaviour
         foreach(Text text in tracker.texts){
             string itemAmount = inventory.items[itemIndex].amount.ToString();
             string itemMax = powerupManager.powerups[powerupIndex].ItemRequiredAmount.ToString();
-            text.text = string.Concat(itemAmount, " / ", itemMax);
+            
+            text.text = PlayerPrefs.GetInt(tracker.name + "PowerupEnabled") != 0 ? itemAmount : string.Concat(itemAmount, " / ", itemMax);
         }
     }
 
@@ -69,7 +70,7 @@ public class ItemTracker : MonoBehaviour
 
     void HideTrackers()
     {
-        FadeOUtAllTrackersEnabled();
+        FadeOutAllTrackersEnabled();
     }
 
     void SetAllTrackersEnabled(bool enabled)
@@ -80,7 +81,7 @@ public class ItemTracker : MonoBehaviour
         }
     }
 
-    void FadeOUtAllTrackersEnabled()
+    void FadeOutAllTrackersEnabled()
     {
         foreach (Tracker tracker in trackers)
         {

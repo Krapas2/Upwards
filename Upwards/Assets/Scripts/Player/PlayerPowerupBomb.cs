@@ -13,7 +13,8 @@ public class PlayerPowerupBomb : MonoBehaviour
 
     public Tilemap ground;
 
-    private int counter;
+    [HideInInspector]
+    public int counter;
 
     private Camera cam;
 

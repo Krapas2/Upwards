@@ -13,16 +13,9 @@ public class ResourceGenerator : MonoBehaviour
     public float noiseThreshold;
     public LayerMask ground;
     public int amount;
-/*
-    void Update(){
-        if(Input.GetButtonDown("Fire1")){
-            Generate();
-        }
-    }*/
 
     public void Generate()
     {
-        Debug.Log("começando recursos");
         float seed = Random.Range(0,10000);
         int curAmount = 0;
         while(curAmount < amount){

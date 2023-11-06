@@ -21,16 +21,16 @@ public class TriggerDialogueNpc : MonoBehaviour
     
     bool CheckLastDialogue(string itemId){
         int itemIndex, powerupIndex;
-        
+
         itemIndex = inventory.ItemIndexFromName(itemId);
         powerupIndex = powerupManager.PowerupIndexFromItemName(itemId);
         
         int itemAmount = inventory.items[itemIndex].amount;
         int itemMax = powerupManager.powerups[powerupIndex].ItemRequiredAmount;
 
-        Debug.Log("Item qtde: " + itemAmount);
+       /* Debug.Log("Item qtde: " + itemAmount);
         Debug.Log("Item total: " + itemMax);
-        Debug.Log("NPC: " + itemId);
+        Debug.Log("NPC: " + itemId); */
 
         if (itemAmount >= itemMax){
             inventory.items[itemIndex].amount = itemAmount - itemMax;
@@ -40,21 +40,23 @@ public class TriggerDialogueNpc : MonoBehaviour
             return false;
     }
     void Start(){      
+        triggeredFirstDialogue = false;
+        triggeredLastDialogue = false;
         inventory = FindObjectOfType<PlayerInventory>();
         powerupManager = FindObjectOfType<PlayerPowerupManager>();
     }
     void Update(){
-        NPCTriggered = Physics2D.OverlapCircle(dialogueCheck.position, .4f, NPCLayerMask);
+        NPCTriggered = Physics2D.OverlapCircle(dialogueCheck.position, 1.5f, NPCLayerMask);
         
         if (NPCTriggered && !triggeredFirstDialogue){   
-            trigger.StartDialogue();
             triggeredFirstDialogue = true;
+            trigger.StartDialogue();
         }
         
 
         if (NPCTriggered && !triggeredLastDialogue && CheckLastDialogue(trigger.itemId)){   
-            trigger.StartFinalDialogue();
             triggeredLastDialogue = true;
+            trigger.StartFinalDialogue();
         }
     }
 }
