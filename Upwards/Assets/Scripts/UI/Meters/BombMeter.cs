@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class BombMeter : MonoBehaviour
+public class BombMeter : PowerupMeter
 {
-    private Image meter;
     private PlayerPowerupBomb bomb;
     void Start()
     {
-        meter = GetComponent<Image>();
+        Setup();
         bomb = FindObjectOfType<PlayerPowerupBomb>();
     }
 
-    void Update()
+    public override float FillAmount()
     {
-        meter.fillAmount = (float)(bomb.bombNumber-bomb.counter) / (float)(bomb.bombNumber);
+        return (float)(bomb.bombNumber-bomb.counter) / (float)(bomb.bombNumber);
     }
 }

@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class BroomMeter : MonoBehaviour
+public class BroomMeter : PowerupMeter
 {
-    private Image meter;
     private PlayerPowerupBroom broom;
     void Start()
     {
-        meter = GetComponent<Image>();
+        Setup();
         broom = FindObjectOfType<PlayerPowerupBroom>();
     }
 
-    void Update()
+    public override float FillAmount()
     {
-        meter.fillAmount = (broom.flightTime-broom.flightTimer) / broom.flightTime;
+        return (broom.flightTime-broom.flightTimer) / broom.flightTime;
     }
 }
