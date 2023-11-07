@@ -65,4 +65,14 @@ public class BombController : MonoBehaviour
             Destroy(GetComponent<Collider2D>());
         }
     }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.layer == ground.gameObject.layer){
+            rb.bodyType = RigidbodyType2D.Static;
+
+            if(_audManager) 
+                _audManager.Play("RopeHit");
+            Destroy(GetComponent<Collider2D>());
+        }
+    }
 }

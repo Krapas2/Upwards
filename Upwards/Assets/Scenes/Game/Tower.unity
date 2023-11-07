@@ -49178,8 +49178,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 880461709}
     - target: {fileID: 4062643009010567504, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: powerups.Array.data[0].ItemRequiredAmount
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062643009010567504, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: powerups.Array.data[1].ItemRequiredAmount
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062643009010567504, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: powerups.Array.data[2].ItemRequiredAmount
-      value: 125
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 4908196547717877562, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: glideTime
