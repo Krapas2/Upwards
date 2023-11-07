@@ -18,44 +18,54 @@ public class TriggerDialogueNpc : MonoBehaviour
 
     [HideInInspector]
     public bool triggeredLastDialogue = false;
+    private int itemIndex, powerupIndex, itemAmount, itemMax;
     
     bool CheckLastDialogue(string itemId){
-        int itemIndex, powerupIndex;
 
+        //GET INDEX AMOUNT E ITEM REQUIRED
         itemIndex = inventory.ItemIndexFromName(itemId);
         powerupIndex = powerupManager.PowerupIndexFromItemName(itemId);
         
-        int itemAmount = inventory.items[itemIndex].amount;
-        int itemMax = powerupManager.powerups[powerupIndex].ItemRequiredAmount;
+        //GET QTDE AMOUNT E QTDE ITEMMAX
+        itemAmount = inventory.items[itemIndex].amount;
+        itemMax = powerupManager.powerups[powerupIndex].ItemRequiredAmount;
 
        /* Debug.Log("Item qtde: " + itemAmount);
         Debug.Log("Item total: " + itemMax);
         Debug.Log("NPC: " + itemId); */
 
-        if (itemAmount >= itemMax){
-            inventory.items[itemIndex].amount = itemAmount - itemMax;
+        if (itemAmount >= itemMax)
             return true;
-        }
         else
             return false;
     }
     void Start(){      
-        triggeredFirstDialogue = false;
-        triggeredLastDialogue = false;
         inventory = FindObjectOfType<PlayerInventory>();
         powerupManager = FindObjectOfType<PlayerPowerupManager>();
     }
     void Update(){
         NPCTriggered = Physics2D.OverlapCircle(dialogueCheck.position, 1.5f, NPCLayerMask);
-        
-        if (NPCTriggered && !triggeredFirstDialogue){   
-            triggeredFirstDialogue = true;
+
+        if (NPCTriggered && 
+            PlayerPrefs.GetInt(trigger.itemId + "triggeredFirstDialogue") == 0){
+            
+            //SETTANDO PLAYER PREF DE TRIGGER DO PRIMEIRO DIALOGO
+            PlayerPrefs.SetInt(trigger.itemId + "triggeredFirstDialogue",1);
+            
             trigger.StartDialogue();
         }
         
 
-        if (NPCTriggered && !triggeredLastDialogue && CheckLastDialogue(trigger.itemId)){   
-            triggeredLastDialogue = true;
+        if (NPCTriggered && 
+            PlayerPrefs.GetInt(trigger.itemId + "triggeredLastDialogue") == 0 && 
+            CheckLastDialogue(trigger.itemId)){   
+
+            //SETTANDO PLAYER PREF DE TRIGGER DO ULTIMO DIALOGO
+            PlayerPrefs.SetInt(trigger.itemId + "triggeredLastDialogue",1);
+
+            //REMOVE QTDE DE ITEM APÓS TRIGGER
+            inventory.items[itemIndex].amount = itemAmount - itemMax;
+
             trigger.StartFinalDialogue();
         }
     }
