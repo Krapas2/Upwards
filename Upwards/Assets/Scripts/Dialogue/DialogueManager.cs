@@ -13,7 +13,6 @@ public class DialogueManager : MonoBehaviour
 {
     private TextMeshProUGUI messageText;
     private GameObject player,npc,canvas;
-    private TriggerDialogueNpc triggerNPC;
     private string itemRequired;
     public float spaceBox;
     [SerializeField] private float typingSpeed = 0.04f;
@@ -39,7 +38,6 @@ public class DialogueManager : MonoBehaviour
         isActive = false;
 
         foreach (char letter in line.ToCharArray()){
-            Debug.Log(isActive);
             messageText.text += letter;
             
             yield return new WaitForSeconds(typingSpeed);
@@ -67,12 +65,11 @@ public class DialogueManager : MonoBehaviour
             //SE AINDA TIVER DIÁLOGO RESETAR TRIGGER DO DIÁLOGO
             if (dialogueBoxes.Count > 0){
                 ClearBoxes();
-                triggerNPC = npc.GetComponent<TriggerDialogueNpc>();
 
                 if(!isFinalDialogue)
-                    triggerNPC.triggeredFirstDialogue = false;   
+                    PlayerPrefs.SetInt(itemId + "triggeredFirstDialogue",0);   
                 else 
-                    triggerNPC.triggeredLastDialogue = false;   
+                    PlayerPrefs.SetInt(itemId + "triggeredLastDialogue",0);   
             }
             
             currentMessages = messages;
@@ -88,9 +85,9 @@ public class DialogueManager : MonoBehaviour
             DisplayMessage();
         } else {
             if(!isFinalDialogue)
-                actorObject.GetComponent<TriggerDialogueNpc>().triggeredFirstDialogue = false;   
+                PlayerPrefs.SetInt(itemId + "triggeredFirstDialogue",0);   
             else 
-                actorObject.GetComponent<TriggerDialogueNpc>().triggeredLastDialogue = false;   
+                PlayerPrefs.SetInt(itemId + "triggeredLastDialogue",0);   
         }
     }
 
