@@ -51,11 +51,10 @@ public class TriggerDialogueNpc : MonoBehaviour
             
             //SETTANDO PLAYER PREF DE TRIGGER DO PRIMEIRO DIALOGO
             PlayerPrefs.SetInt(trigger.itemId + "triggeredFirstDialogue",1);
-            
-            trigger.StartDialogue();
-        }
-        
 
+            trigger.StartDialogue();
+
+        }
         if (NPCTriggered && 
             PlayerPrefs.GetInt(trigger.itemId + "triggeredLastDialogue") == 0 && 
             CheckLastDialogue(trigger.itemId)){   
@@ -63,10 +62,11 @@ public class TriggerDialogueNpc : MonoBehaviour
             //SETTANDO PLAYER PREF DE TRIGGER DO ULTIMO DIALOGO
             PlayerPrefs.SetInt(trigger.itemId + "triggeredLastDialogue",1);
 
+            trigger.StartFinalDialogue();
+
             //REMOVE QTDE DE ITEM APÓS TRIGGER
             inventory.items[itemIndex].amount = itemAmount - itemMax;
 
-            trigger.StartFinalDialogue();
         }
     }
 }

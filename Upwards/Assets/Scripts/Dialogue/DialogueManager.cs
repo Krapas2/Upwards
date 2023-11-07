@@ -61,17 +61,10 @@ public class DialogueManager : MonoBehaviour
                              bool isFinalDialogue,
                              GameObject actorObject,
                              Color32 colorDg){
-        if (isActive){    
-            //SE AINDA TIVER DIÁLOGO RESETAR TRIGGER DO DIÁLOGO
-            if (dialogueBoxes.Count > 0){
-                ClearBoxes();
-
-                if(!isFinalDialogue)
-                    PlayerPrefs.SetInt(itemId + "triggeredFirstDialogue",0);   
-                else 
-                    PlayerPrefs.SetInt(itemId + "triggeredLastDialogue",0);   
-            }
-            
+        
+        //SE AINDA TIVER DIÁLOGO RESETAR TRIGGER DO DIÁLOGO E DESCONSIDERAR 
+        //OU NAO ESTIVER ATIVO 
+        if (isActive && !(dialogueBoxes.Count > 0)){    
             currentMessages = messages;
             activeMessage = 0;
             activeBox = 0;
@@ -88,6 +81,9 @@ public class DialogueManager : MonoBehaviour
                 PlayerPrefs.SetInt(itemId + "triggeredFirstDialogue",0);   
             else 
                 PlayerPrefs.SetInt(itemId + "triggeredLastDialogue",0);   
+
+            //DEPOIS DE SETAR VALOR PARA 0 SALVA O VALOR DOS PREFS
+            PlayerPrefs.Save();
         }
     }
 
