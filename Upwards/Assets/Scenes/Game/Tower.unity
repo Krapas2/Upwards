@@ -387,6 +387,9 @@ GameObject:
   - component: {fileID: 155820632}
   - component: {fileID: 155820633}
   - component: {fileID: 155820634}
+  - component: {fileID: 155820637}
+  - component: {fileID: 155820636}
+  - component: {fileID: 155820635}
   m_Layer: 5
   m_Name: Tutorial Text
   m_TagString: Untagged
@@ -407,7 +410,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9114602882242912740}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -550,6 +553,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeChangingText: 0.25
   showTrackerText: Press X to see how many resources you have and need
+--- !u!114 &155820635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155820625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3872894a9f8fd8d4ea9173ea9df22af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  UseCloudText: Press CTRL to fly on your cloud
+--- !u!114 &155820636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155820625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e531773604a79b94c94f3464d34ee88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  UseBombText: Press Q to throw a bomb
+  BombStickText: Bombs stick to destructable surfaces
+--- !u!114 &155820637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155820625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d55e62a29995d540858775edd817599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  UseBroomText: Press Shift to fly on your broom
 --- !u!1 &180345764
 GameObject:
   m_ObjectHideFlags: 0
@@ -49092,7 +49138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4859508367635664987, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4859508367635664987, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
       propertyPath: m_AnchorMax.x
@@ -50057,8 +50103,8 @@ RectTransform:
   - {fileID: 143582226}
   - {fileID: 9114602881311246668}
   - {fileID: 9114602881553467439}
-  - {fileID: 155820626}
   - {fileID: 1976618149}
+  - {fileID: 155820626}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
