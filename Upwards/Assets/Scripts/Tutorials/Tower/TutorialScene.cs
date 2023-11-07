@@ -37,9 +37,9 @@ public class TutorialScene : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeShowing);
 
         textBox.text = MoveScenesText;
+        PlayerPrefs.SetInt("FinishedSceneTutorial", 1);
         yield return new WaitForSeconds(timeBeforeHiding);
 
-        PlayerPrefs.SetInt("FinishedSceneTutorial", 1);
         textBox.text = "";
         Destroy(this);
     }
