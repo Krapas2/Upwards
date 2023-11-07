@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CloudMeter : MonoBehaviour
+public class CloudMeter : PowerupMeter
 {
-    private Image meter;
     private PlayerPowerupCloud cloud;
     void Start()
     {
-        meter = GetComponent<Image>();
+        Setup();
         cloud = FindObjectOfType<PlayerPowerupCloud>();
     }
 
-    void Update()
+    public override float FillAmount()
     {
-        meter.fillAmount = (cloud.glideTime-cloud.glideTimer) / cloud.glideTime;
+        return (cloud.glideTime-cloud.glideTimer) / cloud.glideTime;
     }
 }
