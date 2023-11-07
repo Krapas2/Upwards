@@ -26,8 +26,8 @@ public class ResourceGenerator : MonoBehaviour
                 Vector2 highPos = randomPos;
                 Vector2 pos = Physics2D.Raycast(highPos, Vector2.down, Mathf.Infinity, ground).point;
                 pos += Vector2.down / 16f;
-                float densityMapped = (densityInPosition-noiseThreshold)/(1-noiseThreshold);
-                Instantiate(resourceType.itemSources[resourceType.IndexFromDensity(densityMapped)], pos, Quaternion.identity, transform);
+                int itemSourceIndex = (int)(Mathf.Pow(Random.Range(0f, 1f),2)*resourceType.itemSources.Length);
+                Instantiate(resourceType.itemSources[itemSourceIndex], pos, Quaternion.identity, transform);
                 curAmount++;
             }
         }

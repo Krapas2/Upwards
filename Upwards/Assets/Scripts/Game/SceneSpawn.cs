@@ -23,13 +23,16 @@ public class SceneSpawn : MonoBehaviour
         for(int i = 0; i < playerInventory.items.Length; i++){
             playerInventory.items[i].amount = PlayerPrefs.GetInt (playerInventory.items[i].name);
         }
+        SetPlayerOnSpawn();
     }
 
     public void SetPlayerOnSpawn(){
         foreach(SpawnPoint spawnPoint in spawnPoints){
             if(PlayerPrefs.GetString ("lastScene") == spawnPoint.SceneName){
-                Vector2 pos = Physics2D.Raycast(spawnPoint.point.position, Vector2.down, Mathf.Infinity, ground).point;
-                GameObject.FindGameObjectWithTag("Player").transform.position = pos;
+                Vector3 pos = (Vector3)Physics2D.Raycast(spawnPoint.point.position, Vector2.down, Mathf.Infinity, ground).point;
+                PlayerMovement player = FindObjectOfType<PlayerMovement>();
+                Vector3 playerDisplacement = player.groundCheck.position - player.transform.position;
+                player.transform.position = pos - playerDisplacement;
             }
         }
     }
