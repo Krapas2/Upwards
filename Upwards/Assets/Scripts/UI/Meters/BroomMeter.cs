@@ -13,6 +13,15 @@ public class BroomMeter : PowerupMeter
 
     public override float FillAmount()
     {
-        return (broom.flightTime-broom.flightTimer) / broom.flightTime;
+        return (broom.flightTime - broom.flightTimer) / broom.flightTime;
+    }
+
+    public override bool Show()
+    {
+        return Input.GetButtonDown(powerupButton) && Input.GetButtonDown("Jump");
+    }
+    public override bool Hide()
+    {
+        return Input.GetButtonUp(powerupButton) || Input.GetButtonUp("Jump");
     }
 }

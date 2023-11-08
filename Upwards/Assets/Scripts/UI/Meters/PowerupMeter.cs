@@ -14,7 +14,7 @@ public abstract class PowerupMeter : MonoBehaviour
     public void Setup()
     {
         children = GetComponentsInChildren<Image>();
-        
+
         Invoke("FadeInvoke", showTime);
     }
 
@@ -22,27 +22,34 @@ public abstract class PowerupMeter : MonoBehaviour
     {
         meter.fillAmount = FillAmount();
 
-        if(Input.GetButtonDown(powerupButton)){
-            foreach(Image child in children){
+        if (Show())
+        {
+            foreach (Image child in children)
+            {
                 Color c = child.color;
                 c.a = 1f;
                 child.color = c;
             }
             CancelInvoke();
         }
-        if(Input.GetButtonUp(powerupButton)){
+        if (Hide())
+        {
             Invoke("FadeInvoke", showTime);
         }
     }
 
     public abstract float FillAmount();
+    public abstract bool Show();
+    public abstract bool Hide();
 
-    void FadeInvoke(){
-        foreach(Image child in children){
+    void FadeInvoke()
+    {
+        foreach (Image child in children)
+        {
             StartCoroutine(FadeMeter(child));
         }
     }
-    
+
     IEnumerator FadeMeter(Image image)
     {
         Color c = image.color;

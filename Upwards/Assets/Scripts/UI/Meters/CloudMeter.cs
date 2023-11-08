@@ -13,6 +13,15 @@ public class CloudMeter : PowerupMeter
 
     public override float FillAmount()
     {
-        return (cloud.glideTime-cloud.glideTimer) / cloud.glideTime;
+        return (cloud.glideTime - cloud.glideTimer) / cloud.glideTime;
+    }
+
+    public override bool Show()
+    {
+        return Input.GetButtonDown(powerupButton) && Input.GetButtonDown("Jump");
+    }
+    public override bool Hide()
+    {
+        return Input.GetButtonUp(powerupButton) || Input.GetButtonUp("Jump");
     }
 }
