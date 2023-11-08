@@ -667,6 +667,17 @@ Transform:
   m_Father: {fileID: 1768161264}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &214202112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4859508368752409534, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
+  m_PrefabInstance: {fileID: 1794716206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274ba33c1677fd14994a8fcbff5ff15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &223400844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,6 +685,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 339797884, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 339797884, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: maxCameraPos.x
       value: 64
@@ -686,6 +701,22 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2036464023}
+    - target: {fileID: 8786876331944827948, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
+      propertyPath: maxCameraPos.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786876331944827948, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
+      propertyPath: maxCameraPos.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786876331944827948, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
+      propertyPath: minCameraPos.x
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786876331944827948, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
+      propertyPath: minCameraPos.y
+      value: -12
+      objectReference: {fileID: 0}
     - target: {fileID: 8786876331944827949, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -744,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 13.25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -33602,6 +33633,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cacaa520390e89849a1b572c47ae3248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &772284116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4859508368704514403, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
+  m_PrefabInstance: {fileID: 1794716206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03631448cb0f07744ab161963a0d1d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &868077223
 GameObject:
   m_ObjectHideFlags: 0
@@ -33983,6 +34025,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1150718729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4859508368256209548, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
+  m_PrefabInstance: {fileID: 1794716206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7894eab4ceeb25948a3817bd3a7a19f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1191508472
 GameObject:
   m_ObjectHideFlags: 0
@@ -86023,9 +86076,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Text Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8786876331944828113, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 13.25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -86774,7 +86831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.76470596, g: 0.7960785, b: 0.8431373, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -87073,18 +87130,22 @@ PrefabInstance:
       propertyPath: towerParent
       value: 
       objectReference: {fileID: 2000990292}
+    - target: {fileID: 1746058034319962039, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4062643009010567504, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: powerups.Array.data[0].meter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1150718729}
     - target: {fileID: 4062643009010567504, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: powerups.Array.data[1].meter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 214202112}
     - target: {fileID: 4062643009010567504, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: powerups.Array.data[2].meter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 772284116}
     - target: {fileID: 8920976726057152790, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: ground
       value: 

@@ -15,11 +15,12 @@ public class WaterReflectionBehaviour : MonoBehaviour
         sprite = GetComponent<Renderer>();
 
         cam = Camera.main;
+        Debug.Log(cam);
     }
 
     void Update()
     {
-        sprite.material.SetVector("_SquishFactor",new Vector3(1, SquishFactor - (cam.transform.position.y*SquishMultiplier), 1));
+        sprite.material.SetVector("_SquishFactor", new Vector3(1, SquishFactor - (cam.transform.position.y * SquishMultiplier), 1));
         transform.position = new Vector3(cam.transform.position.x, transform.position.y, transform.position.z);
     }
 }
