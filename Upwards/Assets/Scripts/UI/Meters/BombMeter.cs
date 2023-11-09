@@ -19,10 +19,6 @@ public class BombMeter : PowerupMeter
 
     public override bool Show()
     {
-        return Input.GetButtonDown(powerupButton);
-    }
-    public override bool Hide()
-    {
-        return Input.GetButtonUp(powerupButton);
+        return Input.GetButton(powerupButton);
     }
 }
