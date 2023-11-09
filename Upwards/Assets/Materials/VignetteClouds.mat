@@ -43,5 +43,5 @@ Material:
     - _WindowSize: 15.999276
     m_Colors:
     - _DistortionSpeed: {r: 0, g: 0, b: 1, a: 0}
-    - _PlayerPos: {r: 0, g: 0.0000031823292, b: 5, a: 0}
+    - _PlayerPos: {r: 0, g: 0.000004114583, b: 5, a: 0}
   m_BuildTextureStacks: []

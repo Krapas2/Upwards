@@ -15,7 +15,6 @@ public class WaterReflectionBehaviour : MonoBehaviour
         sprite = GetComponent<Renderer>();
 
         cam = Camera.main;
-        Debug.Log(cam);
     }
 
     void Update()
