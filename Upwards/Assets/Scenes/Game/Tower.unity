@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeChangingText: 0.25
-  showTrackerText: Press X to see how many resources you have and need
+  showTrackerText: Press E to see how many resources you have and need
 --- !u!114 &155820635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeChangingText: 0.25
-  UseCloudText: Press CTRL to fly on your cloud
+  UseCloudText: Press Up while holding space to fly on your cloud
 --- !u!114 &155820636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeChangingText: 0.25
-  UseBroomText: Press Shift to fly on your broom
+  UseBroomText: Press Down while holding space to fly on your broom
 --- !u!1 &180345764
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 9.96875
+      value: 13.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
@@ -49218,7 +49218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4859508367635664987, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 28.34375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4859508367635664987, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
       propertyPath: m_AnchoredPosition.y

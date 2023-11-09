@@ -10,6 +10,8 @@ public abstract class PowerupMeter : MonoBehaviour
     public float fadeTime;
     public Image meter;
 
+    private bool fading = false;
+
     private Image[] children;
     public void Setup()
     {
@@ -22,8 +24,7 @@ public abstract class PowerupMeter : MonoBehaviour
     {
         meter.fillAmount = FillAmount();
 
-        if (Show())
-        {
+        if (Show() && meter.color.a != 1){
             foreach (Image child in children)
             {
                 Color c = child.color;
@@ -32,15 +33,14 @@ public abstract class PowerupMeter : MonoBehaviour
             }
             CancelInvoke();
         }
-        if (Hide())
-        {
+        if (!Show() && !fading && meter.color.a != 0) {
+            fading = true;
             Invoke("FadeInvoke", showTime);
         }
     }
 
     public abstract float FillAmount();
     public abstract bool Show();
-    public abstract bool Hide();
 
     void FadeInvoke()
     {
@@ -62,5 +62,6 @@ public abstract class PowerupMeter : MonoBehaviour
         }
         c.a = 0;
         image.color = c;
+        fading = false;
     }
 }

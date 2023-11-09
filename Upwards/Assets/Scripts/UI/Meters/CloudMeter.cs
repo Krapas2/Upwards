@@ -18,10 +18,6 @@ public class CloudMeter : PowerupMeter
 
     public override bool Show()
     {
-        return Input.GetButtonDown(powerupButton) && Input.GetButtonDown("Jump");
-    }
-    public override bool Hide()
-    {
-        return Input.GetButtonUp(powerupButton) || Input.GetButtonUp("Jump");
+        return Input.GetButton(powerupButton) && Input.GetButton("Jump");
     }
 }
