@@ -44,19 +44,23 @@ public class ItemTracker : MonoBehaviour
         }
     }
 
-    void UpdateTrackers(){
-        foreach(Tracker tracker in trackers){
+    void UpdateTrackers()
+    {
+        foreach (Tracker tracker in trackers)
+        {
             UpdateTracker(tracker);
         }
     }
 
-    void UpdateTracker(Tracker tracker){
+    void UpdateTracker(Tracker tracker)
+    {
         int itemIndex = inventory.ItemIndexFromName(tracker.name);
         int powerupIndex = powerupManager.PowerupIndexFromItemName(tracker.name);
-        foreach(Text text in tracker.texts){
+        foreach (Text text in tracker.texts)
+        {
             string itemAmount = inventory.items[itemIndex].amount.ToString();
             string itemMax = powerupManager.powerups[powerupIndex].ItemRequiredAmount.ToString();
-            
+
             text.text = PlayerPrefs.GetInt(tracker.name + "PowerupEnabled") != 0 ? itemAmount : string.Concat(itemAmount, " / ", itemMax);
         }
     }
@@ -103,7 +107,7 @@ public class ItemTracker : MonoBehaviour
 
         c.a = 1;
         trackerRenderer.material.color = c;
-        
+
         tracker.tracker.SetActive(false);
     }
 }
