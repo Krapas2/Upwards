@@ -35,7 +35,7 @@ public class PlayerPowerupCloud : MonoBehaviour
             glideTimer = 0;
         }
 
-        if (Input.GetButton("Cloud") && glideTimer < glideTime)
+        if ((Input.GetButton("Cloud") && Input.GetButton("Jump")) && glideTimer < glideTime)
         {
             if(riseBool) {
                 if(_audManager) _audManager.Play("CloudRise");
@@ -49,7 +49,7 @@ public class PlayerPowerupCloud : MonoBehaviour
         }
         
 
-        if (Input.GetButtonUp("Cloud") || !(glideTimer < glideTime))
+        if ((Input.GetButtonUp("Cloud") || Input.GetButtonUp("Jump")) || !(glideTimer < glideTime))
         {
             if(fadeBool)
             {
