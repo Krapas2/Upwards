@@ -34,13 +34,26 @@ public class PlayerPowerupBroom : MonoBehaviour
 
     void LateUpdate()
     {
-        if(playerMovement.grounded){
+        if (playerMovement.grounded)
+        {
             flightTimer = 0;
         }
 
-        if (Input.GetButtonDown("Broom") && flightTimer < flightTime)
+        bool buttonComboDown = (
+            (Input.GetButton("Jump") && Input.GetButtonDown("Broom")) ||
+            (Input.GetButtonDown("Jump") && Input.GetButton("Broom")) ||
+            (Input.GetButtonDown("Jump") && Input.GetButtonDown("Broom"))
+        );
+
+        bool buttonComboUp = (
+            (Input.GetButton("Jump") && Input.GetButtonUp("Broom")) ||
+            (Input.GetButtonUp("Jump") && Input.GetButton("Broom")) ||
+            (Input.GetButtonUp("Jump") && Input.GetButtonUp("Broom"))
+        );
+
+        if (buttonComboDown && flightTimer < flightTime && !playerMovement.gliding)
         {
-            fadeBool= true;
+            fadeBool = true;
             if (_audManager)
             {
                 _audManager.Play("Broom");
@@ -53,16 +66,17 @@ public class PlayerPowerupBroom : MonoBehaviour
             rb.gravityScale = 0f;
         }
 
-        if(playerMovement.flying){
+        if (playerMovement.flying)
+        {
             flightTimer += Time.deltaTime;
         }
 
-        if (Input.GetButtonUp("Broom") || !(flightTimer < flightTime))
+        if (buttonComboUp || !(flightTimer < flightTime))
         {
-            if(fadeBool)
+            if (fadeBool)
             {
                 FadeOut();
-            }      
+            }
             ResetPhysics();
         }
 
@@ -83,6 +97,6 @@ public class PlayerPowerupBroom : MonoBehaviour
             _audManager.Play("WindFadeOut");
             _audManager.Stop("Wind");
         }
-        fadeBool= false;
+        fadeBool = false;
     }
 }
