@@ -8,6 +8,7 @@ public class TriggerDialogueNpc : MonoBehaviour
     public Transform dialogueCheck;
     public LayerMask NPCLayerMask;
     private PlayerInventory inventory;
+    private DialogueManager dialogueManager;
     private PlayerPowerupManager powerupManager;
 
     [HideInInspector]
@@ -42,31 +43,26 @@ public class TriggerDialogueNpc : MonoBehaviour
     void Start(){      
         inventory = FindObjectOfType<PlayerInventory>();
         powerupManager = FindObjectOfType<PlayerPowerupManager>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
     void Update(){
         NPCTriggered = Physics2D.OverlapCircle(dialogueCheck.position, 1.5f, NPCLayerMask);
 
         if (NPCTriggered && 
-            PlayerPrefs.GetInt(trigger.itemId + "triggeredFirstDialogue") == 0){
-            
-            //SETTANDO PLAYER PREF DE TRIGGER DO PRIMEIRO DIALOGO
-            PlayerPrefs.SetInt(trigger.itemId + "triggeredFirstDialogue",1);
-
+            PlayerPrefs.GetInt(trigger.itemId + "triggeredFirstDialogue") == 0 &&
+            !dialogueManager.talking){
             trigger.StartDialogue();
-
         }
+
         if (NPCTriggered && 
             PlayerPrefs.GetInt(trigger.itemId + "triggeredLastDialogue") == 0 && 
-            CheckLastDialogue(trigger.itemId)){   
-
-            //SETTANDO PLAYER PREF DE TRIGGER DO ULTIMO DIALOGO
-            PlayerPrefs.SetInt(trigger.itemId + "triggeredLastDialogue",1);
-
-            trigger.StartFinalDialogue();
+            CheckLastDialogue(trigger.itemId) &&
+            !dialogueManager.talking){   
 
             //REMOVE QTDE DE ITEM APÓS TRIGGER
             inventory.items[itemIndex].amount = itemAmount - itemMax;
 
+            trigger.StartFinalDialogue();
         }
     }
 }

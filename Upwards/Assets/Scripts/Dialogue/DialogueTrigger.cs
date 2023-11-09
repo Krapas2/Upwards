@@ -9,19 +9,22 @@ public class DialogueTrigger : MonoBehaviour
     public Message[] finalMessages;
     public string itemId;
     public Color32 colorDg;
+    public MonoBehaviour scriptPowerUp;
     public void StartDialogue(){
         FindObjectOfType<DialogueManager>().OpenDialogue(initialMessages,
                                                          itemId,
                                                          false,
                                                          gameObject,
-                                                         colorDg);
+                                                         colorDg,
+                                                         scriptPowerUp);
     }
     public void StartFinalDialogue(){
         FindObjectOfType<DialogueManager>().OpenDialogue(finalMessages,
                                                          itemId,
                                                          true,
                                                          gameObject,
-                                                         colorDg);
+                                                         colorDg,
+                                                         scriptPowerUp);
     }
 }
 

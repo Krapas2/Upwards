@@ -18,12 +18,15 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.04f;
     public GameObject prefabBox;
     Message[] currentMessages;
+    MonoBehaviour powerUp;
     List<DialogueBox> dialogueBoxes = new List<DialogueBox>();
     int activeMessage,activeBox = 0;
     Color32 colorDialogue;
     public static bool isActive = true;
     private bool firstTime = true;
-    private bool isFinal;
+    
+    [HideInInspector]
+    public bool isFinal, talking;
 
     void Start(){
         //GET GAMEOBJECTS
@@ -50,17 +53,20 @@ public class DialogueManager : MonoBehaviour
         for (int i = 0; i < dialogueBoxes.Count; i++){
             Destroy(dialogueBoxes[i].gameobj);
         }
+
         dialogueBoxes.Clear();
         
         //RESETANDO VARS
         firstTime = true;
         isActive = true;
+        talking = false;
     }
     public void OpenDialogue(Message[] messages, 
                              string itemId, 
                              bool isFinalDialogue,
                              GameObject actorObject,
-                             Color32 colorDg){
+                             Color32 colorDg,
+                             MonoBehaviour scriptPowerUp){
         
         //SE AINDA TIVER DIÁLOGO RESETAR TRIGGER DO DIÁLOGO E DESCONSIDERAR 
         //OU NAO ESTIVER ATIVO 
@@ -72,18 +78,12 @@ public class DialogueManager : MonoBehaviour
             isFinal = isFinalDialogue;
             npc = actorObject;
             colorDialogue = colorDg;
+            talking = true;
+            powerUp = scriptPowerUp;
 
             Debug.Log("Start conversation ! " + messages.Length);
             
             DisplayMessage();
-        } else {
-            if(!isFinalDialogue)
-                PlayerPrefs.SetInt(itemId + "triggeredFirstDialogue",0);   
-            else 
-                PlayerPrefs.SetInt(itemId + "triggeredLastDialogue",0);   
-
-            //DEPOIS DE SETAR VALOR PARA 0 SALVA O VALOR DOS PREFS
-            PlayerPrefs.Save();
         }
     }
 
@@ -132,9 +132,19 @@ public class DialogueManager : MonoBehaviour
         }else{
             Debug.Log("Conversation End");
 
-            //ATIVA PLAYER PREF PARA ADICIONAR POWERUP
-            if(isFinal)         
+            if(isFinal){
+                
+                //ATIVA PLAYER PREF PARA ADICIONAR POWERUP
                 PlayerPrefs.SetInt(itemRequired + "PowerupEnabled",1);
+                powerUp.enabled = true;
+
+                //SETTANDO PLAYER PREF DE TRIGGER DO ULTIMO DIALOGO
+                PlayerPrefs.SetInt(itemRequired + "triggeredLastDialogue",1);
+            } else {
+
+                //SETTANDO PLAYER PREF DE TRIGGER DO PRIMEIRO DIALOGO
+                PlayerPrefs.SetInt(itemRequired + "triggeredFirstDialogue",1);
+            }      
 
             ClearBoxes();
         }
