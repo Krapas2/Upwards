@@ -31,7 +31,7 @@ public class ScrollingBackground : MonoBehaviour
 
     private bool _fadeBool = false;
 
-    private void Awake()
+    private void Start()
     {
         
         _audManager = FindObjectOfType<AudioManager>();

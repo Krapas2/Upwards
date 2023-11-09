@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void FixedUpdate()
+	void Update()
 	{
 
 		Vector3 minCameraBounds = (Vector2)(cam.ScreenToWorldPoint(Vector2.zero) - transform.position);
