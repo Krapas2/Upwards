@@ -16,17 +16,22 @@ public class MusicSize : MonoBehaviour
     void Start()
     {
         _audManager = FindObjectOfType<AudioManager>();
+        _audManager.Play("CaveNoises");
     }
 
     void Update()
     {
-        float volume;
+        float volume, volume2;
         volume = Map(player.position.y, maxHeight, minHeight, 0f, 0.5f);
+        volume2 = Map(player.position.y, maxHeight, minHeight, 1f, 0f);
 
         volume = Mathf.Clamp01(volume);
 
         if (_audManager)
-        { _audManager.SetVolume("Wilds", volume); }
+        { 
+            _audManager.SetVolume("Wilds", volume);
+            _audManager.SetVolume("CaveNoises", volume2);
+        }
 
 
     }
