@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class CutsceneManager : MonoBehaviour
 {
     [System.Serializable]
-    public struct Shot{
+    public struct Shot
+    {
         public Sprite shotImage;
         public float time;
     }
@@ -26,9 +27,9 @@ public class CutsceneManager : MonoBehaviour
     {
         image = GetComponent<Image>();
 
-        Color c = image.material.color;
+        Color c = image.color;
         c.a = 0;
-        image.material.color = c;
+        image.color = c;
 
         StartCoroutine(PlayShot(0));
     }
@@ -42,33 +43,37 @@ public class CutsceneManager : MonoBehaviour
         yield return FadeShot(false);
 
         currentShotIndex++;
-        if(currentShotIndex < shots.Length){
+        if (currentShotIndex < shots.Length)
+        {
             PlayNextShot();
-        }else{
+        }
+        else
+        {
             yield return new WaitForSeconds(waitTime);
-            PlayerPrefs.SetString ("lastScene", SceneManager.GetActiveScene().name);
+            PlayerPrefs.SetString("lastScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene(nextScene);
         }
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(nextScene);
+        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(nextScene);
     }
 
-    void PlayNextShot(){
+    void PlayNextShot()
+    {
         StartCoroutine(PlayShot(currentShotIndex));
     }
 
 
     IEnumerator FadeShot(bool fadeIn)
     {
-        Color c = image.material.color;
+        Color c = image.color;
         for (float timer = 0f; timer < fadeTime; timer += Time.deltaTime)
         {
-            float progress = timer/fadeTime;
-            c.a = fadeIn ? progress : 1-progress;
-            image.material.color = c;
+            float progress = timer / fadeTime;
+            c.a = fadeIn ? progress : 1 - progress;
+            image.color = c;
             yield return null;
         }
     }

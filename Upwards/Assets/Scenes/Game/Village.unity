@@ -775,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 11.25
+      value: 16.09375
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -87383,7 +87383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e58ef31cdb5cddb4bab22166e2b64456, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
