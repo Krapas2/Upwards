@@ -8,11 +8,14 @@ public class TutorialDialogue : MonoBehaviour
     public float timeBeforeChangingText = .25f;
     [TextAreaAttribute]
     public string skipDialogueText;
-
+    
     private Text textBox;
+    private TutorialMovement tutorialMovement;
     void Start()
     {
         textBox = GetComponent<Text>();
+
+        tutorialMovement = GetComponent<TutorialMovement>();
 
         if (PlayerPrefs.GetInt("FinishedDialogueTutorial") == 0)
         {
@@ -27,6 +30,7 @@ public class TutorialDialogue : MonoBehaviour
     IEnumerator TutorialSequence()
     {
         textBox.text = "";
+        yield return WaitForFinishTutorials();
         yield return WaitForDialogueBox();
         yield return new WaitForSeconds(timeBeforeChangingText);
 
@@ -37,6 +41,15 @@ public class TutorialDialogue : MonoBehaviour
         PlayerPrefs.SetInt("FinishedDialogueTutorial", 1);
         textBox.text = "";
         Destroy(this);
+    }
+
+    IEnumerator WaitForFinishTutorials()
+    {
+        while (tutorialMovement)
+        {
+            yield return null;
+        }
+        yield return null;
     }
 
     IEnumerator WaitForDialogueBox()
