@@ -32,6 +32,8 @@ public class DialogueManager : MonoBehaviour
         //GET GAMEOBJECTS
         player = GameObject.FindWithTag("Player");
         canvas = FindObjectOfType<Canvas>().gameObject;
+        talking = false;
+        isActive = true;
     }
 
     private IEnumerator DisplayLine(string line){
@@ -153,7 +155,9 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Next Dialogue") && isActive){
+        if (Input.GetButtonDown("Next Dialogue") && 
+            talking && 
+            isActive){
             NextMessage();
         }
 
