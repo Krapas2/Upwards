@@ -40,7 +40,7 @@ public class PlayerBuild : MonoBehaviour
     void Start()
     {
         //assign components
-        cam = FindObjectOfType<Camera>();
+        cam = Camera.main;
         inventory = GetComponent<PlayerInventory>();
         playerBreakTile = GetComponent<PlayerBreakTile>();
     }
