@@ -14,8 +14,8 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI messageText;
     private GameObject player,npc,canvas;
     private string itemRequired;
-    public float spaceBox;
-    [SerializeField] private float typingSpeed = 0.04f;
+    public float spaceBox, slowTypingSpeed,fastTypingSpeed;
+    private float typingSpeed = 0.04f;
     public GameObject prefabBox;
     Message[] currentMessages;
     MonoBehaviour powerUp;
@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         canvas = FindObjectOfType<Canvas>().gameObject;
         talking = false;
         isActive = true;
+        typingSpeed = slowTypingSpeed;
     }
 
     private IEnumerator DisplayLine(string line){
@@ -155,11 +156,22 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //WHEN NEXT DIALOGUE AND IS NOT ACTIVE, SKIP DIALOGUE (INCREASE TYPING SPEED)
+        if (Input.GetButtonDown("Next Dialogue") &&
+            talking && 
+            !isActive){
+            typingSpeed = fastTypingSpeed;
+        }  
+
+        //WHEN NEXT DIALOGUE AND IS ACTIVE, NEXT DIALOGUE
         if (Input.GetButtonDown("Next Dialogue") && 
             talking && 
             isActive){
             NextMessage();
-        }
+
+            //RESET TYPING SPEED
+            typingSpeed = slowTypingSpeed;
+        }  
 
         if(prefabBox != null){
             int aux = dialogueBoxes.Count-1;

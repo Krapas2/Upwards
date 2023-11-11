@@ -775,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 16.09375
+      value: 13.53125
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -33828,64 +33828,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialMessages:
   - actorId: 1
-    message: OLA VIAJANTE!
+    message: HEY! ARE YOU A VISITOR?
   - actorId: 1
-    message: SEI QUE VAI AJUDAR A RECONSTRUIR A VILA
+    message: "THAT\u2019S AWESOME!"
   - actorId: 1
-    message: "AAAAH ISSO \xC9 INCR\xCDVEL!"
-  - actorId: 1
-    message: EU SOU PEDREGULHO PEDROSO
-  - actorId: 1
-    message: BOOOOM! HAHAHAHA
+    message: HELLO! HELLO! NICE TO MEET YOU!
   - actorId: 0
-    message: "Erm\u2026 que bom te conhecer."
+    message: "Hey, it\u2019s nice to\u2026"
   - actorId: 1
-    message: SIM SIM! HAHA.
+    message: MY NAME IS ROCK
   - actorId: 1
-    message: "MINHA CASA \xC9 FEITA TODA DE PEDRA!"
+    message: I LIKE ROCKS
   - actorId: 1
-    message: "\xC9 MUITO F\xC1CIL DE ENCONTRAR PEDRAS NAS CAVERNAS"
+    message: MINES
   - actorId: 1
-    message: "MINHA CASA \xC9 FEITA TODA DE PEDRA!"
+    message: "AND\u2026"
   - actorId: 1
-    message: "E MAIS F\xC1CIL AINDA QUANDO VOC\xCA TEM BOMBAS"
+    message: EXPLOSIONS!
   - actorId: 1
-    message: BOOOOOM! AHAHAHA
+    message: BOOOOOOOOOOM! HAHAHAHAHA
   - actorId: 0
-    message: Bombas?
+    message: "Heh\u2026 that\u2019s nice."
   - actorId: 1
-    message: "VOC\xCA PODE USAR BOMBAS PARA ABRIR CAMINHOS NAS CAVERNAS"
+    message: OF COURSE IT IS
   - actorId: 1
-    message: "ASSIM FICA BEM MAIS F\xC1CIL DE EXPLORAR!"
+    message: MY HOUSE IS MADE OF ROCKS
   - actorId: 1
-    message: "EU AT\xC9 PODERIA TE FAZER ALGUMAS"
+    message: ROCKS ARE EASY TO FOUND INSIDE THE MINES
   - actorId: 1
-    message: "MAS MEU CENTRO DE FAZE\xC7\xC3O DE BOMBAS EST\xC1 NO MEIO DAS PEDRAS"
+    message: AND EASIER WHEN YOU HAVE BOMBS
+  - actorId: 1
+    message: BOOOOOOOOOOM! HAHAHAHAHA
   - actorId: 0
-    message: "N\xE3o se preocupe, vou reconstruir sua casa! "
+    message: "\u2026Bombs?"
   - actorId: 1
-    message: PEDREGULHO PEDROSO AGRADECE O VIAJANTE!
+    message: YOU CAN USE BOMBS TO OPEN PASSAGES IN THE MINES
   - actorId: 1
-    message: "QUANDO VOC\xCA RECONSTRUIR MINHA CASA"
+    message: I EVEN COULD MAKE YOU SOME
   - actorId: 1
-    message: VOU FAZER UM MONTE DE BOMBAS
-  - actorId: 1
-    message: "E VOC\xCA PODE PEGAR QUANTAS VOC\xCA QUISER!"
+    message: BUT MY BOMB MAKING THING IS IN THE MIDDLE OF THE STONES
   - actorId: 0
-    message: Obrigado! Vai ser de grande ajuda.
+    message: "Don\u2019t worry Rock"
+  - actorId: 0
+    message: Your house will be fixed pronto!
   - actorId: 1
-    message: BOOOM HAHAHA
+    message: ROCK THANKS THE VISITOR
+  - actorId: 1
+    message: "WHEN YOU REBUILD MY HOUSE I\u2019LL MAKE A BUNCH OF BOMBS"
+  - actorId: 1
+    message: AND YOU CAN GET AS MANY AS YOU WANT
+  - actorId: 0
+    message: "A-ah\u2026 Thanks?"
+  - actorId: 1
+    message: BOOOOOOOOOOM! HAHAHAHAHA
   finalMessages:
   - actorId: 1
     message: AHAHAHAHHA
   - actorId: 1
-    message: "VOC\xCA CONSEGUIU VIAJANTE! N\xC3O ACREDITO! "
+    message: YOU DID IT!
   - actorId: 1
-    message: "AQUI PEGA PEGA, QUANTAS VOC\xCA QUISER"
+    message: "I CAN\u2019T BELIEVE IT!"
   - actorId: 1
-    message: "S\xD3 TOMA CUIDADO PRA N\xC3O EXPLODIR MINHA CASA"
+    message: HERE!!!!!!!!!
   - actorId: 1
-    message: AHAHAHA BOOOOOM!
+    message: TAKE IT!!!!!!
+  - actorId: 1
+    message: AS MANY AS YOU CAN!
+  - actorId: 1
+    message: JUST BE CAREFUL TO NOT EXPLODE MY HOUSE AHAHAHA
+  - actorId: 1
+    message: BOOOOOOOOOM
   itemId: Rock
   colorDg:
     serializedVersion: 2
@@ -86035,8 +86047,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5996dbdd7f6aa614498eac1bce37ddc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceBox: 2
-  typingSpeed: 0.04
+  spaceBox: 2.5
+  slowTypingSpeed: 0.04
+  fastTypingSpeed: 0.001
   prefabBox: {fileID: 1164082754509729806, guid: 302184ad3ce62f1468c276a59b06a4cb, type: 3}
   isFinal: 0
   talking: 0
@@ -86451,58 +86464,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialMessages:
   - actorId: 1
-    message: "Ol\xE1 Viajante!"
+    message: Nyeeheehee
   - actorId: 1
-    message: "Uma nuvenzinha me contou que voc\xEA vai ajudar a reconstruir a vila"
+    message: what a surprise!
   - actorId: 1
-    message: Hia hia hia, que demais!
-  - actorId: 1
-    message: "Meu nome \xE9 Ramas Eucalipto"
-  - actorId: 1
-    message: "por\xE9m todos aqui me chamam de Bruxa eucalipto"
-  - actorId: 1
-    message: "mas eu n\xE3o sou t\xE3o feia assim, sou? "
+    message: "I haven\u2019t seen a new face in ages!"
   - actorId: 0
-    message: "Claro que n\xE3o!"
-  - actorId: 1
-    message: Hia Hia Hia
-  - actorId: 1
-    message: "estou s\xF3 brincando"
-  - actorId: 1
-    message: "me chamam assim por causa das po\xE7\xF5es e da vassoura mesmo"
+    message: Hello
   - actorId: 0
-    message: Estou aqui para ajudar, Bruxa Eucalipto!
+    message: nice to meet you!
   - actorId: 1
-    message: A nuvenzinha resolveu lhe dar um presente?
+    message: "No need for introductions my dear\u2026"
   - actorId: 1
-    message: "Pois saiba que o meu \xE9 muito melhor!"
+    message: Now that my house is long gone...
   - actorId: 1
-    message: Hia hia hia
-  - actorId: 1
-    message: "Minha vassoura m\xE1gica que vai te fazer voar super r\xE1pido!"
-  - actorId: 1
-    message: Hia hia hia
+    message: "I think I\u2019m going to pack my things and go back to the forest\u2026"
   - actorId: 0
-    message: obrigado!
+    message: Actually, I can help you with that
+  - actorId: 0
+    message: "I\u2019ve been trying to rebuild this whole village myself!"
   - actorId: 1
-    message: "Eu quem agrade\xE7o a sua generosidade Viajante!"
+    message: Oh, is that so?
   - actorId: 1
-    message: "At\xE9 breve!"
+    message: Nyahahaha!
   - actorId: 1
-    message: Hia hia hia
+    message: Amazing!
+  - actorId: 1
+    message: "Well then, I\u2019m the Great Oak Witch\u2026 "
+  - actorId: 1
+    message: But not the ugly type of witch, you know?
+  - actorId: 0
+    message: But of course not!
+  - actorId: 1
+    message: Nyeeheehee
+  - actorId: 1
+    message: "I\u2019m just kidding my dear!"
+  - actorId: 1
+    message: "Although\u2026"
+  - actorId: 1
+    message: "If you\u2019re really gonna help us"
+  - actorId: 1
+    message: "I suppose I\u2019ll need to find some gift for your kindness\u2026"
+  - actorId: 1
+    message: "And don\u2019t you even try to decline!"
+  - actorId: 0
+    message: "A-ah\u2026 O-of course!"
+  - actorId: 1
+    message: "Hmm, let me think\u2026"
+  - actorId: 1
+    message: "\u2026"
+  - actorId: 1
+    message: "I can\u2019t really think of anything now\u2026"
+  - actorId: 0
+    message: Hey, no worries Great Oak Witch
+  - actorId: 0
+    message: "You just stand there and I\u2019ll get it done!"
+  - actorId: 1
+    message: "What about a\u2026"
+  - actorId: 1
+    message: "Hmmm\u2026"
   finalMessages:
   - actorId: 1
-    message: Que Demais viajante!
+    message: Nyeeheehee
   - actorId: 1
-    message: Hia hia hia
+    message: you really did it!
   - actorId: 1
-    message: Obrigado por reconstruir minha querida arvorezinha!
+    message: I made this for you while you were doing your...
   - actorId: 1
-    message: E aqui o presente que havia comentado!
+    message: science-y stuff!
+  - actorId: 0
+    message: A flying broom?
+  - actorId: 0
+    message: "Wow, that\u2019s so cool!"
   - actorId: 1
-    message: "S\xF3 cuidado para n\xE3o se espatifar no ch\xE3o! "
+    message: Nyahahaha!
   - actorId: 1
-    message: Hia hia hia
+    message: Thank you so much my dear
+  - actorId: 1
+    message: this old witch will never forget your kindness!
   itemId: Wood
   colorDg:
     serializedVersion: 2
@@ -86871,69 +86910,111 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialMessages:
   - actorId: 1
-    message: "Oh c\xE9us\u2026 o que farei agora?"
+    message: "Oh no... What to do\u2026 What to do\u2026"
   - actorId: 1
-    message: "\u2026opa eu n\xE3o te vi a\xED! Voc\xEA est\xE1 perdido?"
+    message: ...
+  - actorId: 1
+    message: Oh! Hello pal! Are you lost?
   - actorId: 0
-    message: "N\xE3o, sou apenas um viajante de passagem"
+    message: "Uh, a little bit yeah\u2026 "
   - actorId: 0
-    message: 'O que aconteceu aqui? '
-  - actorId: 1
-    message: "Oh foi uma trag\xE9dia!"
-  - actorId: 1
-    message: "Uma terr\xEDvel tempestade passou por aqui e destruiu diversas casas
-      da nossa vila"
-  - actorId: 1
-    message: " Levar\xE3o meses e meses de trabalho para reconstruir todas as casas
-      que foram destru\xEDdas"
+    message: "Been trying to find some sort of \u201CGolden Cloud\u201D"
   - actorId: 0
-    message: Talvez eu possa ajudar...
+    message: Do you know about it?
+  - actorId: 1
+    message: "A Golden Cloud\u2026"
+  - actorId: 1
+    message: "Ah! But aren\u2019t you lucky?"
+  - actorId: 1
+    message: I think I just saw one flying just a few minutes ago!
+  - actorId: 1
+    message: "I\u2019m pretty sure it\u2019s just outside the village!"
+  - actorId: 1
+    message: If you keep moving forward you may be able to find it!
   - actorId: 0
-    message: "Minha m\xE1quina construtora pode reconstruir as casas com os materiais
-      certos"
-  - actorId: 1
-    message: "Ohh n\xE3o acredito"
-  - actorId: 1
-    message: "Voc\xEA faria isso por n\xF3s?"
-  - actorId: 1
-    message: Viajante isso seria de imensa ajuda!
-  - actorId: 1
-    message: "Meu nome \xE9 Nuvem Nublado! "
-  - actorId: 1
-    message: Mas pode me chamar de Prefeito Nuvem
-  - actorId: 1
-    message: "Sou o prefeito da Vila, \xE9 um prazer te conhecer!"
+    message: Huh, really?
   - actorId: 0
-    message: "O prazer \xE9 meu"
-  - actorId: 1
-    message: "As moradas de nossa vila s\xE3o feitas de materiais simples"
-  - actorId: 1
-    message: Pedras podem ser encontradas na MINA
-  - actorId: 1
-    message: madeira pode ser encontrada na FLORESTA
-  - actorId: 1
-    message: "e nuvens podem ser encontradas no C\xC9U"
-  - actorId: 1
-    message: "Esses materiais s\xE3o necess\xE1rios para reconstruir a vila"
-  - actorId: 1
-    message: "Se conseguir restaurar minha nuvenzinha ficarei t\xE3o agradecido"
-  - actorId: 1
-    message: "vou lhe presentear com a antiga nuvem m\xE1gica de meu av\xF4! "
-  - actorId: 1
-    message: "Um presente \u201Ca altura\u201D por um gesto t\xE3o generoso!"
-  - actorId: 1
-    message: Ahahaha!
+    message: "I\u2019m grateful for your help\u2026"
   - actorId: 0
-    message: Valeu, Prefeito Nuvem!
+    message: "But what\u2019s with all the commotion?"
+  - actorId: 1
+    message: "Oh pal\u2026 Wouldn\u2019t you believe it\u2026"
+  - actorId: 1
+    message: A great tragedy has occurred to our nice little village!
+  - actorId: 1
+    message: "A terrible storm took over every single house we had\u2026"
+  - actorId: 1
+    message: To rebuild it all might even take months!
+  - actorId: 0
+    message: "Ah, I see\u2026"
+  - actorId: 0
+    message: "It seems like you\u2019re the lucky pal here then!"
+  - actorId: 0
+    message: With the right materials
+  - actorId: 0
+    message: My building machine can reconstruct a house in just a second!
+  - actorId: 1
+    message: My, oh my!
+  - actorId: 1
+    message: "That would be perfect wouldn\u2019t it!"
+  - actorId: 1
+    message: "Oh\u2026 but who am I to not introduce myself\u2026"
+  - actorId: 1
+    message: My name is Cloudy Cloud
+  - actorId: 1
+    message: but you can call me Cloudy Mayor
+  - actorId: 1
+    message: nice to meet you pal!
+  - actorId: 0
+    message: Likewise, Sir.
+  - actorId: 1
+    message: Oh, no need for formalities!
+  - actorId: 1
+    message: "Now back to business\u2026"
+  - actorId: 1
+    message: 'The houses in the village are made of these simple materials:'
+  - actorId: 1
+    message: "Rocks can be found in the MINES\u2026"
+  - actorId: 1
+    message: "Wood can be found inside the FOREST\u2026"
+  - actorId: 1
+    message: And clouds in the SKY, of course!
+  - actorId: 0
+    message: "Hmmm\u2026 "
+  - actorId: 0
+    message: "Got it\u2026 Pal?"
+  - actorId: 1
+    message: "I\u2019m so happy pal\u2026"
+  - actorId: 1
+    message: 'You certainly deserve a gift of gratitude! '
+  - actorId: 1
+    message: If you can fulfill this request
+  - actorId: 1
+    message: I may give you something from my great great great great great great
+      great great great
+  - actorId: 1
+    message: great great great great grandfather!
+  - actorId: 1
+    message: It would certainly help you get to your objective!
+  - actorId: 0
+    message: "Ah, no need Cloudy Mayor\u2026"
+  - actorId: 0
+    message: But thanks a lot.
   finalMessages:
   - actorId: 1
-    message: "Viajante voc\xEA conseguiu! "
+    message: You did it, my friend!
   - actorId: 1
-    message: Obrigado por ajudar a reconstruir minha casa!
+    message: You actually did it!
   - actorId: 1
-    message: "E como prometido, a nuvem antiga de meu av\xF4! "
+    message: Thank you, thank you!
   - actorId: 1
-    message: Ela vai te ajudar nas suas aventuras
+    message: And as promised, here!
+  - actorId: 1
+    message: 'I bestow to you:'
+  - actorId: 1
+    message: The magic cloud from my great grandfather!
+  - actorId: 1
+    message: "I hope it\u2019s of service to you!"
   itemId: Cloud
   colorDg:
     serializedVersion: 2
@@ -87076,6 +87157,10 @@ PrefabInstance:
       propertyPath: powerups.Array.data[2].meter
       value: 
       objectReference: {fileID: 772284116}
+    - target: {fileID: 6353563178582477222, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8920976726057152790, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: ground
       value: 
