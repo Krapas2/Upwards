@@ -10,13 +10,15 @@ public class DialogueTrigger : MonoBehaviour
     public string itemId;
     public Color32 colorDg;
     public MonoBehaviour scriptPowerUp;
+    public GameObject meter;
     public void StartDialogue(){
         FindObjectOfType<DialogueManager>().OpenDialogue(initialMessages,
                                                          itemId,
                                                          false,
                                                          gameObject,
                                                          colorDg,
-                                                         scriptPowerUp);
+                                                         scriptPowerUp,
+                                                         meter);
     }
     public void StartFinalDialogue(){
         FindObjectOfType<DialogueManager>().OpenDialogue(finalMessages,
@@ -24,7 +26,8 @@ public class DialogueTrigger : MonoBehaviour
                                                          true,
                                                          gameObject,
                                                          colorDg,
-                                                         scriptPowerUp);
+                                                         scriptPowerUp,
+                                                         meter);
     }
 }
 
