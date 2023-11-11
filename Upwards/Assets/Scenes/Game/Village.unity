@@ -672,7 +672,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4859508368752409534, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
   m_PrefabInstance: {fileID: 1794716206}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1717467898}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 274ba33c1677fd14994a8fcbff5ff15d, type: 3}
@@ -33638,7 +33638,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4859508368704514403, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
   m_PrefabInstance: {fileID: 1794716206}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1644765657}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03631448cb0f07744ab161963a0d1d1d, type: 3}
@@ -33677,6 +33677,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &891834214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4859508368256209550, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
+  m_PrefabInstance: {fileID: 1794716206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &923044429
 GameObject:
   m_ObjectHideFlags: 0
@@ -33903,6 +33908,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4290156427
   scriptPowerUp: {fileID: 2036464027}
+  meter: {fileID: 1717467898}
 --- !u!1 &1069127372
 GameObject:
   m_ObjectHideFlags: 0
@@ -34043,7 +34049,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4859508368256209548, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
   m_PrefabInstance: {fileID: 1794716206}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 891834214}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7894eab4ceeb25948a3817bd3a7a19f6, type: 3}
@@ -86018,6 +86024,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1644765657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4859508368704514407, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
+  m_PrefabInstance: {fileID: 1794716206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1654372025
 GameObject:
   m_ObjectHideFlags: 0
@@ -86051,6 +86062,7 @@ MonoBehaviour:
   slowTypingSpeed: 0.04
   fastTypingSpeed: 0.001
   prefabBox: {fileID: 1164082754509729806, guid: 302184ad3ce62f1468c276a59b06a4cb, type: 3}
+  meterPowerUp: {fileID: 0}
   isFinal: 0
   talking: 0
 --- !u!4 &1654372027
@@ -86341,6 +86353,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1717467898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4859508368752409538, guid: 97833eb2c5aff784783c1dc430a69aae, type: 3}
+  m_PrefabInstance: {fileID: 1794716206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1768161263
 GameObject:
   m_ObjectHideFlags: 0
@@ -86547,6 +86564,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4282102280
   scriptPowerUp: {fileID: 2036464026}
+  meter: {fileID: 891834214}
 --- !u!212 &1779546467
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87020,6 +87038,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   scriptPowerUp: {fileID: 2036464025}
+  meter: {fileID: 1644765657}
 --- !u!1 &1848710127
 GameObject:
   m_ObjectHideFlags: 0

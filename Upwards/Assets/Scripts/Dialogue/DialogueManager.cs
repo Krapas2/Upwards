@@ -16,9 +16,9 @@ public class DialogueManager : MonoBehaviour
     private string itemRequired;
     public float spaceBox, slowTypingSpeed,fastTypingSpeed;
     private float typingSpeed = 0.04f;
-    public GameObject prefabBox;
+    public GameObject prefabBox,meterPowerUp;
     Message[] currentMessages;
-    MonoBehaviour powerUp;
+    private MonoBehaviour powerUp;
     List<DialogueBox> dialogueBoxes = new List<DialogueBox>();
     int activeMessage,activeBox = 0;
     Color32 colorDialogue;
@@ -69,7 +69,8 @@ public class DialogueManager : MonoBehaviour
                              bool isFinalDialogue,
                              GameObject actorObject,
                              Color32 colorDg,
-                             MonoBehaviour scriptPowerUp){
+                             MonoBehaviour scriptPowerUp,
+                             GameObject meter){
         
         //SE AINDA TIVER DIÁLOGO RESETAR TRIGGER DO DIÁLOGO E DESCONSIDERAR 
         //OU NAO ESTIVER ATIVO 
@@ -83,6 +84,7 @@ public class DialogueManager : MonoBehaviour
             colorDialogue = colorDg;
             talking = true;
             powerUp = scriptPowerUp;
+            meterPowerUp = meter;
 
             Debug.Log("Start conversation ! " + messages.Length);
             
@@ -140,6 +142,9 @@ public class DialogueManager : MonoBehaviour
                 //ATIVA PLAYER PREF PARA ADICIONAR POWERUP
                 PlayerPrefs.SetInt(itemRequired + "PowerupEnabled",1);
                 powerUp.enabled = true;
+
+                //ATIVA METER PARA MOSTRAR POWERUP
+                meterPowerUp.SetActive(true);
 
                 //SETTANDO PLAYER PREF DE TRIGGER DO ULTIMO DIALOGO
                 PlayerPrefs.SetInt(itemRequired + "triggeredLastDialogue",1);
