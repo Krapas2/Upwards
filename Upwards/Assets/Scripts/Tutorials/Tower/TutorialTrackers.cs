@@ -12,6 +12,7 @@ public class TutorialTrackers : MonoBehaviour
     private Text textBox;
     private TutorialStructures tutorialStructures;
     private TutorialCloud tutorialCloud;
+    private int itemsInScene;
     void Start()
     {
         textBox = GetComponent<Text>();
@@ -56,7 +57,8 @@ public class TutorialTrackers : MonoBehaviour
     }
 
     IEnumerator WaitForItemCollect(){
-        while(FindObjectOfType<ItemDrop>()){
+        while((FindObjectsOfType<ItemDrop>().Length >= itemsInScene)){
+            itemsInScene = FindObjectsOfType<ItemDrop>().Length;
             yield return null;
         }
         yield return null;

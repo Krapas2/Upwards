@@ -12,6 +12,8 @@ public class TutorialStructures : MonoBehaviour
     public string placeStructureText;
     [TextAreaAttribute]
     public string changeStructureText;
+    [TextAreaAttribute]
+    public string BuildHighText;
 
     private Text textBox;
 
@@ -42,6 +44,9 @@ public class TutorialStructures : MonoBehaviour
         textBox.text = changeStructureText;
         yield return WaitForChangeStructure();
         yield return new WaitForSeconds(timeBeforeChangingText);
+
+        textBox.text = BuildHighText;
+        yield return new WaitForSeconds(15f);
 
         PlayerPrefs.SetInt("FinishedStructureTutorial", 1);
         textBox.text = "";

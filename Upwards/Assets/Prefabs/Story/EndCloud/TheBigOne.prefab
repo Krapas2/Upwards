@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8301165361453729667}
   - component: {fileID: 7352803515470403720}
   - component: {fileID: 4059935076501245837}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TheBigOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
