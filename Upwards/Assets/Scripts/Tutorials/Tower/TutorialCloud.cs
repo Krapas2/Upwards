@@ -15,11 +15,13 @@ public class TutorialCloud : MonoBehaviour
     private Text textBox;
     private TutorialStructures tutorialStructures;
     private Transform player;
+    private int itemsInScene;
 
     void Start()
     {
         textBox = GetComponent<Text>();
         tutorialStructures = GetComponent<TutorialStructures>();
+        itemsInScene = FindObjectsOfType<ItemDrop>().Length;
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -71,7 +73,8 @@ public class TutorialCloud : MonoBehaviour
         yield return null;
     }
     IEnumerator WaitForCollectCloud(){
-        while(FindObjectOfType<ItemDrop>()){
+        while((FindObjectsOfType<ItemDrop>().Length >= itemsInScene)){
+            itemsInScene = FindObjectsOfType<ItemDrop>().Length;
             yield return null;
         }
         yield return null;

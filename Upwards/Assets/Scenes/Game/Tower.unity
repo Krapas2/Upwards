@@ -436,6 +436,7 @@ MonoBehaviour:
     is green to place it
   changeStructureText: Press the number keys to change the structure you want to
     build
+  BuildHighText: Build UPWARDS to find more clouds
 --- !u!114 &155820628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeChangingText: 0.25
   UseCloudText: Press Up while holding space to fly on your cloud
+  inProgress: 0
 --- !u!114 &155820636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +585,7 @@ MonoBehaviour:
   UseBombText: Press Q to throw a bomb
   BombStickText: Bombs stick to destructable surfaces
   BombAmountText: You get 10 bombs for each area
+  inProgress: 0
 --- !u!114 &155820637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeChangingText: 0.25
   UseBroomText: Press Down while holding space to fly on your broom
+  inProgress: 0
 --- !u!1 &180345764
 GameObject:
   m_ObjectHideFlags: 0
