@@ -775,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 13.53125
+      value: 13.25
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -86734,6 +86734,9 @@ GameObject:
   - component: {fileID: 1806895475}
   - component: {fileID: 1806895480}
   - component: {fileID: 1806895479}
+  - component: {fileID: 1806895483}
+  - component: {fileID: 1806895482}
+  - component: {fileID: 1806895481}
   m_Layer: 5
   m_Name: Tutorial Text
   m_TagString: Untagged
@@ -86861,6 +86864,50 @@ MonoBehaviour:
   timeBeforeChangingText: 0.25
   horizontalMovementText: Press A or D to walk
   JumpText: Press Space to jump
+--- !u!114 &1806895481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806895469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3872894a9f8fd8d4ea9173ea9df22af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  UseCloudText: Press Up while holding space to fly on your cloud
+--- !u!114 &1806895482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806895469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e531773604a79b94c94f3464d34ee88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  UseBombText: Press Q to throw a bomb
+  BombStickText: Bombs stick to destructable surfaces
+  BombAmountText: You get 10 bombs for each area
+--- !u!114 &1806895483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806895469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d55e62a29995d540858775edd817599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  UseBroomText: Press Down while holding space to fly on your broom
 --- !u!1 &1833516312
 GameObject:
   m_ObjectHideFlags: 0
@@ -87150,6 +87197,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1746058034319962031, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746058034319962034, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: items.Array.data[0].amount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746058034319962034, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: items.Array.data[1].amount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746058034319962034, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: items.Array.data[2].amount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746058034319962034, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
+      propertyPath: items.Array.data[3].amount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1746058034319962035, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}

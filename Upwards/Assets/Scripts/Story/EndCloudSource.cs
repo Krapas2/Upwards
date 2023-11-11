@@ -12,19 +12,30 @@ public class EndCloudSource : MonoBehaviour
     [HideInInspector]
     public Vector3 startPos;
 
+    private bool breaking;
+    private Camera cam;
+
     void Start(){
+        cam = Camera.main;
+
         startPos = transform.position;
+        breaking = false;
 
         breakShakeStrength /= 2;
     }
 
-    void OnMouseDown(){
-        StartCoroutine(BreakAnimation());
-    }
-
-    void OnMouseUp(){
-        StopAllCoroutines();
-        transform.position = startPos;
+    void Update(){
+        if(Input.GetButtonDown("Fire1") && !breaking){
+            Debug.Log("madeit");
+            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            if(Physics2D.Raycast(cam.transform.position, mousePos, Mathf.Infinity, gameObject.layer)){
+                breaking = true;
+                StartCoroutine(BreakAnimation());
+            }
+        } else if(Input.GetButtonUp("Fire1")){
+            StopAllCoroutines();
+            breaking = false;
+        }
     }
 
     public void Drop(){
@@ -47,5 +58,6 @@ public class EndCloudSource : MonoBehaviour
             yield return null;
         }
         Drop();
+        breaking = false;
     }
 }

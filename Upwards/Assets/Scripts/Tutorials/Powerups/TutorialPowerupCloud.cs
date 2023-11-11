@@ -11,6 +11,9 @@ public class TutorialPowerupCloud : MonoBehaviour
     public string UseCloudText;
 
     private Text textBox;
+    
+    [HideInInspector]
+    public bool inProgress;
 
     private TutorialPowerupBroom tutorialPowerupBroom;
     private TutorialPowerupBomb tutorialPowerupBomb;
@@ -35,24 +38,42 @@ public class TutorialPowerupCloud : MonoBehaviour
 
     IEnumerator TutorialSequence(){
         textBox.text = "";
-        yield return WaitForFinishTutorials();
         yield return WaitForPowerupEnabled();
+        yield return WaitForFinishTutorials();
         yield return new WaitForSeconds(timeBeforeChangingText);
 
+        inProgress = true;
         textBox.text = UseCloudText;
         yield return WaitForPowerupUse();
         yield return new WaitForSeconds(timeBeforeChangingText);
 
         PlayerPrefs.SetInt("FinishedPowerupCloudTutorial", 1);
         textBox.text = "";
+        inProgress = false;
         Destroy(this);
     }
 
     IEnumerator WaitForFinishTutorials(){
-        while(tutorialPowerupBroom || tutorialPowerupBroom){
+        while(BroomTutorialInProgress() || BombTutorialInProgress()){
             yield return null;
         }
         yield return null;
+    }
+
+    bool BroomTutorialInProgress(){
+        if(tutorialPowerupBroom){
+            return tutorialPowerupBroom.inProgress;
+        } else{
+            return false;
+        }
+    }
+
+    bool BombTutorialInProgress(){
+        if(tutorialPowerupBomb){
+            return tutorialPowerupBomb.inProgress;
+        } else{
+            return false;
+        }
     }
 
     IEnumerator WaitForPowerupEnabled(){
