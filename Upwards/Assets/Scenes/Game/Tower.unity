@@ -675,7 +675,7 @@ Transform:
   - {fileID: 1069127374}
   - {fileID: 936756974}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &223400844
 PrefabInstance:
@@ -758,7 +758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 16.09375
+      value: 13.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
@@ -47251,7 +47251,7 @@ Transform:
   - {fileID: 1702083214}
   - {fileID: 463409950}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1069127372
 GameObject:
@@ -47542,37 +47542,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   amount: 75
---- !u!1 &1484948290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1484948291}
-  m_Layer: 0
-  m_Name: TowerParent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1484948291
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484948290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3653338, y: 8.500415, z: -3.3480585}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1507200012
 GameObject:
   m_ObjectHideFlags: 0
@@ -48625,7 +48594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1828377211
 GameObject:
@@ -48769,7 +48738,7 @@ PrefabInstance:
     - target: {fileID: 1746058034319962035, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: towerParent
       value: 
-      objectReference: {fileID: 1484948291}
+      objectReference: {fileID: 2000990292}
     - target: {fileID: 1746058034319962039, guid: 55f6061b2d67ed048a05d43bb6ef6746, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -50163,7 +50132,7 @@ RectTransform:
   - {fileID: 1976618149}
   - {fileID: 155820626}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
