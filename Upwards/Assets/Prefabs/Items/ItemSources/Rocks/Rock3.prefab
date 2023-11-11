@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Rock
   itemDrop: {fileID: 2759294098484072577, guid: cc089a19940e3974b9522bb8b0d21a7f, type: 3}
-  amountDropped: 5
+  amountDropped: 7
   dropPosition: {fileID: 417712138304021580}
   startPos: {x: 0, y: 0, z: 0}
 --- !u!61 &2626882196267478421
