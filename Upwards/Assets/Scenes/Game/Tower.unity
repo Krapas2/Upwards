@@ -582,6 +582,7 @@ MonoBehaviour:
   timeBeforeChangingText: 0.25
   UseBombText: Press Q to throw a bomb
   BombStickText: Bombs stick to destructable surfaces
+  BombAmountText: You get 10 bombs for each area
 --- !u!114 &155820637
 MonoBehaviour:
   m_ObjectHideFlags: 0

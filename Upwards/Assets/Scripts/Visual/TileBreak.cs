@@ -13,15 +13,19 @@ public class TileBreak : MonoBehaviour
     public ItemDrop item;
 
     private Tilemap tilemap;
+    private Animator anim;
 
 
     private AudioManager audioManager;
     
     void Start()
     {
+        anim = GetComponent<Animator>();
         tilemap = GameObject.FindGameObjectWithTag("CollectableMap").GetComponent<Tilemap>();
         audioManager = FindObjectOfType<AudioManager>();
         StartCoroutine(Die());
+        
+        anim.SetFloat("Speed", 1/breakTime);
     }
 
     void Update()
