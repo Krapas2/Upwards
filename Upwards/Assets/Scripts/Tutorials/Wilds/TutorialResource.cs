@@ -12,6 +12,7 @@ public class TutorialResource : MonoBehaviour
     public string collectResourceText;
 
     private Text textBox;
+    private int itemsInScene;
 
     void Start()
     {
@@ -48,7 +49,8 @@ public class TutorialResource : MonoBehaviour
         yield return null;
     }
     IEnumerator WaitForCollectResource(){
-        while(FindObjectOfType<ItemDrop>()){
+        while((FindObjectsOfType<ItemDrop>().Length >= itemsInScene)){
+            itemsInScene = FindObjectsOfType<ItemDrop>().Length;
             yield return null;
         }
         yield return null;
