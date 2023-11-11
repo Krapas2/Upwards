@@ -11,10 +11,16 @@ public class TutorialPowerupBomb : MonoBehaviour
     public string UseBombText;
     [TextAreaAttribute]
     public string BombStickText;
+    [TextAreaAttribute]
+    public string BombAmountText;
 
     private Text textBox;
 
+    [HideInInspector]
+    public bool inProgress;
+
     private TutorialPowerupBroom tutorialPowerupBroom;
+    private TutorialPowerupCloud tutorialPowerupCloud;
 
     private PlayerPowerupBomb playerPowerupBomb;
 
@@ -22,6 +28,7 @@ public class TutorialPowerupBomb : MonoBehaviour
     {
         textBox = GetComponent<Text>();
         tutorialPowerupBroom = GetComponent<TutorialPowerupBroom>();
+        tutorialPowerupCloud = GetComponent<TutorialPowerupCloud>();
 
         playerPowerupBomb = FindObjectOfType<PlayerPowerupBomb>();
 
@@ -35,27 +42,48 @@ public class TutorialPowerupBomb : MonoBehaviour
 
     IEnumerator TutorialSequence(){
         textBox.text = "";
-        yield return WaitForFinishTutorials();
         yield return WaitForPowerupEnabled();
+        yield return WaitForFinishTutorials();
         yield return new WaitForSeconds(timeBeforeChangingText);
 
+        inProgress = true;
         textBox.text = UseBombText;
         yield return WaitForPowerupUse();
         yield return new WaitForSeconds(timeBeforeChangingText);
 
         textBox.text = BombStickText;
         PlayerPrefs.SetInt("FinishedPowerupBombTutorial", 1);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(timeBeforeChangingText);
+
+        textBox.text = BombAmountText;
+        yield return new WaitForSeconds(15f);
 
         textBox.text = "";
+        inProgress = false;
         Destroy(this);
     }
 
     IEnumerator WaitForFinishTutorials(){
-        while(tutorialPowerupBroom){
+        while(BroomTutorialInProgress() || CloudTutorialInProgress()){
             yield return null;
         }
         yield return null;
+    }
+
+    bool BroomTutorialInProgress(){
+        if(tutorialPowerupBroom){
+            return tutorialPowerupBroom.inProgress;
+        } else{
+            return false;
+        }
+    }
+
+    bool CloudTutorialInProgress(){
+        if(tutorialPowerupCloud){
+            return tutorialPowerupCloud.inProgress;
+        } else{
+            return false;
+        }
     }
 
     IEnumerator WaitForPowerupEnabled(){

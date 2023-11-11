@@ -1769,6 +1769,9 @@ GameObject:
   - component: {fileID: 998618621}
   - component: {fileID: 998618625}
   - component: {fileID: 998618626}
+  - component: {fileID: 998618629}
+  - component: {fileID: 998618628}
+  - component: {fileID: 998618627}
   m_Layer: 5
   m_Name: Tutorial Text
   m_TagString: Untagged
@@ -1898,6 +1901,50 @@ MonoBehaviour:
   timeBeforeChangingText: 0.25
   throwRopeText: Press Right Click to throw a climbable rope
   climbRopeText: Climb with Up and Down arrows or W and S
+--- !u!114 &998618627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998618616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3872894a9f8fd8d4ea9173ea9df22af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  UseCloudText: Press Up while holding space to fly on your cloud
+--- !u!114 &998618628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998618616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e531773604a79b94c94f3464d34ee88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  UseBombText: Press Q to throw a bomb
+  BombStickText: Bombs stick to destructable surfaces
+  BombAmountText: You get 10 bombs for each area
+--- !u!114 &998618629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998618616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d55e62a29995d540858775edd817599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeChangingText: 0.25
+  UseBroomText: Press Down while holding space to fly on your broom
 --- !u!1 &1011738703
 GameObject:
   m_ObjectHideFlags: 0
@@ -4054,7 +4101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 11.25
+      value: 13.25
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: m_BackGroundColor.b
