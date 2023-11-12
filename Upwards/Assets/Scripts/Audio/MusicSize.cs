@@ -5,32 +5,44 @@ using UnityEngine;
 public class MusicSize : MonoBehaviour
 {
     public Transform player;
-
     public float minHeight;
     public float maxHeight;
-
     private AudioManager _audManager;
-
-    
-
+    public enum Scene {Wilds, Tower}
+    public Scene scene;
     void Start()
     {
         _audManager = FindObjectOfType<AudioManager>();
-        _audManager.Play("CaveNoises");
+            if (scene == Scene.Wilds)
+                _audManager.Play("CaveNoises");
+            
+            if (scene == Scene.Tower)
+                _audManager.Play("Golden Cloud");
+            
     }
 
     void Update()
     {
         float volume, volume2;
-        volume = Map(player.position.y, maxHeight, minHeight, 0f, 0.5f);
-        volume2 = Map(player.position.y, maxHeight, minHeight, 1f, 0f);
-
-        volume = Mathf.Clamp01(volume);
-
         if (_audManager)
         { 
-            _audManager.SetVolume("Wilds", volume);
-            _audManager.SetVolume("CaveNoises", volume2);
+            if (scene == Scene.Wilds){     
+                volume = Map(player.position.y, maxHeight, minHeight, 0f, 0.5f);
+                volume2 = Map(player.position.y, maxHeight, minHeight, 1f, 0f);
+                volume = Mathf.Clamp01(volume);
+
+                _audManager.SetVolume("Wilds", volume);
+                _audManager.SetVolume("CaveNoises", volume2);
+            }
+
+            if (scene == Scene.Tower){
+                volume = Map(player.position.y, maxHeight, minHeight, 0f, 0.5f);
+                volume2 = Map(player.position.y, maxHeight, minHeight, 0.2f, 0f);
+                volume = Mathf.Clamp01(volume);
+
+                _audManager.SetVolume("Tower", volume);
+                _audManager.SetVolume("Golden Cloud", volume2);
+            }
         }
 
 

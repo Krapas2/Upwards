@@ -92,4 +92,18 @@ public class AudioManager : MonoBehaviour
         if(audioManager)
             audioManager.Play(SceneManager.GetActiveScene().name);
     }
+    public void Pause(string sound,string pauseOption)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + sound + " not found!");
+            return;
+        }
+
+        if (pauseOption == "pause")
+            s.source.Pause();
+        if (pauseOption == "unpause")
+            s.source.UnPause();
+    }
 }

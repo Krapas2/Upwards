@@ -14,6 +14,7 @@ public class EndCloudSource : MonoBehaviour
 
     private bool breaking;
     private Camera cam;
+    private AudioManager audioManager;
 
     void Start(){
         cam = Camera.main;
@@ -22,6 +23,8 @@ public class EndCloudSource : MonoBehaviour
         breaking = false;
 
         breakShakeStrength /= 2;
+        
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update(){
@@ -31,10 +34,16 @@ public class EndCloudSource : MonoBehaviour
             if(hit){
                 if(hit.collider.gameObject == gameObject){
                     breaking = true;
+                    audioManager.Pause("Golden Cloud","pause");
+                    audioManager.Pause("Tower","pause");
+                    audioManager.Play("DestroyGoldenCloud");
                     StartCoroutine(BreakAnimation());
                 }
             }
         } else if(Input.GetButtonUp("Fire1")){
+            audioManager.Pause("Golden Cloud","unpause");
+            audioManager.Pause("Tower","unpause");
+            audioManager.Stop("DestroyGoldenCloud");
             StopAllCoroutines();
             breaking = false;
         }

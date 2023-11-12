@@ -727,6 +727,7 @@ MonoBehaviour:
   player: {fileID: 1880552806}
   minHeight: 0
   maxHeight: -250
+  scene: 0
 --- !u!1 &610553276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1557,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+--- !u!1 &858000894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2074956483351112820, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+  m_PrefabInstance: {fileID: 858000893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &858000895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858000894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d4694645fa98749a5d2d9687d407de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1880552806}
+  minHeight: 0
+  maxHeight: -250
+  scene: 0
 --- !u!1 &861423554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4160,7 +4182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 13.25
+      value: 13.53125
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: m_BackGroundColor.b

@@ -763,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 13.25
+      value: 13.53125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
@@ -46709,6 +46709,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &701682772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2074956483351112820, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+  m_PrefabInstance: {fileID: 890406776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &701682775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701682772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d4694645fa98749a5d2d9687d407de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2036464034}
+  minHeight: 0
+  maxHeight: 300
+  scene: 1
 --- !u!1 &802904960
 GameObject:
   m_ObjectHideFlags: 0
@@ -46753,7 +46774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: sounds.Array.size
-      value: 21
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: sounds.Array.data[0].clip
@@ -46990,10 +47011,26 @@ PrefabInstance:
     - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: sounds.Array.data[21].clip
       value: 
-      objectReference: {fileID: 8300000, guid: a6c3374ac3cb7ed45b6b13b682bdb9a2, type: 3}
+      objectReference: {fileID: 8300000, guid: f4e621f35f909a149a1d32b4a2e7c4a0, type: 3}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[21].loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: sounds.Array.data[21].name
-      value: CloudPop
+      value: Golden Cloud
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[22].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c64f676e54fad08489399c4e9c4a7b20, type: 3}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[22].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[22].name
+      value: DestroyGoldenCloud
       objectReference: {fileID: 0}
     - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: sounds.Array.data[2].pitch
@@ -47128,6 +47165,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[21].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[22].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: sounds.Array.data[0].audioMixerGroup
       value: 
       objectReference: {fileID: 452397394360204228, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
@@ -47203,6 +47248,14 @@ PrefabInstance:
       propertyPath: sounds.Array.data[19].audioMixerGroup
       value: 
       objectReference: {fileID: 452397394360204228, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[21].audioMixerGroup
+      value: 
+      objectReference: {fileID: 452397394360204228, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[22].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
     - target: {fileID: 2074956483351112823, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: m_RootOrder
       value: 0
