@@ -26,11 +26,13 @@ public class EndCloudSource : MonoBehaviour
 
     void Update(){
         if(Input.GetButtonDown("Fire1") && !breaking){
-            Debug.Log("madeit");
             Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            if(Physics2D.Raycast(cam.transform.position, mousePos, Mathf.Infinity, gameObject.layer)){
-                breaking = true;
-                StartCoroutine(BreakAnimation());
+            RaycastHit2D hit = Physics2D.Raycast(cam.transform.position, mousePos, Mathf.Infinity, (1 << gameObject.layer));
+            if(hit){
+                if(hit.collider.gameObject == gameObject){
+                    breaking = true;
+                    StartCoroutine(BreakAnimation());
+                }
             }
         } else if(Input.GetButtonUp("Fire1")){
             StopAllCoroutines();
