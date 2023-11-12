@@ -77,7 +77,7 @@ public class TutorialPowerupCloud : MonoBehaviour
     }
 
     IEnumerator WaitForPowerupEnabled(){
-        while(playerPowerupCloud.enabled == false){
+        while(PlayerPrefs.GetInt("CloudPowerupEnabled") != 1){
             yield return null;
         }
         yield return null;
