@@ -1454,6 +1454,62 @@ PrefabInstance:
       propertyPath: sounds.Array.data[19].volume
       value: 0.313
       objectReference: {fileID: 0}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[0].audioMixerGroup
+      value: 
+      objectReference: {fileID: 452397394360204228, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[1].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[2].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[3].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[4].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[5].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[6].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[7].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[8].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[9].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[10].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[11].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[13].audioMixerGroup
+      value: 
+      objectReference: {fileID: 65029013465078992, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[14].audioMixerGroup
+      value: 
+      objectReference: {fileID: 452397394360204228, guid: e3a0d3a7543feec4f8d15fe0185589c6, type: 2}
     - target: {fileID: 2074956483351112823, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1915,6 +1971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeChangingText: 0.25
   UseCloudText: Press Up while holding space to fly on your cloud
+  inProgress: 0
 --- !u!114 &998618628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,6 +1988,7 @@ MonoBehaviour:
   UseBombText: Press Q to throw a bomb
   BombStickText: Bombs stick to destructable surfaces
   BombAmountText: You get 10 bombs for each area
+  inProgress: 0
 --- !u!114 &998618629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1945,6 +2003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeChangingText: 0.25
   UseBroomText: Press Down while holding space to fly on your broom
+  inProgress: 0
 --- !u!1 &1011738703
 GameObject:
   m_ObjectHideFlags: 0
