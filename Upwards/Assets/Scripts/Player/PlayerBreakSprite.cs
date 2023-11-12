@@ -19,7 +19,7 @@ public class PlayerBreakSprite : MonoBehaviour
     void Start()
     {
         playerInventory = GetComponent<PlayerInventory>();
-        cam = FindObjectOfType<Camera>();
+        cam = Camera.main;
         _audManager = FindObjectOfType<AudioManager>();
         audBool = true;
     }
@@ -49,7 +49,7 @@ public class PlayerBreakSprite : MonoBehaviour
     }
 
     private ItemSource GetSource(){
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
         
         if(hit){
