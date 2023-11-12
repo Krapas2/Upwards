@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class SliderVolume : MonoBehaviour
 {
-
-    [SerializeField] private Slider slider;
     public AudioMixer audioMixer;
     
     public void SetMasterLvl(float masterLvl){

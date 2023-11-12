@@ -1850,6 +1850,10 @@ PrefabInstance:
       propertyPath: sounds.Array.data[18].volume
       value: 0.541
       objectReference: {fileID: 0}
+    - target: {fileID: 2074956483351112822, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
+      propertyPath: sounds.Array.data[0].audioMixerGroup
+      value: 
+      objectReference: {fileID: 452397394360204228, guid: 52ab404dc32163a4992db264b4c766fd, type: 2}
     - target: {fileID: 2074956483351112823, guid: 64333484101b6554cba74110d3c6b7df, type: 3}
       propertyPath: m_RootOrder
       value: 0
