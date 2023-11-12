@@ -87,7 +87,7 @@ public class TutorialPowerupBomb : MonoBehaviour
     }
 
     IEnumerator WaitForPowerupEnabled(){
-        while(playerPowerupBomb.enabled == false){
+        while(PlayerPrefs.GetInt("RockPowerupEnabled") != 1){
             yield return null;
         }
         yield return null;
