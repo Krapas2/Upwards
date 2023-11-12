@@ -33,8 +33,6 @@ public class ScrollingBackground : MonoBehaviour
 
     private void Start()
     { 
-        PlayerPrefs.DeleteAll();
-        
         _audManager = FindObjectOfType<AudioManager>();
         Time.timeScale = 1f;
 

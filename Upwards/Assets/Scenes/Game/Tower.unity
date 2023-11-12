@@ -522,8 +522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightToActivate: 30
   timeBeforeChangingText: 0.5
-  breakCloudText: Clouds block structures, disable build mode and Left Click them
-    to remove
+  breakCloudText: Clouds block structures, disable build mode and hold left click
+    on them to remove
   collectCloudText: You should collect the clouds to fix the mayor's house
 --- !u!114 &155820633
 MonoBehaviour:

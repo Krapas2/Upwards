@@ -77,7 +77,7 @@ public class TutorialPowerupBroom : MonoBehaviour
     }
 
     IEnumerator WaitForPowerupEnabled(){
-        while(playerPowerupBroom.enabled == false){
+        while(PlayerPrefs.GetInt("WoodPowerupEnabled") != 1){
             yield return null;
         }
         yield return null;
