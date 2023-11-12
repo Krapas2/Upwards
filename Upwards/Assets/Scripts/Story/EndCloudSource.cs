@@ -29,8 +29,8 @@ public class EndCloudSource : MonoBehaviour
 
     void Update(){
         if(Input.GetButtonDown("Fire1") && !breaking){
-            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(cam.transform.position, mousePos, Mathf.Infinity, (1 << gameObject.layer));
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, (1 << gameObject.layer));
             if(hit){
                 if(hit.collider.gameObject == gameObject){
                     breaking = true;
@@ -45,6 +45,7 @@ public class EndCloudSource : MonoBehaviour
             audioManager.Pause("Tower","unpause");
             audioManager.Stop("DestroyGoldenCloud");
             StopAllCoroutines();
+            transform.position = startPos;
             breaking = false;
         }
     }
