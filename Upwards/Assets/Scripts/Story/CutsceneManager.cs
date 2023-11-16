@@ -57,7 +57,10 @@ public class CutsceneManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(nextScene);
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            PlayerPrefs.SetString("lastScene", SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(nextScene);
+        }
     }
 
     void PlayNextShot()
