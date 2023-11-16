@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/LoadingScene.unity
     guid: 86d289dac2561de468ceacee71de19c1
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Menus/OptionsScreen.unity
+    guid: cd30f8fd557e20d4ba5878be729bb89c
   m_configObjects: {}

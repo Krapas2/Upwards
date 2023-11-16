@@ -19,7 +19,7 @@ public class PlayerPowerupManager : MonoBehaviour
     private PlayerBreakTile playerBreakTile;
     private PlayerBreakSprite playerBreakSprite;
 
-    void Start()
+    void Awake()
     {
         playerInventory = GetComponent<PlayerInventory>();
         playerBreakTile = GetComponent<PlayerBreakTile>();

@@ -2604,7 +2604,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 274111745880062984, guid: 3f8438d9627a34a4892224490e59e057, type: 3}
       propertyPath: amount
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 274111745880062987, guid: 3f8438d9627a34a4892224490e59e057, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4186,7 +4186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: orthographic size
-      value: 13.53125
+      value: 13.25
       objectReference: {fileID: 0}
     - target: {fileID: 8786876331944828114, guid: 4d3ca23180744f64ba7bdebe682f2a73, type: 3}
       propertyPath: m_BackGroundColor.b
