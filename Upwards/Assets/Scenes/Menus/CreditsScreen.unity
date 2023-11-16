@@ -2004,7 +2004,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Advisor - Clebersson Eugenio FOrte
+  m_Text: Advisor - Cleberson Eugenio FOrte
 --- !u!222 &1871800657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2234,7 +2234,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Rosa In\xE1cio de Souza - 004096211"
+  m_Text: "Rosa de Souza Inacio - 0040962113022\r"
 --- !u!222 &1884079584
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -533,7 +533,7 @@ MonoBehaviour:
   - powerup: {fileID: 8920976726057152790}
     meter: {fileID: 0}
     ItemRequiredName: Rock
-    ItemRequiredAmount: 180
+    ItemRequiredAmount: 160
   - powerup: {fileID: 4908196547717877562}
     meter: {fileID: 0}
     ItemRequiredName: Cloud
