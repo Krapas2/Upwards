@@ -34225,6 +34225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1193873852}
   - component: {fileID: 1193873853}
+  - component: {fileID: 1193873854}
   m_Layer: 0
   m_Name: casaarvore
   m_TagString: Untagged
@@ -34288,7 +34289,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b30f29f11d9ac104f91004f4a3e746ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 382caaccf1b69e14988ab0fb76e09007, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -34299,6 +34300,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1193873854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193873851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b91acead34fd0d41ad9ef428e40be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemRequired: Wood
+  fixedSprite: {fileID: 21300000, guid: 3e1eae48a7cf22741b7c7ea0b1fb2aa7, type: 3}
 --- !u!1 &1250039482
 GameObject:
   m_ObjectHideFlags: 0
@@ -85911,6 +85926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1395997619}
   - component: {fileID: 1395997620}
+  - component: {fileID: 1395997621}
   m_Layer: 0
   m_Name: casapreda
   m_TagString: Untagged
@@ -85974,7 +85990,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d82a563095647c74ea813d0bf62a7cb5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a920b1a7e2c5f1948a11473411f03713, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85985,6 +86001,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1395997621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395997618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b91acead34fd0d41ad9ef428e40be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemRequired: Rock
+  fixedSprite: {fileID: 21300000, guid: d82a563095647c74ea813d0bf62a7cb5, type: 3}
 --- !u!1 &1406611740
 GameObject:
   m_ObjectHideFlags: 0
@@ -86251,6 +86281,7 @@ GameObject:
   - component: {fileID: 1708794411}
   - component: {fileID: 1708794413}
   - component: {fileID: 1708794412}
+  - component: {fileID: 1708794414}
   m_Layer: 0
   m_Name: cloumanor
   m_TagString: Untagged
@@ -86334,7 +86365,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d7f36a5df8d55040b7332c942a426a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 936dc021f8b11414dafe74c48667b8cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86345,6 +86376,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1708794414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708794410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b91acead34fd0d41ad9ef428e40be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemRequired: Cloud
+  fixedSprite: {fileID: 21300000, guid: 9d7f36a5df8d55040b7332c942a426a0, type: 3}
 --- !u!1 &1713651688
 GameObject:
   m_ObjectHideFlags: 0
